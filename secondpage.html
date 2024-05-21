@@ -300,6 +300,14 @@ p:first-of-type {
 <link rel="alternate stylesheet" type="text/css" href="style.css" media="screen" title="Basic" />
   </head>
 
+  <style>
+    @media screen, print, projector {  
+  body {  
+    color: black;  
+    background-color: yellow;  
+  }  
+}
+  </style>
   <body>
     <p style="font: size 1.13em;">
       <ul>
@@ -313,5 +321,11 @@ p:first-of-type {
   </body>
 
 </html>
+
+@media print {  
+  div#navigation {  
+    display: none;  
+  }  
+} 
 
 
