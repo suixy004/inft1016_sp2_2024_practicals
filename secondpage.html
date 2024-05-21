@@ -48,11 +48,10 @@
 <head>
 
 <style type="text/css">
-    body div#films div.movieQuote blockquote p {
-     color: yellow;
-     background-color: black;
-     border: 2px solid red;
-}
+p { color: black; }
+body {
+    background-color: white;
+    }
 </style>
 
 </head>
@@ -78,19 +77,43 @@
 </div>
 
 
-div#films {
-    margin: 2em;
-    border: 2px groove #333;
-}
+<html>
+<head>
+<title>Experiments with CSS</title>
+<style type='text/css'> /* These styles will remove all padding and margins on h1, h2 and p elements, and make the headings red. */
 
-#films {
-    margin: 2em;
+   h1, h2, p {
+      padding: 0;
+      margin: 0;
+      font: 1em/1.33 Verdana, sans-serif;
+   }
 
-    border: 2px groove #333;
+   h1, h2 {
+      color: red;
+   }
 
-}
+</style>
+</head>
+<body>
+   <div id="wrapper">
+   <h1>Big page heading</h1>
+   <p class="introduction">This is the introductory paragraph.</p>
+   <p>Another paragraph waffling on about something, my favourite TV show, for three or four sentences.</p>
 
-p { color: black; }
-body {
-    background-color: white;
-    }
+   <div id="films">
+      <h2><strong>A simple subhead:</strong> Films</h2>
+      <p class='recent'>A short discussion of the last three films I saw.</p>
+      <p>A discussion about my least favourite film</p>
+
+    <div class="movieQuote">
+       <blockquote>
+         <p> "May the Force be with you." </p>
+         <p class="source">XXX</p>
+      </blockquote>
+    </div> <!-- end of movieQuote div -->
+   </div> <!-- end of div#films -->
+   </div><!-- end of div#wrapper -->
+</body>
+
+</html>
+
