@@ -56,3 +56,14 @@ def foo():
 
 ![kismet](https://upload.wikimedia.org/wikipedia/commons/0/03/Kismet-IMG_6007-black.jpg)
 
+[click](https://commons.wikimedia.org/wiki/File:Kismet-IMG_6007-black.jpg "image")
+
+| number | colour | size |
+| -----: | :----- | :-----: |
+| 123 | red| small |
+| 456 | blue | medium |
+| 789 | green | large |
+
+```python
+def my_function():
+  print("Hello from a function")
