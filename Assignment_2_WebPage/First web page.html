@@ -6,18 +6,16 @@
     :root{
     --primary-font-color: rgb(59, 3, 106);
     --secondary-font-color: rgb(149, 93, 169);
-    --emphasised-font: rgb(249, 97, 27);
+    --emphasised-font: rgb(219, 99, 44);
     
     --c-background-color: rgb(243, 247, 204);
     --c-background-highlights: rgb(199, 226, 228);
     
-    --c-yellow: rgb(237, 222, 107);
-    --c-orange: rgb(238, 157, 95); 
     --c-red: rgb(220  50  47);  
     --c-violet: rgb( 108 113 196 );
     --c-blue: rgb(38 139 210 );
     --c-cyan: rgb(42 161 152 );
-    --c-green : rgb(25, 161, 10);
+    --c-green : rgb(11, 65, 5);
  }
 
 body{
@@ -26,6 +24,37 @@ body{
     margin: 0
     background-color:var(--c-background-color);
     color:var(--c-primary-font-color);
+}
+
+header footer{
+    background-color:var(--c-background-highlights);
+    color:var(--c-primary-font-color);
+}
+
+main{
+    color:var(--primary-font-color);
+}
+
+text{
+  color:var(--c-green);
+}
+a{
+  color:var(--c-violet);
+}
+
+a:hover{
+  color:var(--c-red);
+}
+
+.subsection{
+  border:3px solid;
+  color:var(--c-cyan);
+  margin: 0.93em 0.62em 0.93em 0.62em
+}
+
+<element> 
+    <dark-theme>{
+
 }
 </style>
 <head>
