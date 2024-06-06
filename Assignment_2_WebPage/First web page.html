@@ -21,7 +21,7 @@
 body{
     font-family: Arial, Helvetica, sans-serif;
     padding: 0
-    margin: 0
+    margin: 0;
     background-color:var(--c-background-color);
     color:var(--c-primary-font-color);
 }
@@ -52,17 +52,79 @@ a:hover{
   margin: 0.93em 0.62em 0.93em 0.62em
 }
 
-<element> 
-    <dark-theme>{
+.dark-theme {
+    --primary-font-color: rgb(227, 212, 239);
+    --secondary-font-color: rgb(177, 153, 186);
+    --emphasised-font: rgb(238, 170, 138);
+    
+    --c-background-color: rgb(3, 72, 9);
+    --c-background-highlights: rgb(68, 110, 112);
+    
+    --c-red: rgb(252, 140, 138);  
+    --c-violet: rgb(162, 167, 253);
+    --c-blue: rgb(160, 204, 235);
+    --c-cyan: rgb(169, 240, 234);
+    --c-green : rgb(170, 220, 164);
+}
 
+body.dark-theme{
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0
+    margin: 0;
+    background-color:var(--c-background-color);
+    color:var(--c-primary-font-color);
+}
+
+header.dark-theme footer.dark-theme{
+    background-color:var(--c-background-highlights);
+    color:var(--c-primary-font-color);
+}
+
+main.dark-theme{
+    color:var(--primary-font-color);
+}
+
+text.dark-theme{
+  color:var(--c-green);
+}
+a.dark-theme{
+  color:var(--c-violet);
+}
+
+a:hover.dark-theme{
+  color:var(--c-red);
+}
+
+.subsection.dark-theme{
+  border:3px solid;
+  color:var(--c-cyan);
+  margin: 0.93em 0.62em 0.93em 0.62em
 }
 </style>
+
+<!--setting two theme font colour, size-->
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My First Year at University</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
+
+<!--this is the name of the page label-->
+
 <body>
-    
+    <header style="font-size:150%; text-align:center; color:var(--c-green)">
+      <h1>My first year at University</h1>
+    </header>
+    <!--this is the title of the whole page-->
+
+
+
+
+
+
+
+
 </body>
 </html>
