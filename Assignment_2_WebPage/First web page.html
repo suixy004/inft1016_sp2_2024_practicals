@@ -31,6 +31,14 @@ header footer{
     color:var(--c-primary-font-color);
 }
 
+.highlight-bar{
+  background-color:var(--c-background-highlights);
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+}
+
 main{
     color:var(--primary-font-color);
 }
@@ -116,7 +124,7 @@ a:hover.dark-theme{
 <body>
     <header style="font-size:150%; text-align:center; color:var(--c-green);background-color: var(--c-background-highlights);">
       <h1>My first year at University</h1>
-      <button id="theme-toggle">Toggle Theme</button>
+      <button id="theme-toggle" style="width:150px;height:35px;font-size:1em;text-align:right">Toggle Theme</button>
     </header>
 <!--combine header and button at the same line-->
       <nav>
