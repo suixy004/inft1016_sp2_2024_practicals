@@ -155,10 +155,17 @@ a:hover.dark-theme{
     <!-- content loaded -->
   </main>
 
-  <a href="#" onclick="document.getElementById('content').innerHTML = 'loadHome';"></a>
-
-    <!-- It contains an article -->
+  <script>
+    function loadHome(){
+      document.getElementById('content').innerHTML='
+      <article> 
+        <h2>My Uni experience at first year
+          ';
+        }
+        
+          <!-- It contains an article -->
     <article style="flex:3">
+    
       <h2>Article heading</h2>
 
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Donec a diam lectus. Set sit amet ipsum mauris. Maecenas congue ligula as quam viverra nec consectetur ant hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue. Nam tincidunt congue enim, ut porta lorem lacinia consectetur.</p>
@@ -182,6 +189,8 @@ a:hover.dark-theme{
   </div>
 
     </article>
+    ';
+  }
 
     <a href="#" onclick="document.getElementById('content').innerHTML = 'loadCourses';"></a>
 
@@ -211,5 +220,6 @@ a:hover.dark-theme{
 
     </article>
 
+</script>
 </body>
 </html>
