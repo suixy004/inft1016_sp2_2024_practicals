@@ -135,9 +135,9 @@ a:hover.dark-theme{
 
       <nav>
         <ul style="display: flex; list-style-type: none; justify-content: center;font-size:120%">
-          <li style="margin: 0 auto;"><a href="#">Home</a></li>
-          <li style="margin: 0 auto;"><a href="#">Courses</a></li>
-          <li style="margin: 0 auto;"><a href="#">To Do Tasks</a></li>
+          <li style="margin: 0 auto;"><a href="#home" onclick="loadHome()">Home</a></li>
+          <li style="margin: 0 auto;"><a href="#courses" onclick="loadCourses()">Courses</a></li>
+          <li style="margin: 0 auto;"><a href="#todotasks" onclick="loadToDoTasks">To Do Tasks</a></li>
         </ul>
     
            <form style="font-size:100%;justify-content: center;">
@@ -150,15 +150,18 @@ a:hover.dark-theme{
     and the button of different pages
   -->
 
-  <main style="display:flex">
+  <main id="content" style="display:flex">
 
-    <!-- It contains an article -->
+    <!-- content loaded -->
+    function loadHome(){
+      document.getElementById('content').innerHTML = 
+      
     <article style="flex:3">
       <h2>Article heading</h2>
 
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Donec a diam lectus. Set sit amet ipsum mauris. Maecenas congue ligula as quam viverra nec consectetur ant hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue. Nam tincidunt congue enim, ut porta lorem lacinia consectetur.</p>
       
-  <div class="subsection">
+      <div class="subsection">
 
       <h3 style="padding-top:50px">Subsection</h3>
 
@@ -178,7 +181,7 @@ a:hover.dark-theme{
 
     </article>
 
-
+  }
 
 
 
