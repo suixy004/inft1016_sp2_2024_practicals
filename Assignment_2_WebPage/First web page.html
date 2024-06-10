@@ -145,13 +145,13 @@ a:hover.dark-theme{
       <h1>My first year at University</h1>
       <button id="theme-toggle" style="width:150px;height:35px;font-size:0.79em;text-align:center;margin-top: 10px;">Toggle Theme</button>
 <script>
-  document.getElementById('them-togle').addEventListener('click'){
+  document.getElementById('theme-togle').addEventListener('click',function() {
         if(document.documentElement.getAttribute('data-theme') ==='dark'){
-          document.documentElement.getAttribute('data-theme','light');
+          document.documentElement.setAttribute('data-theme','light');
         }else{
           document.documentElement.setAttribute('data-theme','dark');
         }
-      }
+      })
 </script>
 
     </header>
