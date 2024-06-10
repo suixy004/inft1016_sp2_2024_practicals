@@ -171,11 +171,11 @@ a:hover.dark-theme{
 
   <script display:flex;flex-direction:column>
 
-    document.getElementById('them-togle').addEventListener('onclick'){
-      if(document.documentElement.getAttribute ==='dark'){
-        document.documentElement.getAttribute('light');
+    document.getElementById('them-togle').addEventListener('click'){
+      if(document.documentElement.getAttribute('data-theme') ==='dark'){
+        document.documentElement.getAttribute('data-theme','light');
       }else{
-        document.documentElement.setAttribute('dark');
+        document.documentElement.setAttribute('data-theme','dark');
       }
     }
 
