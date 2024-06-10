@@ -72,10 +72,6 @@ a:hover{
   max-width:700px;
 }
 
-script{
-  diplay:flex;
-}
-
 .dark-theme {
     --primary-font-color: rgb(227, 212, 239);
     --secondary-font-color: rgb(177, 153, 186);
@@ -174,6 +170,16 @@ a:hover.dark-theme{
   </main>
 
   <script display:flex;flex-direction:column>
+
+    document.getElementById('them-togle').onclick(){
+      if(document.getattribute=='dark'){
+        document.setattribute('light');
+      }else{
+        document.setattribute('dark');
+      }
+    }
+
+
     function loadHome(){
       document.getElementById('content').innerHTML=`
       <h2 style="padding-left:18px">My at first year</h2>
@@ -215,6 +221,8 @@ a:hover.dark-theme{
       </div>
       `
     }
+
+  
   </script>
 
 
