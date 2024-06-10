@@ -171,14 +171,13 @@ a:hover.dark-theme{
 
   <script display:flex;flex-direction:column>
 
-    document.getElementById('them-togle').onclick(){
+    document.getElementById('them-togle').addEventListener('onclick'){
       if(document.getattribute=='dark'){
         document.setattribute('light');
       }else{
         document.setattribute('dark');
       }
     }
-
 
     function loadHome(){
       document.getElementById('content').innerHTML=`
