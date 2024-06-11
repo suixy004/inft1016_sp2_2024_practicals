@@ -189,7 +189,7 @@ a:hover[data-theme="dark"]{
 
       <article style="display:flex;align-items:center;gap:10px;">
 
-      <button style="flex:1; height:40px;text-align:center;align-content:center;margin-left:30px;">
+      <button style="flex:1; height:40px;text-align:center;align-content:center;margin-left:30px;" onclick="changeImage('club')">
         <h3 style="margin:0;">club</h3>
       </button>
 
@@ -221,7 +221,18 @@ a:hover[data-theme="dark"]{
       `
     }
     
+    function changeImage(imageID) {
+      const imageElement=document.getElementById('displayed-image');
+      const textElement=document.getElementById('image-text');
 
+      if(imageID === 'image1'){
+        imageElement.src='https://usasa.sa.edu.au/asset/Organisation/6175/EDUC%20SOCIAL%20CLUB_LOGO%20.png?thumbnail_width=200&thumbnail_height=200&resize_type=ResizeFitAll';
+        imageElement.alt='https://usasa.sa.edu.au/asset/Organisation/6175/Academic%20Banner.png?thumbnail_width=2000&thumbnail_height=600&resize_type=CropToFit';
+        textElement.innerHTML= `
+        <p>The Education Social Club is a club that focuses on providing pre-service teachers with opportunities to grow as educators as well as organise events such as pub crawls and formal balls.</p>
+        `;
+      }
+    }
       function loadCourses(){
       document.getElementById('content').innerHTML=`
       <h2 style="padding-justify:18px;font-size:2em">My courses</h2>
