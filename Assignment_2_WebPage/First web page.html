@@ -178,6 +178,11 @@ a:hover[data-theme="dark"]{
 
     <!-- content loaded -->
   </main>
+  
+  <div class="imageContainer" style="display:flex;flex-direction:column;align-items:center;">
+    <img id="displayImage" src="https://usasa.sa.edu.au/asset/Organisation/6175/EDUC%20SOCIAL%20CLUB_LOGO%20.png?thumbnail_width=200&thumbnail_height=200&resize_type=ResizeFitAll" alt="logo">
+    <p id="image-text">club</p>
+  </div>
 
   <script display:flex;flex-direction:column>
     
@@ -189,8 +194,11 @@ a:hover[data-theme="dark"]{
 
       <article style="display:flex;align-items:center;gap:10px;">
 
-      <button style="flex:1; height:40px;text-align:center;align-content:center;margin-left:30px;" onclick="changeImage('club')">
+      <button style="flex:1; height:40px;text-align:center;align-content:center;margin-left:30px;" onclick="changeImage('image1')">
         <h3 style="margin:0;">club</h3>
+      </button>
+      <button style="flex:1; height:40px;text-align:center;align-content:center;margin-left:30px;" onclick="changeImage('image2')">
+        <h3 style="margin:0;">academic</h3>
       </button>
 
       <aside style="flex:1;text-align:center">
@@ -198,16 +206,13 @@ a:hover[data-theme="dark"]{
       </aside>  
 
       <aside style="flex:3;">
-      <p>"Education Social Club, click link to visit <a href="http://en.wikipedia.org/wiki/HTML">https://usasa.sa.edu.au/clubs/join/education/</a></p>
+      <p>"Education Social Club, click link to visit <a href="https://usasa.sa.edu.au/clubs/join/education/">https://usasa.sa.edu.au/clubs/join/education/</a></p>
       </aside>
       </article>
 
 
       <div class="subsection">
         <h3 style="padding-top:2px">learning support</h3>
-
-
-
         <p>There are many learning support for us, which in online and in-person way.</p>
         <p>I really like the way setting in the learnonline website. many questions can be solved through the learning instructions. I really like transferring from seeking solutions from teachers all the time to researching online and thinking by myself</p>
       </div>
@@ -222,7 +227,7 @@ a:hover[data-theme="dark"]{
     }
     
     function changeImage(imageID) {
-      const imageElement=document.getElementById('displayed-image');
+      const imageElement=document.getElementById('displalyImage');
       const textElement=document.getElementById('image-text');
 
       if(imageID === 'image1'){
@@ -235,8 +240,10 @@ a:hover[data-theme="dark"]{
         textElement.innerHTML= 'teaching,The Education Social Club is a club that focuses on providing pre-service teachers with opportunities to grow as educators as well as organise events such as pub crawls and formal balls.';
       }
     }
+</script>
 
-    
+
+<script>
       function loadCourses(){
       document.getElementById('content').innerHTML=`
       <h2 style="padding-justify:18px;font-size:2em">My courses</h2>
