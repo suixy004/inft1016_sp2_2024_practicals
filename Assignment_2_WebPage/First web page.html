@@ -181,23 +181,23 @@ a:hover[data-theme="dark"]{
     <!-- content loaded -->
   </main>
 
-  <script display:flex;flex-direction:column>
+  <script display:flex;>
     
     function loadHome(){
       document.getElementById('content').innerHTML=`
-      <h2 style="padding-left:18px">My at first year</h2>
-      <p style="padding-left:18px">I am an international student. it is the first time to study in a foreign country. I like the feeling of supporting and discussing lesson circumstances in here</p>
+      <h2 style="padding-left:18px;flex-direction:column">My at first year</h2>
+      <p style="padding-left:18px;flex-direction:column">I am an international student. it is the first time to study in a foreign country. I like the feeling of supporting and discussing lesson circumstances in here</p>
 
       <article style="display:flex;align-items:center;gap:10px;flex-direction:row">
 
-      <button style="flex:1; height:40px;text-align:center;align-content:center;margin-left:30px;">
+      <button style="flex:1; height:40px;text-align:center;align-content:left;margin-left:30px;">
         <h3>club</h3>
   
-      <aside style="flex:1;text-align:center">
+      <aside style="flex:1;text-align:center;flex-direction:column">
       <img src="https://usasa.sa.edu.au/asset/Organisation/6175/EDUC%20SOCIAL%20CLUB_LOGO%20.png?thumbnail_width=200&thumbnail_height=200&resize_type=ResizeFitAll" border="0"/ >
       </aside>  
 
-      <aside style="flex:3;">
+      <aside style="flex:3;flex-direction:column">
       <p>Education Social Club, click link to visit <a href="https://usasa.sa.edu.au/clubs/join/education/">https://usasa.sa.edu.au/clubs/join/education/</a></p>
       </aside>
       </article>
