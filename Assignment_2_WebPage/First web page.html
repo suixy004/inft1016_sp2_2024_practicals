@@ -180,8 +180,10 @@ a:hover[data-theme="dark"]{
   </main>
   
   <div class="imageContainer" style="display:flex;flex-direction:column;align-items:center;">
-    <img id="displayImage" src="https://usasa.sa.edu.au/asset/Organisation/6175/EDUC%20SOCIAL%20CLUB_LOGO%20.png?thumbnail_width=200&thumbnail_height=200&resize_type=ResizeFitAll" alt="logo";>
-    <p id="image-text">club</p>
+    <img id="displayImage" src="https://usasa.sa.edu.au/asset/Organisation/6175/EDUC%20SOCIAL%20CLUB_LOGO%20.png?thumbnail_width=200&thumbnail_height=200&resize_type=ResizeFitAll" alt="logo;">
+    <div id="image-info" class="imageinfo">
+      <p id="image-text">club, <a href="https://usasa.sa.edu.au/clubs/join/education/">click link to visit</a></p>
+    </div>
   </div>
 
   <script display:flex;flex-direction:column>
@@ -237,10 +239,8 @@ a:hover[data-theme="dark"]{
         textElement.innerHTML= 'teaching,The Education Social Club is a club that focuses on providing pre-service teachers with opportunities to grow as educators as well as organise events such as pub crawls and formal balls.';
       }
     }
-</script>
 
 
-<script>
       function loadCourses(){
       document.getElementById('content').innerHTML=`
       <h2 style="padding-justify:18px;font-size:2em">My courses</h2>
