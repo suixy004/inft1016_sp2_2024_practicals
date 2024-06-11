@@ -152,7 +152,6 @@ a:hover[data-theme="dark"]{
           document.documentElement.setAttribute('data-theme','dark');
         }
       });
-
 </script>
 
     </header>
@@ -169,7 +168,6 @@ a:hover[data-theme="dark"]{
              <input type="text" name="q" placeholder="Your Name" style="width:150px;height:35px;font-size:1em;">
              <input type="submit" value="Apply!" style="width: 150px;height:35px;font-size:1em;">
            </form>
-
          </nav>
 
     <!--/*this is the title of the whole page
@@ -181,24 +179,26 @@ a:hover[data-theme="dark"]{
     <!-- content loaded -->
   </main>
 
-  <script display:flex;>
+  <script display:flex;flex-direction:column>
     
     function loadHome(){
       document.getElementById('content').innerHTML=`
-      <h2 style="padding-left:18px;flex-direction:column">My at first year</h2>
-      <p style="padding-left:18px;flex-direction:column">I am an international student. it is the first time to study in a foreign country. I like the feeling of supporting and discussing lesson circumstances in here</p>
+      <h2 style="padding-left:18px">My at first year</h2>
+      <p style="padding-left:18px">I am an international student. it is the first time to study in a foreign country. I like the feeling of supporting and discussing lesson circumstances in here</p>
 
-      <article style="display:flex;align-items:center;gap:10px;flex-direction:row">
 
-      <button style="flex:1; height:40px;text-align:center;align-content:left;margin-left:30px;">
-        <h3>club</h3>
-  
-      <aside style="flex:1;text-align:center;flex-direction:column">
-      <img src="https://usasa.sa.edu.au/asset/Organisation/6175/EDUC%20SOCIAL%20CLUB_LOGO%20.png?thumbnail_width=200&thumbnail_height=200&resize_type=ResizeFitAll" border="0"/ >
+      <article style="display:flex;align-items:center;gap:10px;">
+
+      <button style="flex:1; height:40px;text-align:center;align-content:center;margin-left:30px;">
+        <h3 style="margin:0;">club</h3>
+      </button>
+
+      <aside style="flex:1;text-align:center">
+      <p><img src="https://usasa.sa.edu.au/asset/Organisation/6175/EDUC%20SOCIAL%20CLUB_LOGO%20.png?thumbnail_width=200&thumbnail_height=200&resize_type=ResizeFitAll" border="0"/ ></p>
       </aside>  
 
-      <aside style="flex:3;flex-direction:column">
-      <p>Education Social Club, click link to visit <a href="https://usasa.sa.edu.au/clubs/join/education/">https://usasa.sa.edu.au/clubs/join/education/</a></p>
+      <aside style="flex:3;">
+      <p>"Education Social Club, click link to visit <a href="http://en.wikipedia.org/wiki/HTML">https://usasa.sa.edu.au/clubs/join/education/</a></p>
       </aside>
       </article>
 
@@ -223,22 +223,7 @@ a:hover[data-theme="dark"]{
       function loadCourses(){
       document.getElementById('content').innerHTML=`
       <h2 style="padding-justify:18px;font-size:2em">My courses</h2>
-      
-      <article style="display:flex;align-items:center;gap:10px;">
         
-        <button style="flex:1; height:40px;text-align:center;align-content:center;margin-left:30px;">
-          <h3 style="margin:0;">Aboriginal engagement</h3>
-          </button>
-          
-        <aside style="flex:1;text-align:center">
-          <p><img src="https://www.unisa.edu.au/siteassets/about-unisa/aboriginal-engagement/images/ralogo1.png" border="0"/ ></p>
-        </aside>  
-
-        <aside style="flex:3;">
-          <p>"Reconciliation at UniSA, click link to visit <a href="https://www.unisa.edu.au/about-unisa/aboriginal-engagement/reconciliation-at-unisa/">hhttps://www.unisa.edu.au/about-unisa/aboriginal-engagement/reconciliation-at-unisa/</a></p>
-        </aside>
-      </article>
-
       <div class="subsection">
         <h3 style="padding-top:2px">Maths</h3>
 
