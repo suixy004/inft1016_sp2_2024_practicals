@@ -210,53 +210,51 @@ a:hover[data-theme="dark"]{
         <p>so many lovely students.</p>
       </div>
    </div>
-    <!-- content loaded -->
-  </main>
+   </main>
+
+   <main>
+    <div id="courses" class="pageSection">
+      
+   <h2 style="padding-justify:18px;font-size:2em">My courses</h2>
   
+   <article style="display:flex;align-items:center;gap:10px;">
+
+     <button style="flex:1; height:40px;text-align:center;align-content:center;margin-left:30px;">
+       <h3 style="margin:0;">Aboriginal</h3>
+     </button>
+     <button style="flex:1; height:40px;text-align:center;align-content:center;margin-left:30px;" onclick="changeImage('image2')">
+       <h3 style="margin:0;">Academic</h3>
+     </button>
+     
+   <aside style="flex:1;text-align:center">
+     <p><img src="https://www.unisa.edu.au/siteassets/about-unisa/aboriginal-engagement/images/ralogo1.png" border="0"/ ></p>
+   </aside>  
+
+   <aside style="flex:3;">
+     <p>"Reconciliation Week, click link to visit <a href="https://www.unisa.edu.au/about-unisa/aboriginal-engagement/reconciliation-at-unisa/">https://www.unisa.edu.au/about-unisa/aboriginal-engagement/reconciliation-at-unisa/</a></p>
+   </aside>
+   </article>
 
 
-  <script display:flex;flex-direction:column>
-    
+   <div class="subsection">
+     <h3 style="padding-top:2px">Maths</h3>
 
-      function loadCourses(){
-      document.getElementById('content').innerHTML=`
-      <h2 style="padding-justify:18px;font-size:2em">My courses</h2>
-        
-      <article style="display:flex;align-items:center;gap:10px;">
+     <p>Two courses in maths this semester, which are Discrete maths and Statistical methods.</p>
+     <p>I really like these courses that require logical and analysis abilities.</p>
+   </div>
+     
+   <div class="subsection">
+     <h3 style="padding-top:2px">Digital Technology</h3>
 
-        <button style="flex:1; height:40px;text-align:center;align-content:center;margin-left:30px;">
-          <h3 style="margin:0;">Aboriginal</h3>
-        </button>
-        <button style="flex:1; height:40px;text-align:center;align-content:center;margin-left:30px;" onclick="changeImage('image2')">
-          <h3 style="margin:0;">Academic</h3>
-        </button>
-        
-      <aside style="flex:1;text-align:center">
-        <p><img src="https://www.unisa.edu.au/siteassets/about-unisa/aboriginal-engagement/images/ralogo1.png" border="0"/ ></p>
-      </aside>  
+     <p>There were two main content we learned.</p>
+     <p>Excel dashboard and building webpage by learning CSS, Javascript, HTML.</p>
+   </div>
+  </div>
 
-      <aside style="flex:3;">
-        <p>"Reconciliation Week, click link to visit <a href="https://www.unisa.edu.au/about-unisa/aboriginal-engagement/reconciliation-at-unisa/">https://www.unisa.edu.au/about-unisa/aboriginal-engagement/reconciliation-at-unisa/</a></p>
-      </aside>
-      </article>
+    <!-- content loaded -->
 
 
-      <div class="subsection">
-        <h3 style="padding-top:2px">Maths</h3>
-
-        <p>Two courses in maths this semester, which are Discrete maths and Statistical methods.</p>
-        <p>I really like these courses that require logical and analysis abilities.</p>
-      </div>
-        
-      <div class="subsection">
-        <h3 style="padding-top:2px">Digital Technology</h3>
-
-        <p>There were two main content we learned.</p>
-        <p>Excel dashboard and building webpage by learning CSS, Javascript, HTML.</p>
-      </div>
-      `
-    }
-  </script>
+  </main>
 
 
     
