@@ -176,7 +176,7 @@ a:hover[data-theme="dark"]{
         <ul style="display: flex; list-style-type: none; justify-content: center;font-size:120%">
           <li style="margin: 0 auto;" id="home"><a href="#home" onclick="loadHome()">Home</a></li>
           <li style="margin: 0 auto;" id="courses"><a href="#courses" onclick="loadCourses()">Courses</a></li>
-          <li style="margin: 0 auto;"><a href="#todotasks" onclick="loadToDoTasks()">To Do Tasks</a></li>
+          <li style="margin: 0 auto;" id="todotask"><a href="#todotasks" onclick="loadToDoTasks()">To Do Tasks</a></li>
         </ul>
     
            <form style="display: flex;font-size:100%;justify-content:center;padding-left: 20px;">
@@ -270,10 +270,10 @@ a:hover[data-theme="dark"]{
 
    <script>
     let isAboriginalImageDisplayed=true;
-    document.getElementById('backButton').addEventListener('click', toggleImageAndInfo);
+    document.getElementById('backButton1').addEventListener('click', toggleImageAndInfo1);
     function toggleImageAndInfo1() {
-      const ImageElement = document.getElementById('displayImage');
-      const InfoElement = document.getElementById('imageInfo');
+      const ImageElement = document.getElementById('displayImage1');
+      const InfoElement = document.getElementById('imageInfo1');
 
       if (isAboriginalImageDisplayed) {
         ImageElement.src = 'https://www.unisa.edu.au/siteassets/about-unisa/aboriginal-engagement/images/ralogo1.png';
