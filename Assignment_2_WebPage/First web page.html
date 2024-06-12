@@ -198,16 +198,16 @@ a:hover[data-theme="dark"]{
 
       <article style="display:flex;align-items:center;gap:10px;">
 
-        <button style="flex:1; height:40px;text-align:center;align-content:center;margin-left:30px;">
+        <button id="changeButton" style="flex:1; height:40px;text-align:center;align-content:center;margin-left:30px;">
         <h3 style="margin:0;">club</h3>
         </button>
 
         <aside style="flex:1;text-align:center">
-         <p><img src="https://usasa.sa.edu.au/asset/Organisation/6175/EDUC%20SOCIAL%20CLUB_LOGO%20.png?thumbnail_width=200&thumbnail_height=200&resize_type=ResizeFitAll" border="0"/ ></p>
+         <p><img id="displayImage" src="https://usasa.sa.edu.au/asset/Organisation/6175/EDUC%20SOCIAL%20CLUB_LOGO%20.png?thumbnail_width=200&thumbnail_height=200&resize_type=ResizeFitAll" border="0"/ ></p>
          </aside>  
 
         <aside style="flex:3;">
-          <p>"Education Social Club, click link to visit <a href="https://usasa.sa.edu.au/clubs/join/education/">https://usasa.sa.edu.au/clubs/join/education/</a></p>
+          <p id="imageInfo">"Education Social Club, click link to visit <a href="https://usasa.sa.edu.au/clubs/join/education/">https://usasa.sa.edu.au/clubs/join/education/</a></p>
         </aside>
       </article>
 
@@ -266,6 +266,26 @@ a:hover[data-theme="dark"]{
 
   </main>
 
+
+  <script>
+    function changeImageandInfo(){
+      const ImageElement=document.getElementById('displayImage');
+      const InfoElement=document.getElementById('imageInfo');
+
+      if (ImageElement.src.inludes()){
+        ImageElement.src='https://usasa.sa.edu.au/asset/Organisation/6175/EDUC%20SOCIAL%20CLUB_LOGO%20.png?thumbnail_width=200&thumbnail_height=200&resize_type=ResizeFitAll';
+        ImageElement.alt='education club';
+        InfoElement.innerHTML='Education Social Club, click link to visit <a href="https://usasa.sa.edu.au/clubs/join/education/">https://usasa.sa.edu.au/clubs/join/education/';
+
+      }else {
+        ImageElement.src='https://usasa.sa.edu.au/';
+        ImageElement.alt='USASA';
+        InfoElement.innerHTML='Click to visit <a href="https://usasa.sa.edu.au/">https://usasa.sa.edu.au/';
+
+      }
+    }
+    document.getElementById('changeButton').addEventListener('click',changeImageandText);
+   </script>
     
 </body>
 </html>
