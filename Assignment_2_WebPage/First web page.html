@@ -135,8 +135,8 @@ a:hover[data-theme="dark"]{
   display:block;
 }
 
-#home:targe~#home
-#courses:targe~#courses
+#home:targe~#home,
+#courses:targe~#courses,
 #todotasks:target~#todotasks{
   display:block;
 }
@@ -149,7 +149,7 @@ a:hover[data-theme="dark"]{
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My First Year at University</title>
-    <link rel="stylesheet" href="styles.css">
+ 
 </head>
 
 <!--this is the name of the page label-->
@@ -191,7 +191,7 @@ a:hover[data-theme="dark"]{
 
   <main id="content" style="display:flex; align-items: center;">
 
-    <div id="home" class="page-section">
+    <div id="home" class="page-section" style="display:block;">
     <h2 style="padding-left:18px">My at first year</h2>
       <p style="padding-left:18px">I am an international student. it is the first time to study in a foreign country. I like the feeling of supporting and discussing lesson circumstances in here</p>
 
@@ -233,9 +233,6 @@ a:hover[data-theme="dark"]{
 
      <button style="flex:1; height:40px;text-align:center;align-content:center;margin-left:30px;">
        <h3 style="margin:0;">Aboriginal</h3>
-     </button>
-     <button style="flex:1; height:40px;text-align:center;align-content:center;margin-left:30px;">
-       <h3 style="margin:0;">Academic</h3>
      </button>
      
    <aside style="flex:1;text-align:center">
@@ -284,6 +281,7 @@ a:hover[data-theme="dark"]{
 
       }
     }
+
     document.getElementById('changeButton').addEventListener('click',changeImageandText);
    </script>
     
