@@ -217,15 +217,15 @@ a:hover[data-theme="dark"]{
           const InfoElement=document.getElementById('imageInfo');
     
           if (ImageElement.src.includes()){
+            displayImageElement.src='https://usasa.sa.edu.au/asset/Organisation/6175/EDUC%20SOCIAL%20CLUB_LOGO%20.png?thumbnail_width=200&thumbnail_height=200&resize_type=ResizeFitAll';
+            displayImageElement.alt='education club';
+            imageInfoElement.innerHTML='Education Social Club, click link to visit <a href="https://usasa.sa.edu.au/clubs/join/education/">https://usasa.sa.edu.au/clubs/join/education/';
+
+          }else {
             displayImageElement.src='https://usasa.sa.edu.au/';
             displayImageElement.alt='USASA';
             imageInfoElement.innerHTML='Click to visit <a href="https://usasa.sa.edu.au/">https://usasa.sa.edu.au/';
             
-          }else {
-            displayImageElement.src='https://usasa.sa.edu.au/asset/Organisation/6175/EDUC%20SOCIAL%20CLUB_LOGO%20.png?thumbnail_width=200&thumbnail_height=200&resize_type=ResizeFitAll';
-            displayImageElement.alt='education club';
-            imageInfoElement.innerHTML='Education Social Club, click link to visit <a href="https://usasa.sa.edu.au/clubs/join/education/">https://usasa.sa.edu.au/clubs/join/education/';
-    
           }
         }
     
