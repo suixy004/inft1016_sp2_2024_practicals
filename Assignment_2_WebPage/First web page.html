@@ -197,7 +197,7 @@ a:hover[data-theme="dark"]{
 
       <article style="display:flex;align-items:center;gap:10px;">
 
-        <button id="switchButton" style="flex:1; height:40px;text-align:center;align-content:center;margin-left:30px;">
+        <button id="changeButton1" style="flex:1; height:40px;text-align:center;align-content:center;margin-left:30px;">
         <h3 style="margin:0;">club</h3>
         </button>
 
@@ -212,10 +212,10 @@ a:hover[data-theme="dark"]{
 
       <script>
         let isClubImageDisplayed=true;
-        document.getElementById('switchButton').addEventListener('click', toggleImageAndInfo);
-        function toggleImageAndInfo() {
-          const ImageElement = document.getElementById('displayImage');
-          const InfoElement = document.getElementById('imageInfo');
+        document.getElementById('changeButton1').addEventListener('click', toggleImageAndInfo1);
+        function toggleImageAndInfo1() {
+          const ImageElement = document.getElementById('displayImage1');
+          const InfoElement = document.getElementById('imageInfo1');
     
           if (isClubImageDisplayed) {
             ImageElement.src = 'https://usasa.sa.edu.au/asset/Organisation/6175/EDUC%20SOCIAL%20CLUB_LOGO%20.png?thumbnail_width=200&thumbnail_height=200&resize_type=ResizeFitAll';
@@ -245,17 +245,13 @@ a:hover[data-theme="dark"]{
       </div>
   </main>
 
-
-
-
-
   <main id="courses" class="page-section">
 
    <h2 style="padding-left:18px;font: size 1.73em">My courses</h2>
   
    <article style="display:flex;align-items:center;gap:10px;">
 
-     <button id="backButton" style="flex:1; height:40px;text-align:center;align-content:center;margin-left:30px;">
+     <button id="changeButton2" style="flex:1; height:40px;text-align:center;align-content:center;margin-left:30px;">
        <h3 style="margin:0;">Aboriginal</h3>
      </button>
      
@@ -270,10 +266,10 @@ a:hover[data-theme="dark"]{
 
    <script>
     let isAboriginalImageDisplayed=true;
-    document.getElementById('backButton1').addEventListener('click', toggleImageAndInfo1);
-    function toggleImageAndInfo1() {
-      const ImageElement = document.getElementById('displayImage1');
-      const InfoElement = document.getElementById('imageInfo1');
+    document.getElementById('changeButton2').addEventListener('click', toggleImageAndInfo2);
+    function toggleImageAndInfo2() {
+      const ImageElement = document.getElementById('displayImage2');
+      const InfoElement = document.getElementById('imageInfo2');
 
       if (isAboriginalImageDisplayed) {
         ImageElement.src = 'https://www.unisa.edu.au/siteassets/about-unisa/aboriginal-engagement/images/ralogo1.png';
