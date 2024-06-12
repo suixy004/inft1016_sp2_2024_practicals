@@ -75,14 +75,14 @@
           const InfoElement = document.getElementById('imageInfo');
     
           if (ImageElement.src.includes('EDUC%20SOCIAL%20CLUB_LOGO')) {
+            ImageElement.src = 'https://usasa.sa.edu.au/asset/Organisation/6175/Academic%20Banner.png?thumbnail_width=2000&thumbnail_height=600&resize_type=CropToFit';
+            ImageElement.alt = 'Academic Banner';
+            InfoElement.innerHTML = 'Academic, The Education Social Club is a club that focuses on providing pre-service teachers with opportunities to grow as educators as well as organize events such as pub crawls and formal balls. <a href="https://usasa.sa.edu.au/clubs/join/education/">Click link to visit</a>';
+          } else {
             ImageElement.src = 'https://usasa.sa.edu.au/asset/Organisation/6175/EDUC%20SOCIAL%20CLUB_LOGO%20.png?thumbnail_width=200&thumbnail_height=200&resize_type=ResizeFitAll';
-            ImageElement.alt = 'education club';
-            InfoElement.innerHTML = 'Education Social Club, click link to visit <a href="https://usasa.sa.edu.au/clubs/join/education/">https://usasa.sa.edu.au/clubs/join/education/';
-        } else {
-            ImageElement.src = 'https://usasa.sa.edu.au/';
-            ImageElement.alt = 'USASA';
-            InfoElement.innerHTML = 'Click to visit <a href="https://usasa.sa.edu.au/">https://usasa.sa.edu.au/';
-         }
+            ImageElement.alt = 'Education Social Club Logo';
+            InfoElement.innerHTML = 'Education Social Club, click link to visit <a href="https://usasa.sa.edu.au/clubs/join/education/">https://usasa.sa.edu.au/clubs/join/education/</a>';
+          }
         }
     
         document.getElementById('changeButton').addEventListener('click', changeImageAndInfo);
