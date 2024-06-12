@@ -230,7 +230,6 @@ a:hover[data-theme="dark"]{
           isClubImageDisplayed=!isClubImageDisplayed;
         }
     
-        
       </script>
 
       <div class="subsection">
@@ -271,6 +270,26 @@ a:hover[data-theme="dark"]{
    </aside>
    </article>
 
+   <script>
+    let isAboriginalImageDisplayed=true;
+    document.getElementById('changeButton').addEventListener('click', toggleImageAndInfo);
+    function toggleImageAndInfo() {
+      const ImageElement = document.getElementById('displayImage');
+      const InfoElement = document.getElementById('imageInfo');
+
+      if (isAboriginalImageDisplayed) {
+        ImageElement.src = 'https://www.unisa.edu.au/siteassets/about-unisa/aboriginal-engagement/images/ralogo1.png';
+        ImageElement.alt = 'Aboriginal';
+        InfoElement.innerHTML = 'Reconciliation Week, click link to visit <a href="https://www.unisa.edu.au/about-unisa/aboriginal-engagement/reconciliation-at-unisa/">https://www.unisa.edu.au/about-unisa/aboriginal-engagement/reconciliation-at-unisa/</a>';
+      } else {
+        ImageElement.src = 'https://www.unisa.edu.au/siteassets/home/images/kaurna-2018-64px.png';
+        ImageElement.alt = 'Aboriginal engagement';
+        InfoElement.innerHTML = ' click link to visit <a href="https://www.unisa.edu.au/about-unisa/aboriginal-engagement/">https://www.unisa.edu.au/about-unisa/aboriginal-engagement/</a>';
+      }
+      isAboriginalImageDisplayed=!isAboriginalImageDisplayed;
+    }
+
+  </script>
 
    <div class="subsection">
      <h3 style="padding-top:2px">Maths</h3>
