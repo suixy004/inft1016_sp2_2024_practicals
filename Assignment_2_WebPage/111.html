@@ -158,9 +158,9 @@ a:hover[data-theme="dark"]{
 
       <nav>
         <ul style="display: flex; list-style-type: none; justify-content: center;font-size:120%">
-          <li style="margin: 0 auto;"><a href="#home" onclick="loadHome()">Home</a></li>
-          <li style="margin: 0 auto;"><a href="#courses" onclick="loadCourses()">Courses</a></li>
-          <li style="margin: 0 auto;"><a href="#todotasks" onclick="loadToDoTasks()">To Do Tasks</a></li>
+          <li style="margin: 0 auto;"><a href="#home">Home</a></li>
+          <li style="margin: 0 auto;"><a href="#courses">Courses</a></li>
+          <li style="margin: 0 auto;"><a href="#todotasks">To Do Tasks</a></li>
         </ul>
     
            <form style="display: flex;font-size:100%;justify-content:center;padding-left: 20px;">
@@ -174,8 +174,8 @@ a:hover[data-theme="dark"]{
   -->
 
   <main id="content" style="display:flex">
-    <a href="#" onclick="document.getElementById('content').innerHTML =`#home`;"></a>
-    <p id="content"></p>
+    <div id="home" class="page"></div>
+
    <article>
 
    <h2 style="padding-left:18px">My at first year</h2>
@@ -210,7 +210,7 @@ a:hover[data-theme="dark"]{
         <p>There are many natural spaces, leisure areas in the Mawson Lakes campus.</p>
         <p>so many lovely students.</p>
       </div>
-
+    </div>
     <!-- content loaded -->
   </main>
   
