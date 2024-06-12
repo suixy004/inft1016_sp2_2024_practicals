@@ -1,330 +1,261 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
-<style>
-    :root{
-    --primary-font-color: rgb(59, 3, 106);
-    --secondary-font-color: rgb(149, 93, 169);
-    --emphasised-font: rgb(219, 99, 44);
-    
-    --c-background-color: rgb(243, 247, 204);
-    --c-background-highlights: rgb(199, 226, 228);
-    
-    --c-red: rgb(220  50  47);  
-    --c-violet: rgb( 108 113 196 );
-    --c-blue: rgb(38 139 210 );
-    --c-cyan: rgb(42 161 152 );
-    --c-green : rgb(11, 65, 5);
- }
-
-body{
-    font-family: Arial, Helvetica, sans-serif;
-    padding: 0;
-    margin: 0;
-    background-color:var(--c-background-color);
-    color:var(--primary-font-color);
-}
-
-header{
-    background-color:var(--c-background-highlights);
-    color:var(--primary-font-color);
-    padding: 0px;
-    margin-top:-20px;
-    margin-left: -10px;
-    margin-right:-10px;
-    display:flex;
-    justify-content:space-evenly;
-}
-
-.highlight-bar{
-  background-color:var(--c-background-highlights);
-  height: 10px;
-  width: 100%;
-  align-content: center;
-}
-
-main{
-    color:var(--primary-font-color);
-    display:flex;
-    flex-direction:column;
-    align-content:center;
-    max-width: 700px;
-    text-align: center;
-}
-
-text{
-  color:var(--secondary-font-color);
-}
-
-a{
-  color:var(--c-violet);
-}
-
-a:hover{
-  color:var(--c-red);
-}
-
-.subsection{
-  border:3px solid;
-  color:var(--c-cyan);
-  margin: 0.93em 0.62em 0.93em 0.62em;
-  max-width:700px;
-}
-
-[data-theme="dark"] {
-    --primary-font-color: rgb(227, 212, 239);
-    --secondary-font-color: rgb(177, 153, 186);
-    --emphasised-font: rgb(238, 170, 138);
-    
-    --c-background-color: rgb(3, 72, 9);
-    --c-background-highlights: rgb(68, 110, 112);
-    
-    --c-red: rgb(252, 140, 138);  
-    --c-violet: rgb(162, 167, 253);
-    --c-blue: rgb(160, 204, 235);
-    --c-cyan: rgb(169, 240, 234);
-    --c-green : rgb(170, 220, 164);
-}
-
-body[data-theme="dark"]{
-    font-family: Arial, Helvetica, sans-serif;
-    padding:0;
-    margin: 0;
-    background-color:var(--c-background-color);
-    color:var(--primary-font-color);
-}
-
-header[data-theme="dark"] footer[data-theme="dark"]{
-    background-color:var(--c-background-highlights);
-    color:var(--primary-font-color);
-}
-
-main[data-theme="dark"]{
-    color:var(--primary-font-color);
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    max-width: 700px;
-    text-align: center;
-}
-
-text[data-theme="dark"]{
-  color:var(--c-green);
-}
-a[data-theme="dark"]{
-  color:var(--c-violet);
-}
-
-a:hover[data-theme="dark"]{
-  color:var(--c-red);
-}
-
-.subsection[data-theme="dark"]{
-  border:5px solid;
-  color:var(--c-cyan);
-  margin: 0.93em 0.62em 0.93em 0.62em;
-  max-width:700px;
-}
-
-.page-section{
-  display:none;
-}
-
-.page-section:target{
-  display:block;
-}
-
-#home:targe~#home,
-#courses:targe~#courses,
-#todotasks:target~#todotasks{
-  display:block;
-}
-
-</style>
-
-<!--setting two theme font colour, size-->
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My First Year at University</title>
- 
-</head>
-
-<!--this is the name of the page label-->
-
-<body>
-    <div class="highlight-bar"></div>
-    <header style="font-size:150%; text-align:center; color:var(--c-green);background-color: var(--c-background-highlights);">
-      <h1>My first year at University</h1>
-      <button id="theme-toggle" style="width:150px;height:35px;font-size:0.79em;text-align:center;margin-top: 10px;">Toggle Theme</button>
-<script>
-  document.getElementById('theme-toggle').addEventListener('click',function() {
-        if(document.documentElement.getAttribute('data-theme') ==='dark'){
-          document.documentElement.setAttribute('data-theme','light');
-        }else{
-          document.documentElement.setAttribute('data-theme','dark');
-        }
-      });
-</script>
-
-    </header>
-<!--combine header and button at the same line-->
-
-      <nav>
-        <ul style="display: flex; list-style-type: none; justify-content: center;font-size:120%">
-          <li style="margin: 0 auto;"><a href="#home" onclick="loadHome()">Home</a></li>
-          <li style="margin: 0 auto;"><a href="#courses" onclick="loadCourses()">Courses</a></li>
-          <li style="margin: 0 auto;"><a href="#todotasks" onclick="loadToDoTasks()">To Do Tasks</a></li>
-        </ul>
-    
-           <form style="display: flex;font-size:100%;justify-content:center;padding-left: 20px;">
-             <input type="text" name="q" placeholder="Your Name" style="width:150px;height:35px;font-size:1em;">
-             <input type="submit" value="Apply!" style="width: 150px;height:35px;font-size:1em;">
-           </form>
-         </nav>
-
-    <!--/*this is the title of the whole page
-    and the button of different pages
-  -->
-
-  <main id="content" style="display:flex; align-items: center;">
-
-    <div id="home" class="page-section" style="display:block;">
-    <h2 style="padding-left:18px">My at first year</h2>
-      <p style="padding-left:18px">I am an international student. it is the first time to study in a foreign country. I like the feeling of supporting and discussing lesson circumstances in here</p>
-
-
-      <article style="display:flex;align-items:center;gap:10px;">
-
-        <button id="switchButton" style="flex:1; height:40px;text-align:center;align-content:center;margin-left:30px;">
-        <h3 style="margin:0;">club</h3>
-        </button>
-
-        <aside style="flex:1;text-align:center">
-         <p><img id="displayImage" src="https://usasa.sa.edu.au/asset/Organisation/6175/EDUC%20SOCIAL%20CLUB_LOGO%20.png?thumbnail_width=200&thumbnail_height=200&resize_type=ResizeFitAll" border="0"/ ></p>
-         </aside>  
-
-        <aside style="flex:3;">
-          <p id="imageInfo">"Education Social Club, click link to visit <a href="https://usasa.sa.edu.au/clubs/join/education/">https://usasa.sa.edu.au/clubs/join/education/</a></p>
-        </aside>
-      </article>
-
-      <div class="subsection">
-        <h3 style="padding-top:2px">learning support</h3>
-        <p>There are many learning support for us, which in online and in-person way.</p>
-        <p>I really like the way setting in the learnonline website. many questions can be solved through the learning instructions. I really like transferring from seeking solutions from teachers all the time to researching online and thinking by myself</p>
-      </div>
-        
-      <div class="subsection">
-        <h3 style="padding-top:2px">learning in campus</h3>
-
-        <p>There are many natural spaces, leisure areas in the Mawson Lakes campus.</p>
-        <p>so many lovely students.</p>
-      </div>
-   </div>
-
-  </main>
-
-
-<main></main>
-
-    <div id="courses" class="page-section">
-
-   <h2 style="padding-left:18px;font: size 1.73em">My courses</h2>
-  
-   <article style="display:flex;align-items:center;gap:10px;">
-
-     <button id="backButton" style="flex:1; height:40px;text-align:center;align-content:center;margin-left:30px;">
-       <h3 style="margin:0;">Aboriginal</h3>
-     </button>
-     
-   <aside style="flex:1;text-align:center">
-     <p><img src="https://www.unisa.edu.au/siteassets/about-unisa/aboriginal-engagement/images/ralogo1.png" border="0"/ ></p>
-   </aside>  
-
-   <aside style="flex:3;">
-     <p>"Reconciliation Week, click link to visit <a href="https://www.unisa.edu.au/about-unisa/aboriginal-engagement/reconciliation-at-unisa/">https://www.unisa.edu.au/about-unisa/aboriginal-engagement/reconciliation-at-unisa/</a></p>
-   </aside>
-   </article>
-
-
-   <div class="subsection">
-     <h3 style="padding-top:2px">Maths</h3>
-
-     <p>Two courses in maths this semester, which are Discrete maths and Statistical methods.</p>
-     <p>I really like these courses that require logical and analysis abilities.</p>
-   </div>
-     
-   <div class="subsection">
-     <h3 style="padding-top:2px">Digital Technology</h3>
-
-     <p>There were two main content we learned.</p>
-     <p>Excel dashboard and building webpage by learning CSS, Javascript, HTML.</p>
-   </div>
-  </div>
-</main>
-
-
-  <script>
-
-
-        let isClubImageDisplayed=true;
-        document.getElementById('switchButton').addEventListener('click', toggleImageAndInfo);
-        function toggleImageAndInfo() {
-          const ImageElement = document.getElementById('displayImage');
-          const InfoElement = document.getElementById('imageInfo');
-    
-          if (isClubImageDisplayed) {
-            ImageElement.src = 'https://usasa.sa.edu.au/asset/Organisation/6175/EDUC%20SOCIAL%20CLUB_LOGO%20.png?thumbnail_width=200&thumbnail_height=200&resize_type=ResizeFitAll';
-            ImageElement.alt = 'education';
-            InfoElement.innerHTML = 'Education Social Club, click link to visit <a href="https://usasa.sa.edu.au/clubs/join/education/">https://usasa.sa.edu.au/clubs/join/education/</a>';
-          } else {
-            ImageElement.src = 'https://usasa.sa.edu.au/stylesheet/USASA/logousasa.svg';
-            ImageElement.alt = 'USASA';
-            InfoElement.innerHTML = ' click link to visit <a href="https://usasa.sa.edu.au/financialwellbeing">https://usasa.sa.edu.au/financialwellbeing</a>';
-          }
-          isClubImageDisplayed=!isClubImageDisplayed;
-        }
-    
-    let isAboriginalImageDisplayed=true;
-    document.getElementById('backButton').addEventListener('click', toggleImageAndInfo);
-    function toggleImageAndInfo() {
-      const ImageElement = document.getElementById('displayImage1');
-      const InfoElement = document.getElementById('imageInfo1');
-
-      if (isAboriginalImageDisplayed) {
-        ImageElement.src = 'https://www.unisa.edu.au/siteassets/about-unisa/aboriginal-engagement/images/ralogo1.png';
-        ImageElement.alt = 'Aboriginal';
-        InfoElement.innerHTML = 'Reconciliation Week, click link to visit <a href="https://www.unisa.edu.au/about-unisa/aboriginal-engagement/reconciliation-at-unisa/">https://www.unisa.edu.au/about-unisa/aboriginal-engagement/reconciliation-at-unisa/</a>';
-      } else {
-        ImageElement.src = 'https://www.unisa.edu.au/siteassets/home/images/kaurna-2018-64px.png';
-        ImageElement.alt = 'Aboriginal engagement';
-        InfoElement.innerHTML = ' click link to visit <a href="https://www.unisa.edu.au/about-unisa/aboriginal-engagement/">https://www.unisa.edu.au/about-unisa/aboriginal-engagement/</a>';
-      }
-      isAboriginalImageDisplayed=!isAboriginalImageDisplayed;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My First Year at University</title>
+<style>
+    :root {
+        --primary-font-color: rgb(59, 3, 106);
+        --secondary-font-color: rgb(149, 93, 169);
+        --emphasised-font: rgb(219, 99, 44);
+        --c-background-color: rgb(243, 247, 204);
+        --c-background-highlights: rgb(199, 226, 228);
+        --c-red: rgb(220, 50, 47);  
+        --c-violet: rgb(108, 113, 196);
+        --c-blue: rgb(38, 139, 210);
+        --c-cyan: rgb(42, 161, 152);
+        --c-green: rgb(11, 65, 5);
     }
 
-    const switchButton = document.getElementById('switchButton');
-    const backButton = document.getElementById('backButton');
-    const page1 = document.getElementById('Home');
-    const page2 = document.getElementById('Courses');
-  
- 
-    switchButton.addEventListener('click', function() {
-      page1.style.display = 'none'; 
-      page2.style.display = 'block'; 
-    });
-  
-    backButton.addEventListener('click', function() {
-      page2.style.display = 'none'; 
-      page1.style.display = 'block';
-    });
-  </script>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        padding: 0;
+        margin: 0;
+        background-color: var(--c-background-color);
+        color: var(--primary-font-color);
+    }
 
+    header {
+        background-color: var(--c-background-highlights);
+        color: var(--primary-font-color);
+        padding: 0;
+        margin-top: -20px;
+        margin-left: -10px;
+        margin-right: -10px;
+        display: flex;
+        justify-content: space-evenly;
+    }
 
+    .highlight-bar {
+        background-color: var(--c-background-highlights);
+        height: 10px;
+        width: 100%;
+        align-content: center;
+    }
 
+    main {
+        color: var(--primary-font-color);
+        display: none;
+        flex-direction: column;
+        align-content: center;
+        max-width: 700px;
+        text-align: center;
+    }
 
+    text {
+        color: var(--secondary-font-color);
+    }
+
+    a {
+        color: var(--c-violet);
+    }
+
+    a:hover {
+        color: var(--c-red);
+    }
+
+    .subsection {
+        border: 3px solid;
+        color: var(--c-cyan);
+        margin: 0.93em 0.62em;
+        max-width: 700px;
+    }
+
+    [data-theme="dark"] {
+        --primary-font-color: rgb(227, 212, 239);
+        --secondary-font-color: rgb(177, 153, 186);
+        --emphasised-font: rgb(238, 170, 138);
+        --c-background-color: rgb(3, 72, 9);
+        --c-background-highlights: rgb(68, 110, 112);
+        --c-red: rgb(252, 140, 138);  
+        --c-violet: rgb(162, 167, 253);
+        --c-blue: rgb(160, 204, 235);
+        --c-cyan: rgb(169, 240, 234);
+        --c-green: rgb(170, 220, 164);
+    }
+
+    body[data-theme="dark"] {
+        font-family: Arial, Helvetica, sans-serif;
+        padding: 0;
+        margin: 0;
+        background-color: var(--c-background-color);
+        color: var(--primary-font-color);
+    }
+
+    header[data-theme="dark"], footer[data-theme="dark"] {
+        background-color: var(--c-background-highlights);
+        color: var(--primary-font-color);
+    }
+
+    main[data-theme="dark"] {
+        color: var(--primary-font-color);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 700px;
+        text-align: center;
+    }
+
+    text[data-theme="dark"] {
+        color: var(--c-green);
+    }
+
+    a[data-theme="dark"] {
+        color: var(--c-violet);
+    }
+
+    a:hover[data-theme="dark"] {
+        color: var(--c-red);
+    }
+
+    .subsection[data-theme="dark"] {
+        border: 5px solid;
+        color: var(--c-cyan);
+        margin: 0.93em 0.62em;
+        max-width: 700px;
+    }
+
+    .page-section {
+        display: none;
+    }
+
+    .page-section:target {
+        display: block;
+    }
+</style>
+</head>
+<body>
+    <div class="highlight-bar"></div>
+    <header style="font-size: 150%; text-align: center; color: var(--c-green); background-color: var(--c-background-highlights);">
+        <h1>My first year at University</h1>
+        <button id="theme-toggle" style="width: 150px; height: 35px; font-size: 0.79em; text-align: center; margin-top: 10px;">Toggle Theme</button>
+    </header>
+    <nav>
+        <ul style="display: flex; list-style-type: none; justify-content: center; font-size: 120%;">
+            <li style="margin: 0 auto;"><a href="#home">Home</a></li>
+            <li style="margin: 0 auto;"><a href="#courses">Courses</a></li>
+            <li style="margin: 0 auto;"><a href="#todotasks">To Do Tasks</a></li>
+        </ul>
+        <form style="display: flex; font-size: 100%; justify-content: center; padding-left: 20px;">
+            <input type="text" name="q" placeholder="Your Name" style="width: 150px; height: 35px; font-size: 1em;">
+            <input type="submit" value="Apply!" style="width: 150px; height: 35px; font-size: 1em;">
+        </form>
+    </nav>
+    <main id="home" class="page-section">
+        <h2 style="padding-left: 18px;">My first year</h2>
+        <p style="padding-left: 18px;">I am an international student. It is the first time to study in a foreign country. I like the feeling of supporting and discussing lesson circumstances here.</p>
+        <article style="display: flex; align-items: center; gap: 10px;">
+            <button id="switchButton" style="flex: 1; height: 40px; text-align: center; align-content: center; margin-left: 30px;">
+                <h3 style="margin: 0;">club</h3>
+            </button>
+            <aside style="flex: 1; text-align: center;">
+                <p><img id="displayImage" src="https://usasa.sa.edu.au/asset/Organisation/6175/EDUC%20SOCIAL%20CLUB_LOGO%20.png?thumbnail_width=200&thumbnail_height=200&resize_type=ResizeFitAll" border="0"></p>
+            </aside>
+            <aside style="flex: 3;">
+                <p id="imageInfo">Education Social Club, click link to visit <a href="https://usasa.sa.edu.au/clubs/join/education/">https://usasa.sa.edu.au/clubs/join/education/</a></p>
+            </aside>
+        </article>
+        <script>
+            let isClubImageDisplayed = true;
+            document.getElementById('switchButton').addEventListener('click', toggleImageAndInfo);
+            function toggleImageAndInfo() {
+                const ImageElement = document.getElementById('displayImage');
+                const InfoElement = document.getElementById('imageInfo');
+                if (isClubImageDisplayed) {
+                    ImageElement.src = 'https://usasa.sa.edu.au/asset/Organisation/6175/EDUC%20SOCIAL%20CLUB_LOGO%20.png?thumbnail_width=200&thumbnail_height=200&resize_type=ResizeFitAll';
+                    ImageElement.alt = 'education';
+                    InfoElement.innerHTML = 'Education Social Club, click link to visit <a href="https://usasa.sa.edu.au/clubs/join/education/">https://usasa.sa.edu.au/clubs/join/education/</a>';
+                } else {
+                    ImageElement.src = 'https://usasa.sa.edu.au/stylesheet/USASA/logousasa.svg';
+                    ImageElement.alt = 'USASA';
+                    InfoElement.innerHTML = ' click link to visit <a href="https://usasa.sa.edu.au/financialwellbeing">https://usasa.sa.edu.au/financialwellbeing</a>';
+                }
+                isClubImageDisplayed = !isClubImageDisplayed;
+            }
+        </script>
+        <div class="subsection">
+            <h3 style="padding-top: 2px;">Learning support</h3>
+            <p>There are many learning support for us, which in online and in-person way.</p>
+            <p>I really like the way setting in the learnonline website. many questions can be solved through the learning instructions. I really like transferring from seeking solutions from teachers all the time to researching online and thinking by myself.</p>
+        </div>
+        <div class="subsection">
+            <h3 style="padding-top: 2px;">Learning in campus</h3>
+            <p>There are many natural spaces, leisure areas in the Mawson Lakes campus.</p>
+            <p>so many lovely students.</p>
+        </div>
+    </main>
+    <main id="courses" class="page-section">
+        <h2 style="padding-left: 18px; font-size: 1.73em;">My courses</h2>
+        <article style="display: flex; align-items: center; gap: 10px;">
+            <button id="backButton1" style="flex: 1; height: 40px; text-align: center; align-content: center; margin-left: 30px;">
+                <h3 style="margin: 0;">Aboriginal</h3>
+            </button>
+            <aside style="flex: 1; text-align: center;">
+                <p><img id="displayImage1" src="https://www.unisa.edu.au/siteassets/about-unisa/aboriginal-engagement/images/ralogo1.png" border="0"></p>
+            </aside>
+            <aside style="flex: 3;">
+                <p id="imageInfo1">Reconciliation Week, click link to visit <a href="https://www.unisa.edu.au/about-unisa/aboriginal-engagement/reconciliation-at-unisa/">https://www.unisa.edu.au/about-unisa/aboriginal-engagement/reconciliation-at-unisa/</a></p>
+            </aside>
+        </article>
+        <script>
+            let isAboriginalImageDisplayed = true;
+            document.getElementById('backButton1').addEventListener('click', toggleImageAndInfo1);
+            function toggleImageAndInfo1() {
+                const ImageElement = document.getElementById('displayImage1');
+                const InfoElement = document.getElementById('imageInfo1');
+                if (isAboriginalImageDisplayed) {
+                    ImageElement.src = 'https://www.unisa.edu.au/siteassets/about-unisa/aboriginal-engagement/images/ralogo1.png';
+                    ImageElement.alt = 'Aboriginal';
+                    InfoElement.innerHTML = 'Reconciliation Week, click link to visit <a href="https://www.unisa.edu.au/about-unisa/aboriginal-engagement/reconciliation-at-unisa/">https://www.unisa.edu.au/about-unisa/aboriginal-engagement/reconciliation-at-unisa/</a>';
+                } else {
+                    ImageElement.src = 'https://www.unisa.edu.au/siteassets/home/images/kaurna-2018-64px.png';
+                    ImageElement.alt = 'Aboriginal engagement';
+                    InfoElement.innerHTML = ' click link to visit <a href="https://www.unisa.edu.au/about-unisa/aboriginal-engagement/">https://www.unisa.edu.au/about-unisa/aboriginal-engagement/</a>';
+                }
+                isAboriginalImageDisplayed = !isAboriginalImageDisplayed;
+            }
+        </script>
+        <div class="subsection">
+            <h3 style="padding-top: 2px;">Maths</h3>
+            <p>Two courses in maths this semester, which are Discrete maths and Statistical methods.</p>
+            <p>I really like these courses that require logical and analysis abilities.</p>
+        </div>
+        <div class="subsection">
+            <h3 style="padding-top: 2px;">Digital Technology</h3>
+            <p>There were two main content we learned.</p>
+            <p>Excel dashboard and building webpage by learning CSS, Javascript, HTML.</p>
+        </div>
+    </main>
+    <main id="todotasks" class="page-section">
+        <h2 style="padding-left: 18px; font-size: 1.73em;">To Do Tasks</h2>
+        <div class="subsection">
+            <h3 style="padding-top: 2px;">Task 1</h3>
+            <p>Complete the assignment for Digital Technology.</p>
+        </div>
+        <div class="subsection">
+            <h3 style="padding-top: 2px;">Task 2</h3>
+            <p>Prepare for the upcoming maths exam.</p>
+        </div>
+    </main>
+    <script>
+        document.getElementById('theme-toggle').addEventListener('click', function() {
+            if (document.documentElement.getAttribute('data-theme') === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        });
+    </script>
 </body>
 </html>
