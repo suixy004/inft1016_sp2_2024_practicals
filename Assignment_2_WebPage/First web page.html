@@ -183,13 +183,13 @@ a:hover[data-theme="dark"]{
              <input type="text" name="q" placeholder="Your Name" style="width:150px;height:35px;font-size:1em;">
              <input type="submit" value="Apply!" style="width: 150px;height:35px;font-size:1em;">
            </form>
-         </nav>
+      </nav>
 
     <!--/*this is the title of the whole page
     and the button of different pages
   -->
 
-  <main id="home" class="page-section" style="display:flex; align-items: center">
+  <main id="home" class="page-section default-page" style="display:flex; align-items: center">
 
     <h2 style="padding-left:18px">My at first year</h2>
       <p style="padding-left:18px">I am an international student. it is the first time to study in a foreign country. I like the feeling of supporting and discussing lesson circumstances in here</p>
@@ -197,12 +197,12 @@ a:hover[data-theme="dark"]{
 
       <article style="display:flex;align-items:center;gap:10px;">
 
-        <button id="changeButton" style="flex:1; height:40px;text-align:center;align-content:center;margin-left:30px;">
+        <button id="switchButton" style="flex:1; height:40px;text-align:center;align-content:center;margin-left:30px;">
         <h3 style="margin:0;">club</h3>
         </button>
 
         <aside style="flex:1;text-align:center">
-         <p><img id="displayImage" src="https://usasa.sa.edu.au/asset/Organisation/6175/EDUC%20SOCIAL%20CLUB_LOGO%20.png?thumbnail_width=200&thumbnail_height=200&resize_type=ResizeFitAll" border="0"/ ></p>
+         <p><img id="displayImage" src="https://usasa.sa.edu.au/asset/Organisation/6175/EDUC%20SOCIAL%20CLUB_LOGO%20.png?thumbnail_width=200&thumbnail_height=200&resize_type=ResizeFitAll" border="0"></p>
          </aside>  
 
         <aside style="flex:3;">
@@ -212,7 +212,7 @@ a:hover[data-theme="dark"]{
 
       <script>
         let isClubImageDisplayed=true;
-        document.getElementById('changeButton').addEventListener('click', toggleImageAndInfo);
+        document.getElementById('switchButton').addEventListener('click', toggleImageAndInfo);
         function toggleImageAndInfo() {
           const ImageElement = document.getElementById('displayImage');
           const InfoElement = document.getElementById('imageInfo');
@@ -251,25 +251,25 @@ a:hover[data-theme="dark"]{
   
    <article style="display:flex;align-items:center;gap:10px;">
 
-     <button id="changeButton" style="flex:1; height:40px;text-align:center;align-content:center;margin-left:30px;">
+     <button id="backButton1" style="flex:1; height:40px;text-align:center;align-content:center;margin-left:30px;">
        <h3 style="margin:0;">Aboriginal</h3>
      </button>
      
    <aside style="flex:1;text-align:center">
-     <p><img src="https://www.unisa.edu.au/siteassets/about-unisa/aboriginal-engagement/images/ralogo1.png" border="0"/ ></p>
+     <p><img id="displayImage1" src="https://www.unisa.edu.au/siteassets/about-unisa/aboriginal-engagement/images/ralogo1.png" border="0"></p>
    </aside>  
 
    <aside style="flex:3;">
-     <p>"Reconciliation Week, click link to visit <a href="https://www.unisa.edu.au/about-unisa/aboriginal-engagement/reconciliation-at-unisa/">https://www.unisa.edu.au/about-unisa/aboriginal-engagement/reconciliation-at-unisa/</a></p>
+     <p id="imageInfo1">"Reconciliation Week, click link to visit <a href="https://www.unisa.edu.au/about-unisa/aboriginal-engagement/reconciliation-at-unisa/">https://www.unisa.edu.au/about-unisa/aboriginal-engagement/reconciliation-at-unisa/</a></p>
    </aside>
    </article>
 
    <script>
     let isAboriginalImageDisplayed=true;
-    document.getElementById('changeButton').addEventListener('click', toggleImageAndInfo);
-    function toggleImageAndInfo() {
-      const ImageElement = document.getElementById('displayImage');
-      const InfoElement = document.getElementById('imageInfo');
+    document.getElementById('backButton1').addEventListener('click', toggleImageAndInfo1);
+    function toggleImageAndInfo1() {
+      const ImageElement = document.getElementById('displayImage1');
+      const InfoElement = document.getElementById('imageInfo1');
 
       if (isAboriginalImageDisplayed) {
         ImageElement.src = 'https://www.unisa.edu.au/siteassets/about-unisa/aboriginal-engagement/images/ralogo1.png';
