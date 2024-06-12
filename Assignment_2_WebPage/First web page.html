@@ -189,9 +189,8 @@ a:hover[data-theme="dark"]{
     and the button of different pages
   -->
 
-  <main id="content" style="display:flex; align-items: center;">
+  <main id="home" class="page-section" style="display:flex; align-items: center">
 
-    <div id="home" class="page-section" style="display:block;">
     <h2 style="padding-left:18px">My at first year</h2>
       <p style="padding-left:18px">I am an international student. it is the first time to study in a foreign country. I like the feeling of supporting and discussing lesson circumstances in here</p>
 
@@ -244,14 +243,13 @@ a:hover[data-theme="dark"]{
         <p>There are many natural spaces, leisure areas in the Mawson Lakes campus.</p>
         <p>so many lovely students.</p>
       </div>
-   </div>
+  </main>
 
 
 
 
 
-
-    <div id="courses" class="page-section">
+  <main id="courses" class="page-section">
 
    <h2 style="padding-left:18px;font: size 1.73em">My courses</h2>
   
@@ -272,10 +270,10 @@ a:hover[data-theme="dark"]{
 
    <script>
     let isAboriginalImageDisplayed=true;
-    document.getElementById('backButton1').addEventListener('click', toggleImageAndInfo1);
+    document.getElementById('backButton').addEventListener('click', toggleImageAndInfo);
     function toggleImageAndInfo1() {
-      const ImageElement = document.getElementById('displayImage1');
-      const InfoElement = document.getElementById('imageInfo1');
+      const ImageElement = document.getElementById('displayImage');
+      const InfoElement = document.getElementById('imageInfo');
 
       if (isAboriginalImageDisplayed) {
         ImageElement.src = 'https://www.unisa.edu.au/siteassets/about-unisa/aboriginal-engagement/images/ralogo1.png';
@@ -304,8 +302,6 @@ a:hover[data-theme="dark"]{
      <p>There were two main content we learned.</p>
      <p>Excel dashboard and building webpage by learning CSS, Javascript, HTML.</p>
    </div>
-  </div>
-
 
   </main>
 
