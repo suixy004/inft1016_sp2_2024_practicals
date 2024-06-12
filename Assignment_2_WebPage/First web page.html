@@ -176,16 +176,8 @@ a:hover[data-theme="dark"]{
 
   <main id="content" style="display:flex">
 
-    <!-- content loaded -->
-  </main>
-  
-
-
-  <script display:flex;flex-direction:column>
-    
-    function loadHome(){
-      document.getElementById('content').innerHTML=`
-      <h2 style="padding-left:18px">My at first year</h2>
+    <div id="home" class="pageSection">
+    <h2 style="padding-left:18px">My at first year</h2>
       <p style="padding-left:18px">I am an international student. it is the first time to study in a foreign country. I like the feeling of supporting and discussing lesson circumstances in here</p>
 
 
@@ -217,9 +209,14 @@ a:hover[data-theme="dark"]{
         <p>There are many natural spaces, leisure areas in the Mawson Lakes campus.</p>
         <p>so many lovely students.</p>
       </div>
-      `
-    }
+   </div>
+    <!-- content loaded -->
+  </main>
+  
 
+
+  <script display:flex;flex-direction:column>
+    
 
       function loadCourses(){
       document.getElementById('content').innerHTML=`
