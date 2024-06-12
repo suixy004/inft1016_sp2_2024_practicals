@@ -1,124 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My First Year</title>
-  <style>
-    header, nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    nav ul {
-      display: flex;
-      list-style-type: none;
-      padding: 0;
-      margin: 0;
-    }
-    nav li {
-      margin: 0 10px;
-    }
-    nav form {
-      display: flex;
-      align-items: center;
-    }
-    .page-section {
-      display: none;
-    }
-    .page-section:target {
-      display: block;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Image and Text Change</title>
+    <style>
+        .imageContainer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+        article {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .subsection {
+            margin-top: 20px;
+        }
+        button {
+            flex: 1;
+            height: 40px;
+            text-align: center;
+            align-content: center;
+            margin-left: 30px;
+        }
+    </style>
 </head>
 <body>
+    <div class="highlight-bar"></div>
+    <header>
+        <h1>My First Year at University</h1>
+    </header>
+    <main id="content">
+        <h2 style="padding-left:18px">My First Year</h2>
+        <p style="padding-left:18px">I am an international student. It is the first time to study in a foreign country. I like the feeling of supporting and discussing lesson circumstances here.</p>
 
-<header>
-  <h1>My First Year</h1>
-  <button onclick="alert('Button Action')">Action Button</button>
-</header>
+        <article>
+            <button id="changeButton">
+                <h3 style="margin:0;">Change Image and Text</h3>
+            </button>
+            <aside style="flex:1;text-align:center">
+                <p><img id="sideImage" src="https://usasa.sa.edu.au/asset/Organisation/6175/EDUC%20SOCIAL%20CLUB_LOGO%20.png?thumbnail_width=200&thumbnail_height=200&resize_type=ResizeFitAll" border="0" /></p>
+            </aside>
+            <aside style="flex:3;">
+                <p id="sideText">Education Social Club, click link to visit <a href="https://usasa.sa.edu.au/clubs/join/education/">https://usasa.sa.edu.au/clubs/join/education/</a></p>
+            </aside>
+        </article>
 
-<nav>
-  <ul>
-    <li><a href="#home">Home</a></li>
-    <li><a href="#courses">Courses</a></li>
-    <li><a href="#todotasks">To Do Tasks</a></li>
-  </ul>
-  <form>
-    <input type="text" name="q" placeholder="Your Name" style="width:150px;height:35px;font-size:1em;">
-    <input type="submit" value="Apply!" style="width: 150px;height:35px;font-size:1em;">
-  </form>
-</nav>
+        <div class="subsection">
+            <h3 style="padding-top:2px">Learning Support</h3>
+            <p>There is a lot of learning support for us, both online and in-person.</p>
+            <p>I really like the way the LearnOnline website is set up. Many questions can be solved through the learning instructions. I really like transitioning from seeking solutions from teachers all the time to researching online and thinking by myself.</p>
+        </div>
+        
+        <div class="subsection">
+            <h3 style="padding-top:2px">Learning on Campus</h3>
+            <p>There are many natural spaces and leisure areas on the Mawson Lakes campus.</p>
+            <p>There are so many lovely students.</p>
+        </div>
+    </main>
 
-<main id="content" style="display:flex; flex-direction: column; align-items: center;">
-  <div id="home" class="page-section">
-    <h2 style="padding-left:18px">My at first year</h2>
-    <p style="padding-left:18px">I am an international student. it is the first time to study in a foreign country. I like the feeling of supporting and discussing lesson circumstances in here</p>
-
-    <article style="display:flex;align-items:center;gap:10px;">
-      <button style="flex:1; height:40px;text-align:center;align-content:center;margin-left:30px;">
-        <h3 style="margin:0;">club</h3>
-      </button>
-      <aside style="flex:1;text-align:center">
-        <p><img src="https://usasa.sa.edu.au/asset/Organisation/6175/EDUC%20SOCIAL%20CLUB_LOGO%20.png?thumbnail_width=200&thumbnail_height=200&resize_type=ResizeFitAll" border="0"/></p>
-      </aside>
-      <aside style="flex:3;">
-        <p>"Education Social Club, click link to visit <a href="https://usasa.sa.edu.au/clubs/join/education/">https://usasa.sa.edu.au/clubs/join/education/</a></p>
-      </aside>
-    </article>
-
-    <div class="subsection">
-      <h3 style="padding-top:2px">learning support</h3>
-      <p>There are many learning support for us, which in online and in-person way.</p>
-      <p>I really like the way setting in the learnonline website. many questions can be solved through the learning instructions. I really like transferring from seeking solutions from teachers all the time to researching online and thinking by myself</p>
+    <div class="imageContainer">
+        <img id="displayImage" src="https://usasa.sa.edu.au/asset/Organisation/6175/EDUC%20SOCIAL%20CLUB_LOGO%20.png?thumbnail_width=200&thumbnail_height=200&resize_type=ResizeFitAll" alt="Education Social Club Logo" style="max-width: 100%; height: auto;">
+        <div id="image-info" class="imageInfo">
+            <p id="image-text">Education Social Club, <a href="https://usasa.sa.edu.au/clubs/join/education/">click link to visit</a></p>
+        </div>
     </div>
 
-    <div class="subsection">
-      <h3 style="padding-top:2px">learning in campus</h3>
-      <p>There are many natural spaces, leisure areas in the Mawson Lakes campus.</p>
-      <p>so many lovely students.</p>
-    </div>
-  </div>
+    <script>
+        function changeImageAndText() {
+            const mainImageElement = document.getElementById('displayImage');
+            const sideImageElement = document.getElementById('sideImage');
+            const textElement = document.getElementById('sideText');
+            const mainTextElement = document.getElementById('image-text');
 
-  <div id="courses" class="page-section">
-    <h2 style="padding-left:18px;font-size:2em">My courses</h2>
+            // Change main image and text
+            if (mainImageElement.src.includes('EDUC%20SOCIAL%20CLUB_LOGO')) {
+                mainImageElement.src = 'https://usasa.sa.edu.au/asset/Organisation/6175/Academic%20Banner.png?thumbnail_width=2000&thumbnail_height=600&resize_type=CropToFit';
+                mainImageElement.alt = 'Academic Banner';
+                mainTextElement.innerHTML = 'Academic, The Education Social Club is a club that focuses on providing pre-service teachers with opportunities to grow as educators as well as organize events such as pub crawls and formal balls.';
 
-    <article style="display:flex;align-items:center;gap:10px;">
-      <button style="flex:1; height:40px;text-align:center;align-content:center;margin-left:30px;">
-        <h3 style="margin:0;">Aboriginal</h3>
-      </button>
-      <button style="flex:1; height:40px;text-align:center;align-content:center;margin-left:30px;">
-        <h3 style="margin:0;">Academic</h3>
-      </button>
+                // Change side image and text
+                sideImageElement.src = 'https://usasa.sa.edu.au/asset/Organisation/6175/Academic%20Banner.png?thumbnail_width=2000&thumbnail_height=600&resize_type=CropToFit';
+                sideImageElement.alt = 'Academic Banner';
+                textElement.innerHTML = 'Academic, click link to visit <a href="https://usasa.sa.edu.au/clubs/join/education/">https://usasa.sa.edu.au/clubs/join/education/</a>';
+            } else {
+                mainImageElement.src = 'https://usasa.sa.edu.au/asset/Organisation/6175/EDUC%20SOCIAL%20CLUB_LOGO%20.png?thumbnail_width=200&thumbnail_height=200&resize_type=ResizeFitAll';
+                mainImageElement.alt = 'Education Social Club Logo';
+                mainTextElement.innerHTML = 'Education Social Club, <a href="https://usasa.sa.edu.au/clubs/join/education/">click link to visit</a>';
 
-      <aside style="flex:1;text-align:center">
-        <p><img src="https://www.unisa.edu.au/siteassets/about-unisa/aboriginal-engagement/images/ralogo1.png" border="0"/></p>
-      </aside>
+                // Change side image and text
+                sideImageElement.src = 'https://usasa.sa.edu.au/asset/Organisation/6175/EDUC%20SOCIAL%20CLUB_LOGO%20.png?thumbnail_width=200&thumbnail_height=200&resize_type=ResizeFitAll';
+                sideImageElement.alt = 'Education Social Club Logo';
+                textElement.innerHTML = 'Education Social Club, click link to visit <a href="https://usasa.sa.edu.au/clubs/join/education/">https://usasa.sa.edu.au/clubs/join/education/</a>';
+            }
+        }
 
-      <aside style="flex:3;">
-        <p>"Reconciliation Week, click link to visit <a href="https://www.unisa.edu.au/about-unisa/aboriginal-engagement/reconciliation-at-unisa/">https://www.unisa.edu.au/about-unisa/aboriginal-engagement/reconciliation-at-unisa/</a></p>
-      </aside>
-    </article>
-
-    <div class="subsection">
-      <h3 style="padding-top:2px">Maths</h3>
-      <p>Two courses in maths this semester, which are Discrete maths and Statistical methods.</p>
-      <p>I really like these courses that require logical and analysis abilities.</p>
-    </div>
-
-    <div class="subsection">
-      <h3 style="padding-top:2px">Digital Technology</h3>
-      <p>There were two main content we learned.</p>
-      <p>Excel dashboard and building webpage by learning CSS, Javascript, HTML.</p>
-    </div>
-  </div>
-
-  <div id="todotasks" class="page-section">
-    <h2>To Do Tasks</h2>
-    <p>Your tasks will be displayed here.</p>
-  </div>
-</main>
-
+        document.getElementById('changeButton').addEventListener('click', changeImageAndText);
+    </script>
 </body>
 </html>
-解释：
