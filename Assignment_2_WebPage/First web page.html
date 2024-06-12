@@ -126,6 +126,19 @@ a:hover[data-theme="dark"]{
   margin: 0.93em 0.62em 0.93em 0.62em;
   max-width:700px;
 }
+
+.pageSection{
+  display:nonw'
+}
+
+.pageSection:target{
+  display:block;
+}
+
+.pageSection:first-of-type{
+  display:block;
+}
+
 </style>
 
 <!--setting two theme font colour, size-->
@@ -174,7 +187,7 @@ a:hover[data-theme="dark"]{
     and the button of different pages
   -->
 
-  <main id="content" style="display:flex">
+  <main id="content" style="display:flex; align-items: center;">
 
     <div id="home" class="pageSection">
     <h2 style="padding-left:18px">My at first year</h2>
@@ -210,11 +223,10 @@ a:hover[data-theme="dark"]{
         <p>so many lovely students.</p>
       </div>
    </div>
-   </main>
+   
 
-   <main>
     <div id="courses" class="pageSection">
-      
+
    <h2 style="padding-justify:18px;font-size:2em">My courses</h2>
   
    <article style="display:flex;align-items:center;gap:10px;">
