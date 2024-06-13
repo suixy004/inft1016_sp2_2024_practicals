@@ -163,7 +163,11 @@ a:hover[data-theme="dark"]{
     <header style="font-size:150%; text-align:center; color:var(--c-green);background-color: var(--c-background-highlights);">
       <h1>My first year at University</h1>
       <button id="theme-toggle" style="width:150px;height:35px;font-size:0.79em;text-align:center;margin-top: 10px;">Toggle Theme</button>
-      <div id="time"></div>
+      <div id="time-container">
+        <h2>Current Date and Time</h2>
+        <p class="time" id="time-container"></p>
+      </div>
+      
 <script>
   document.getElementById('theme-toggle').addEventListener('click',function() {
         if(document.documentElement.getAttribute('data-theme') ==='dark'){
