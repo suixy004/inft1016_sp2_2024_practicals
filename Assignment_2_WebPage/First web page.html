@@ -373,12 +373,6 @@ a:hover[data-theme="dark"]{
         updateName();
       }
     }
-
-    function preserveTheme(){
-      const currentTheme=document.documentElement.getAttribute('data-theme');
-      localStorage.setItem('theme',currentTheme);
-    
-  }
     window.onload=applyThemeAndName;
   </script>
 
