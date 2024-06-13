@@ -1,249 +1,53 @@
-<!DOCTYPE html>
-<html lang="en">
+<body onload="applyThemeAndName()">
+    <div class="highlight-bar"></div>
+    <header style="font-size:150%; text-align:center; color:var(--c-green);background-color: var(--c-background-highlights);">
+        <!-- your existing header content -->
+    </header>
+    <nav>
+        <ul style="display: flex; list-style-type: none; justify-content: center;font-size:120%">
+            <li style="margin: 0 auto;"><a href="#home">Home</a></li>
+            <li style="margin: 0 auto;"><a href="#courses">Courses</a></li>
+            <li style="margin: 0 auto;"><a href="#todotasks">To Do Tasks</a></li>
+        </ul>
+        <form method="get" style="display:flex;font-size:100%;justify-content:center;padding-left: 20px;align-items: center;" onsubmit="preserveTheme()">
+            <input type="text" name="q" placeholder="Your Name" required style="width:150px;height:35px;font-size:1em;">
+            <input type="submit" value="Apply!" style="width: 150px;height:35px;font-size:1em;">
+        </form>
+    </nav>
+    <h1 id="greeting" class="greeting" style="justify-content:center;align-items: center;text-align: center;">Welcome~</h1>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My First Year at University</title>
-  <style>
-    :root {
-      --primary-font-color: rgb(59, 3, 106);
-      --secondary-font-color: rgb(149, 93, 169);
-      --emphasised-font: rgb(219, 99, 44);
+    <script>
+        function getQueryParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
 
-      --c-background-color: rgb(243, 247, 204);
-      --c-background-highlights: rgb(199, 226, 228);
+        function updateName() {
+            const userName = getQueryParameter('q');
+            if (userName) {
+                document.getElementById('greeting').textContent = `Hello, ${userName}`;
+                localStorage.setItem('user_name', userName); // Store user name in local storage
+            }
+        }
 
-      --c-red: rgb(220 50 47);
-      --c-violet: rgb(108 113 196);
-      --c-blue: rgb(38 139 210);
-      --c-cyan: rgb(42 161 152);
-      --c-green: rgb(11, 65, 5);
-    }
+        function applyThemeAndName() {
+            const storedTheme = localStorage.getItem('theme');
+            if (storedTheme) {
+                document.documentElement.setAttribute('data-theme', storedTheme);
+            }
+            const storedName = localStorage.getItem('user_name');
+            if (storedName) {
+                document.getElementById('greeting').textContent = `Hello, ${storedName}`;
+            } else {
+                updateName();
+            }
+        }
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      padding: 0;
-      margin: 0;
-      background-color: var(--c-background-color);
-      color: var(--primary-font-color);
-    }
+        function preserveTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            localStorage.setItem('theme', currentTheme); // Store current theme in local storage
+        }
 
-    header {
-      background-color: var(--c-background-highlights);
-      color: var(--primary-font-color);
-      padding: 0px;
-      margin-top: -20px;
-      margin-left: -10px;
-      margin-right: -10px;
-      display: flex;
-      justify-content: space-evenly;
-    }
-
-    .highlight-bar {
-      background-color: var(--c-background-highlights);
-      height: 10px;
-      width: 100%;
-      align-content: center;
-    }
-
-    main {
-      color: var(--primary-font-color);
-      display: flex;
-      flex-direction: column;
-      align-content: center;
-      max-width: 700px;
-      text-align: center;
-    }
-
-    text {
-      color: var(--secondary-font-color);
-    }
-
-    a {
-      color: var(--c-violet);
-    }
-
-    a:hover {
-      color: var(--c-red);
-    }
-
-    .subsection {
-      border: 3px solid;
-      color: var(--c-cyan);
-      margin: 0.93em 0.62em 0.93em 0.62em;
-      max-width: 700px;
-    }
-
-    [data-theme="dark"] {
-      --primary-font-color: rgb(227, 212, 239);
-      --secondary-font-color: rgb(177, 153, 186);
-      --emphasised-font: rgb(238, 170, 138);
-
-      --c-background-color: rgb(3, 72, 9);
-      --c-background-highlights: rgb(68, 110, 112);
-
-      --c-red: rgb(252, 140, 138);
-      --c-violet: rgb(162, 167, 253);
-      --c-blue: rgb(160, 204, 235);
-      --c-cyan: rgb(169, 240, 234);
-      --c-green: rgb(170, 220, 164);
-    }
-
-    body[data-theme="dark"] {
-      font-family: Arial, Helvetica, sans-serif;
-      padding: 0;
-      margin: 0;
-      background-color: var(--c-background-color);
-      color: var(--primary-font-color);
-    }
-
-    header[data-theme="dark"] footer[data-theme="dark"] {
-      background-color: var(--c-background-highlights);
-      color: var(--primary-font-color);
-    }
-
-    main[data-theme="dark"] {
-      color: var(--primary-font-color);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      max-width: 700px;
-      text-align: center;
-    }
-
-    text[data-theme="dark"] {
-      color: var(--c-green);
-    }
-
-    a[data-theme="dark"] {
-      color: var(--c-violet);
-    }
-
-    a:hover[data-theme="dark"] {
-      color: var(--c-red);
-    }
-
-    .subsection[data-theme="dark"] {
-      border: 5px solid;
-      color: var(--c-cyan);
-      margin: 0.93em 0.62em 0.93em 0.62em;
-      max-width: 700px;
-    }
-
-    .page-section {
-      display: none;
-    }
-
-    .page-section:target {
-      display: block;
-    }
-
-    .home:target~#home,
-    .courses:target~#courses,
-    .todotasks:target~#todotasks {
-      display: block;
-    }
-  </style>
-</head>
-
-<body>
-  <div class="highlight-bar"></div>
-  <header style="font-size:150%; text-align:center; color:var(--c-green);background-color: var(--c-background-highlights);">
-    <h1>My first year at University</h1>
-    <p id="greeting" class="greeting"></p>
-    <button id="theme-toggle" style="width:150px;height:35px;font-size:0.79em;text-align:center;margin-top: 10px;">Toggle Theme</button>
-  </header>
-
-  <nav>
-    <ul style="display: flex; list-style-type: none; justify-content: center;font-size:120%">
-      <li style="margin: 0 auto;"><a href="#home">Home</a></li>
-      <li style="margin: 0 auto;"><a href="#courses">Courses</a></li>
-      <li style="margin: 0 auto;"><a href="#todotasks">To Do Tasks</a></li>
-    </ul>
-
-    <form method="get" style="display: flex;font-size:100%;justify-content:center;padding-left: 20px;">
-      <input type="text" name="q" placeholder="Your Name" required style="width:150px;height:35px;font-size:1em;">
-      <input type="submit" value="Apply!" style="width: 150px;height:35px;font-size:1em;">
-    </form>
-  </nav>
-
-  <main id="home" class="page-section">
-    <h2>My first year</h2>
-    <p>I am an international student. It is the first time to study in a foreign country. I like the feeling of supporting and discussing lesson circumstances here.</p>
-
-    <article style="display:flex;align-items:center;gap:10px;">
-      <button id="switchButton" style="flex:1; height:40px;text-align:center;align-content:center;margin-left:30px;">
-        <h3 style="margin:0;">club</h3>
-      </button>
-
-      <aside style="flex:1;text-align:center">
-        <p><img id="displayImage" src="https://usasa.sa.edu.au/asset/Organisation/6175/EDUC%20SOCIAL%20CLUB_LOGO%20.png?thumbnail_width=200&thumbnail_height=200"
-            alt="edu club" style="display: block;margin-left: auto;margin-right: auto;width: 150px; height:150px;"></p>
-      </aside>
-    </article>
-
-    <section style="text-align:center;font-size:120%;margin:10px;">
-      <p>The <strong>Education Social Club</strong> is a great way to meet new people and make friends.</p>
-    </section>
-  </main>
-
-  <section id="courses" class="page-section">
-    <h2>My courses</h2>
-    <ul style="list-style-type:none;">
-      <li>Computer Programming 1</li>
-      <li>Computer Programming 2</li>
-      <li>Web Development</li>
-      <li>Data Structures</li>
-    </ul>
-  </section>
-
-  <section id="todotasks" class="page-section">
-    <h2>To Do Tasks</h2>
-    <ul style="list-style-type:none;">
-      <li>Finish Assignment 1</li>
-      <li>Prepare for Midterm Exam</li>
-      <li>Join the Programming Club</li>
-    </ul>
-  </section>
-
-  <script>
-    function getQueryParameter(name) {
-      const urlParams = new URLSearchParams(window.location.search);
-      return urlParams.get(name);
-    }
-
-    function updateName() {
-      const userName = getQueryParameter('q');
-      if (userName) {
-        document.getElementById('greeting').textContent = `Hello, ${userName}`;
-        localStorage.setItem('user_name', userName); // Store user name in local storage
-      }
-    }
-
-    window.onload = function () {
-      // Read theme preference from local storage
-      const storedTheme = localStorage.getItem('theme');
-      if (storedTheme) {
-        document.documentElement.setAttribute('data-theme', storedTheme);
-      }
-
-      // Read user name from local storage
-      const storedName = localStorage.getItem('user_name');
-      if (storedName) {
-        document.getElementById('greeting').textContent = `Hello, ${storedName}`;
-      } else {
-        updateName(); // If no name in local storage, check query string
-      }
-    };
-
-    document.getElementById('theme-toggle').addEventListener('click', () => {
-      const currentTheme = document.documentElement.getAttribute('data-theme');
-      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      document.documentElement.setAttribute('data-theme', newTheme);
-      localStorage.setItem('theme', newTheme); // Store new theme in local storage
-    });
-  </script>
+        window.onload = applyThemeAndName;
+    </script>
 </body>
-
-</html>
