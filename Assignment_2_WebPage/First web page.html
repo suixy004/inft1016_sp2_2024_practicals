@@ -358,6 +358,14 @@ a:hover[data-theme="dark"]{
    </div>
 
    <script>
+    function preserveName() {
+      const userNameInput = document.querySelector('input[name="q"]').value;
+      if (userNameInput) {
+        localStorage.setItem('user_name', userNameInput);
+        document.getElementById('greeting').textContent = `Hello, ${userNameInput}`;
+      }
+    }
+    
     window.onload = function () {
       const storedTheme = localStorage.getItem('theme');
       if (storedTheme) {
