@@ -225,20 +225,22 @@ a:hover[data-theme="dark"]{
            </form>
         
       </nav>
+      <h1 id="greeting" class="greeting">Welcome~</h1>
+
       <script>
         function getQueryParameter(name){
           const urlParams = new URLSearchParams(window.location.search);
-          return urlParameters.get(name);
+          return urlParams.get(name);
         }
 
         function updateName(){
           const userName = getQueryParameter('q');
           if (userName) {
-            document.getElementById('greeting').textContent='Hello,${userName}';
+            document.getElementById('greeting').textContent=`Hello,${userName}`;
             
           }
         }
-        window.onload=updateName
+        window.onload = updateName
       </script>
 
 
