@@ -37,6 +37,10 @@ header{
     align-items: center;
     justify-content:space-evenly;
 }
+.header-subsection{
+  margin-top: -20px;
+  align-items: right;
+}
 
 .highlight-bar{
   background-color:var(--c-background-highlights);
@@ -175,6 +179,7 @@ a:hover[data-theme="dark"]{
 
       
     </header>
+  <header-subsection>
     <div id="time-container">
       <h5>Current Date and Time</h5>
       <p class="time" id="time"></p>
@@ -199,7 +204,7 @@ function upDateTime(){
 setInterval(upDateTime,1000);
   upDateTime();
 </script>
-
+</header-subsection>
 <!--combine header and button at the same line-->
 
       <nav>
