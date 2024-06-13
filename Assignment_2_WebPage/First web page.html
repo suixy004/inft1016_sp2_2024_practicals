@@ -377,7 +377,12 @@ a:hover[data-theme="dark"]{
     function preserveThemeAndName(){
       const currentTheme=document.documentElement.getAttribute('data-theme');
       localStorage.setItem('theme',currentTheme);
+      
+      const userNameInput = document.querySelector('input[name="q"]').value;
+    if (userNameInput) {
+      localStorage.setItem('user_name', userNameInput);
     }
+  }
     window.onload=applyThemeAndName;
   </script>
 
