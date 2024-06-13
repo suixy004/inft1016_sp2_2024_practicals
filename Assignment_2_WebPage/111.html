@@ -309,12 +309,17 @@
     <h1>To Do List</h1>
   </header>
   <main>
-    <section id="login-section">
-      <h2>Password Required</h2>
-      <input type="password" id="password-input" placeholder="Enter Password" />
-      <button onclick="checkPassword()">Submit</button>
-      <p id="password-message"></p>
-    </section>
+    <div id="login-section">
+        <h2>Please Login</h2>
+        <input type="password" id="password-input" placeholder="Enter Password">
+        <button onclick="checkPassword()">Login</button>
+        <p id="password-message"></p>
+        <button onclick="setPassword()">Set Password</button>
+      </div>
+      
+      <div id="todo-section" style="display: none;">
+        <!-- Todo list content here -->
+      </div>
     <section id="password-section">
       <h2>Tasks</h2>
       <input type="text" id="task-input" placeholder="Add a new task" />
@@ -324,6 +329,7 @@
       <button onclick="loadTasks()">Load</button>
       <button onclick="clearTasks()">Clear</button>
     </section>
+    
   </main>
 
   <script>
