@@ -229,7 +229,7 @@ a:hover[data-theme="dark"]{
         function getQueryParameter(name){
           const urlParams = new URLSearchParams(window.location.search);
           return urlParams.get(name);
-        }
+        };
 
         function updateName(){
           const userName = getQueryParameter('q');
@@ -237,7 +237,7 @@ a:hover[data-theme="dark"]{
             document.getElementById('greeting').textContent=`Hello,${userName}`;
             
           }
-        }
+        };
 
         window.onload=function(){
           const storedTheme=localStorage.getItem('theme');
