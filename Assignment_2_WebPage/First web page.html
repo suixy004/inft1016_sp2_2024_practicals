@@ -360,7 +360,7 @@ a:hover[data-theme="dark"]{
   </main>
 
   <script>
-    function applyThemeAndName() {
+    window.onload = function() {
       const storedTheme= localStorage.getItem('theme');
     if (storedTheme){
       document.documentElement.setAttribute('data-theme',storedTheme);
@@ -374,12 +374,6 @@ a:hover[data-theme="dark"]{
       }
     }
 
-    function preserveTheme(){
-      const currentTheme = document.documentElement.getAttribute('data-theme');
-      localStorage.setItem('theme', currentTheme);
-    }
-    
-    window.onload=applyThemeAndName;
   </script>
 
 
