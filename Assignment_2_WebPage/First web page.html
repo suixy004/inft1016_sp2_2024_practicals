@@ -374,10 +374,13 @@ a:hover[data-theme="dark"]{
       }
     }
 
-    function preserveTheme(){
+    function preserveThemeAndName(){
       const currentTheme=document.documentElement.getAttribute('data-theme');
       localStorage.setItem('theme',currentTheme);
-    }
+    
+      const currentName=document.getElementById('greeting').textContent=`Hello,${storedName}`;
+      localStorage.setItem('user_name',currentName);
+  }
     window.onload=applyThemeAndName;
   </script>
 
