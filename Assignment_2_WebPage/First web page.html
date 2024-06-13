@@ -217,7 +217,7 @@ a:hover[data-theme="dark"]{
           <li style="margin: 0 auto;"><a href="#todotasks">To Do Tasks</a></li>
         </ul>
     
-           <form method="get" style="display:flex;font-size:100%;justify-content:center;padding-left: 20px;align-items: center;">
+           <form method="get" style="display:flex;font-size:100%;justify-content:center;padding-left: 20px;align-items: center;" onsubmit="preserveTheme()">
              <input type="text" name="q" placeholder="Your Name" required style="width:150px;height:35px;font-size:1em;">
              <input type="submit" value="Apply!" style="width: 150px;height:35px;font-size:1em;">
            </form>
@@ -235,7 +235,7 @@ a:hover[data-theme="dark"]{
           const userName = getQueryParameter('q');
           if (userName) {
             document.getElementById('greeting').textContent=`Hello,${userName}`;
-            
+            localStorage.setItem('user_name',userName);
           }
         }
         window.onload = updateName
@@ -374,14 +374,10 @@ a:hover[data-theme="dark"]{
       }
     }
 
-    function preserveThemeAndName(){
+    function preserveTheme(){
       const currentTheme=document.documentElement.getAttribute('data-theme');
       localStorage.setItem('theme',currentTheme);
-      
-      const userNameInput = document.querySelector('input[name="q"]').value;
-    if (userNameInput) {
-      localStorage.setItem('user_name', userNameInput);
-    }
+    
   }
     window.onload=applyThemeAndName;
   </script>
