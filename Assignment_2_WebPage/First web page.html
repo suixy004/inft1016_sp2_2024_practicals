@@ -359,6 +359,11 @@ a:hover[data-theme="dark"]{
 
   </main>
 
+  <script>
+    const storedTheme= localStorage.getItem('theme');
+    if (storedTheme)
+      document.documentElement.setAttribute('data-theme',storedTheme);
+  </script>
 
 
 </body>
