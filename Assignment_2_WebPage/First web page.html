@@ -370,6 +370,14 @@ a:hover[data-theme="dark"]{
       } else {
         updateName(); 
       }
+    }
+
+    function preserveName() {
+      const userNameInput = document.querySelector('user_name');
+      if (userNameInput) {
+        localStorage.setItem('user_name', userNameInput);
+        document.getElementById('greeting').textContent = `Hello, ${userNameInput}`;
+      }
     };
    </script>
   </main>
