@@ -184,7 +184,7 @@ a:hover[data-theme="dark"]{
         <h5>Current Date and Time</h5>
         <p class="time" id="time"></p>
       </div>
-      <button id="theme-toggle" style="width:150px;height:45px;font-size:0.79em;text-align:center;margin-top: 10px;align-items: right;" onsubmit="preserveTheme">Toggle Theme</button>
+      <button id="theme-toggle" style="width:150px;height:45px;font-size:0.79em;text-align:center;margin-top: 10px;align-items: right;" onsubmit="theme">Toggle Theme</button>
   
   <script>
   document.getElementById('theme-toggle').addEventListener('click',function() {
@@ -246,7 +246,7 @@ a:hover[data-theme="dark"]{
              document.getElementById('greeting').textContent = `Hello, ${userNameInput}`;
              }
            }
-           
+
         function preserveTheme(){
           const currentTheme=document.documentElement.getAttribute('data-theme');
           localStorage.setItem('theme',currentTheme);
