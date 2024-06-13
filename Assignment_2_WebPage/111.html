@@ -309,27 +309,27 @@
     <h1>To Do List</h1>
   </header>
   <main>
-    <div id="login-section">
-        <h2>Please Login</h2>
-        <input type="password" id="password-input" placeholder="Enter Password">
-        <button onclick="checkPassword()">Login</button>
-        <p id="password-message"></p>
-        <button onclick="setPassword()">Set Password</button>
-      </div>
-      
-      <div id="todo-section" style="display: none;">
-        <!-- Todo list content here -->
-      </div>
-    <section id="password-section">
-      <h2>Tasks</h2>
-      <input type="text" id="task-input" placeholder="Add a new task" />
-      <button onclick="addTask()">Add</button>
-      <ul id="task-list"></ul>
-      <button onclick="saveTasks()">Save</button>
-      <button onclick="loadTasks()">Load</button>
-      <button onclick="clearTasks()">Clear</button>
-    </section>
-    
+
+        <div id="login-section">
+          <h2>Please Login</h2>
+          <input type="password" id="password-input" placeholder="Enter Password">
+          <button onclick="checkPassword()">Login</button>
+          <p id="password-message"></p>
+          <button onclick="setPassword()">Set Password</button>
+        </div>
+        
+        <div id="todo-section" style="display: none;">
+          <h2>To Do List</h2>
+          <input type="text" id="task-input" placeholder="Enter Task">
+          <button onclick="addTask()">Add Task</button>
+          <ul id="task-list"></ul>
+          <button onclick="saveTasks()">Save Tasks</button>
+          <button onclick="loadTasks()">Load Tasks</button>
+          <button onclick="clearTasks()">Clear Tasks</button>
+        </div>
+        
+        <!-- Script here -->
+
   </main>
 
   <script>
