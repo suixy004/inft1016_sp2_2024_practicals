@@ -1,4 +1,53 @@
-const userNameInput = document.querySelector('input[name="q"]').value;
-    if (userNameInput) {
-      localStorage.setItem('user_name', userNameInput);
-    }
+<body onload="applyThemeAndName()">
+    <div class="highlight-bar"></div>
+    <header style="font-size:150%; text-align:center; color:var(--c-green);background-color: var(--c-background-highlights);">
+        <!-- your existing header content -->
+    </header>
+    <nav>
+        <ul style="display: flex; list-style-type: none; justify-content: center;font-size:120%">
+            <li style="margin: 0 auto;"><a href="#home">Home</a></li>
+            <li style="margin: 0 auto;"><a href="#courses">Courses</a></li>
+            <li style="margin: 0 auto;"><a href="#todotasks">To Do Tasks</a></li>
+        </ul>
+        <form method="get" style="display:flex;font-size:100%;justify-content:center;padding-left: 20px;align-items: center;" onsubmit="preserveTheme()">
+            <input type="text" name="q" placeholder="Your Name" required style="width:150px;height:35px;font-size:1em;">
+            <input type="submit" value="Apply!" style="width: 150px;height:35px;font-size:1em;">
+        </form>
+    </nav>
+    <h1 id="greeting" class="greeting" style="justify-content:center;align-items: center;text-align: center;">Welcome~</h1>
+
+    <script>
+        function getQueryParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        function updateName() {
+            const userName = getQueryParameter('q');
+            if (userName) {
+                document.getElementById('greeting').textContent = `Hello, ${userName}`;
+                localStorage.setItem('user_name', userName); // Store user name in local storage
+            }
+        }
+
+        function applyThemeAndName() {
+            const storedTheme = localStorage.getItem('theme');
+            if (storedTheme) {
+                document.documentElement.setAttribute('data-theme', storedTheme);
+            }
+            const storedName = localStorage.getItem('user_name');
+            if (storedName) {
+                document.getElementById('greeting').textContent = `Hello, ${storedName}`;
+            } else {
+                updateName();
+            }
+        }
+
+        function preserveTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            localStorage.setItem('theme', currentTheme); // Store current theme in local storage
+        }
+
+        window.onload = applyThemeAndName;
+    </script>
+</body>
