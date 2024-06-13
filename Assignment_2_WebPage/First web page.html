@@ -227,17 +227,18 @@ a:hover[data-theme="dark"]{
       </nav>
       <script>
         function getQueryParameter(name){
-          const urlParameters = new URLSearchParams(location.search);
+          const urlParams = new URLSearchParams(window.location.search);
           return urlParameters.get(name);
         }
 
         function updateName(){
           const userName = getQueryParameter('q');
-          if (document.documentElement.getAttributeNames(userName)){
+          if (userName) {
             document.getElementById('greeting').textContent='Hello,${userName}';
             
           }
         }
+        window.onload=updateName
       </script>
 
 
