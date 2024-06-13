@@ -238,7 +238,30 @@ a:hover[data-theme="dark"]{
             
           }
         }
-        window.onload = updateName
+       
+        function preserveName() {
+      const userNameInput = document.querySelector('input[name="q"]').value;
+      if (userNameInput) {
+        localStorage.setItem('user_name', userNameInput);
+        document.getElementById('greeting').textContent = `Hello, ${userNameInput}`;
+      }
+    }
+
+    window.onload = function () {
+
+      const storedTheme = localStorage.getItem('theme');
+      if (storedTheme) {
+        document.documentElement.setAttribute('data-theme', storedTheme);
+      }
+
+      // Read user name from local storage
+      const storedName = localStorage.getItem('user_name');
+      if (storedName) {
+        document.getElementById('greeting').textContent = `Hello, ${storedName}`;
+      } else {
+        updateName(); 
+      }
+    };
       </script>
 
 
@@ -358,29 +381,7 @@ a:hover[data-theme="dark"]{
    </div>
 
    <script>
-    function preserveName() {
-      const userNameInput = document.querySelector('input[name="q"]').value;
-      if (userNameInput) {
-        localStorage.setItem('user_name', userNameInput);
-        document.getElementById('greeting').textContent = `Hello, ${userNameInput}`;
-      }
-    }
 
-    window.onload = function () {
-
-      const storedTheme = localStorage.getItem('theme');
-      if (storedTheme) {
-        document.documentElement.setAttribute('data-theme', storedTheme);
-      }
-
-      // Read user name from local storage
-      const storedName = localStorage.getItem('user_name');
-      if (storedName) {
-        document.getElementById('greeting').textContent = `Hello, ${storedName}`;
-      } else {
-        updateName(); 
-      }
-    };
 
    </script>
    <p>222</p>
