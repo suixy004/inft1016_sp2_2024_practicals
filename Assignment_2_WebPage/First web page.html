@@ -145,6 +145,14 @@ a:hover[data-theme="dark"]{
 .time{
   font-size: 1.73em;
 }
+
+.time-container{
+  border:2px solid;
+  align-items: center;
+  height:2px;
+  display:flex;
+  margin:1px;
+}
 </style>
 
 <!--setting two theme font colour, size-->
@@ -165,7 +173,7 @@ a:hover[data-theme="dark"]{
       <button id="theme-toggle" style="width:150px;height:35px;font-size:0.79em;text-align:center;margin-top: 10px;">Toggle Theme</button>
       <div id="time-container">
         <h5>Current Date and Time</h5>
-        <p class="time" id="time-container"></p>
+        <p class="time" id="time"></p>
       </div>
 
 <script>
