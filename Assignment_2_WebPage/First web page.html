@@ -235,8 +235,16 @@ a:hover[data-theme="dark"]{
           const userName = getQueryParameter('q');
           if (userName) {
             document.getElementById('greeting').textContent=`Hello,${userName}`;
-            
+            localStorage.setItem('user_name', userName);
           }
+        };
+
+        function preserveName() {
+          const userNameInput = document.querySelector('input[name="q"]').value;
+         if (userNameInput) {
+           localStorage.setItem('user_name', userNameInput);
+           document.getElementById('greeting').textContent = `Hello, ${userNameInput}`;
+         }
         };
 
         window.onload=function(){
