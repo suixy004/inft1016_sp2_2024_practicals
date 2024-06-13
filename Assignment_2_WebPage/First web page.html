@@ -378,8 +378,8 @@ a:hover[data-theme="dark"]{
       const currentTheme=document.documentElement.getAttribute('data-theme');
       localStorage.setItem('theme',currentTheme);
     
-      const currentName=document.getElementById('greeting').textContent=`Hello,${storedName}`;
-      localStorage.setItem('user_name',currentName);
+      const userNameInput=document.querySelector('user_name');
+      localStorage.setItem('user_name',userNameInput);
   }
     window.onload=applyThemeAndName;
   </script>
