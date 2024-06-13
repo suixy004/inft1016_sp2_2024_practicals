@@ -360,14 +360,20 @@ a:hover[data-theme="dark"]{
   </main>
 
   <script>
-    window.onload = function{
+    function applyThemeAndName() {
       const storedTheme= localStorage.getItem('theme');
     if (storedTheme){
       document.documentElement.setAttribute('data-theme',storedTheme);
     }
 
+      const storedName =localStorage.getItem('user_name');
+      if(storedName){
+        document.getElementById('greeting').textContent=`Hello,${storedName}`;
+      } else {
+        updateName();
+      }
     }
-
+    window.onload=applyThemeAndName;
   </script>
 
 
