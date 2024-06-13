@@ -180,8 +180,8 @@ a:hover[data-theme="dark"]{
 <script>
   function upDateTime(){
     const dateElement = document.getElementById('time');
-    const currentDate = newDate();
-    dateElement.textContent = currentDate();
+    const currentDate = new Date();
+    dateElement.textContent = currentDate.toLocaleString();
   }
   setInterval(upDateTime,1000);
     upDateTime();
