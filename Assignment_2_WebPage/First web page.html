@@ -240,7 +240,7 @@ a:hover[data-theme="dark"]{
         }
 
         function preserveName() {
-          const userNameInput = document.querySelector('user_name');
+          const userNameInput = document.querySelector('input[name="q"]').value;
             if (userNameInput) {
              localStorage.setItem('user_name', userNameInput);
              document.getElementById('greeting').textContent = `Hello, ${userNameInput}`;
