@@ -177,34 +177,34 @@ a:hover[data-theme="dark"]{
     <header style="font-size:150%; text-align:center; color:var(--c-green);background-color: var(--c-background-highlights);">
       <h1>My first year at University</h1>
 
+      <div id="time-container" style="align-items: right;">
+        <h5>Current Date and Time</h5>
+        <p class="time" id="time"></p>
+      </div>
+      <button id="theme-toggle" style="width:150px;height:35px;font-size:0.79em;text-align:center;margin-top: 10px;align-items: right;">Toggle Theme</button>
+  
+  <script>
+  document.getElementById('theme-toggle').addEventListener('click',function() {
+        if(document.documentElement.getAttribute('data-theme') ==='dark'){
+          document.documentElement.setAttribute('data-theme','light');
+        }else{
+          document.documentElement.setAttribute('data-theme','dark');
+        }
+      });
+  </script>
+  <script>
+  function upDateTime(){
+    const dateElement = document.getElementById('time');
+    const currentDate = new Date();
+    dateElement.textContent = currentDate.toLocaleString();
+  }
+  setInterval(upDateTime,1000);
+    upDateTime();
+  </script>
       
     </header>
-  <header-subsection style="align-items: right;">
-    <div id="time-container">
-      <h5>Current Date and Time</h5>
-      <p class="time" id="time"></p>
-    </div>
-    <button id="theme-toggle" style="width:150px;height:35px;font-size:0.79em;text-align:center;margin-top: 10px;align-items: right;">Toggle Theme</button>
 
-<script>
-document.getElementById('theme-toggle').addEventListener('click',function() {
-      if(document.documentElement.getAttribute('data-theme') ==='dark'){
-        document.documentElement.setAttribute('data-theme','light');
-      }else{
-        document.documentElement.setAttribute('data-theme','dark');
-      }
-    });
-</script>
-<script>
-function upDateTime(){
-  const dateElement = document.getElementById('time');
-  const currentDate = new Date();
-  dateElement.textContent = currentDate.toLocaleString();
-}
-setInterval(upDateTime,1000);
-  upDateTime();
-</script>
-</header-subsection>
+  
 <!--combine header and button at the same line-->
 
       <nav>
