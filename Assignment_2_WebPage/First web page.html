@@ -167,6 +167,79 @@ a:hover[data-theme="dark"]{
   display:none;
 }
 
+*{
+  box-sizing:border-box;
+}
+
+ul{
+  margin:0;
+  padding:0;
+}
+
+ul li{
+  cursor: pointer;
+  position: relative;
+  padding:10px 10px 10px 10px;
+  background-color: var(--c-violet);
+  font-size:17px;
+  transition: 0.2s;
+}
+
+ul li:nth-child(odd){
+  background-color: var(--c-green);
+}
+
+ul li:hover{
+  background-color: var(--c-blue);
+}
+
+ul li.checked{
+  background-color: var(--primary-font-color);
+  color:var(--secondary-font-color);
+  text-decoration: line-through;
+}
+
+ul li.checked::before{
+  content:'';
+  position:absolute;
+  border-color:var(--c-green);
+  border-style: solid;
+  border-width: 0;
+  margin-top: 5px;
+  margin-left: 10;
+  height:18px;
+  width:7px;
+}
+
+.close{
+  position:absolute;
+  padding:10px 15px 10px 15px;
+}
+
+input{
+  margin:0;
+  border:none;
+  border-radius: 0;
+  width:75%;
+  float:left;
+  font-size:17px;
+}
+
+.addBtn{
+  padding:10px;
+  width:30%;
+  background-color:var(--c-background-highlights);
+  float:left;
+  text-align:center;
+  font-size:17px;
+  cursor:pointer;
+  transition:0.3s;
+  border-radius: 0;
+}
+
+.addBtn:hover{
+  background-color:var(--secondary-font-color);
+}
 </style>
 
 <!--setting two theme font colour, size-->
@@ -438,42 +511,58 @@ a:hover[data-theme="dark"]{
       }
     }
 
-    function addTasks(){
-      const taskInput=document.getElementById('task-input').value.trim();
-      if(taskInput){
-        const taskList=document.getElementById('task-list');
-        const li=document.createElement('li');
-        li.innerHTML =`<input type="checkbox"><span>${taskInput}</span>`;
-        taskList.appendChild(li);
-        document.getElementById('task-input').value='';
-        saveTasks();
+    var myNodelist = document.getElementsByTagName("LI");
+    var i;
+    for (i = 0; i < myNodelist.length; i++) {
+      var span = document.createElement("SPAN");
+      var txt = document.createTextNode("\u00D7");
+      span.className = "close";
+      span.appendChild(txt);
+      myNodelist[i].appendChild(span);
+    }
+    
+    var close = document.getElementsByClassName("close");
+    var i;
+    for (i = 0; i < close.length; i++) {
+      close[i].onclick = function() {
+        var div = this.parentElement;
+        div.style.display = "none";
       }
     }
 
-    function loadTasks(){
-      const tasks=JSON.parse(localStorage.getItem('tasks')) ||[];
-      const taskList = document.getElementById('task-list');
-      taskList.innerHTML='';
-      tasks.map(task=>{
-        const li=document.createElement('li');
-        li.innerHTML=`
-          <input type="checkbox" onchange="saveTasks()"><span>${task}</span>
-          taskList.appendChild(li);
-      `});
-    }
+    var list = document.querySelector('ul');
+    list.addEventListener('click', function(ev) {
+      if (ev.target.tagName === 'LI') {
+        ev.target.classList.toggle('checked');
+      }
+    }, false);
 
-    function saveTasks(){
-      const tasks=Array.from(document.querySelectorAll('#task-list.li')).map(li=>({
-        text:li.querySelector('span').textContent,
-        checked:li.querySelector('input[type="checkbox"]').checked
-      }));
-      localStorage.setItem('task',JSON.stringify(tasks));
-    }
+    function newElement() {
+      var li = document.createElement("li");
+      var inputValue = document.getElementById("myInput").value;
+      var t = document.createTextNode(inputValue);
+      li.appendChild(t);
+      if (inputValue === '') {
+        alert("You need write something!");
+      } else {
+      document.getElementById("myUL").appendChild(li);
+      }
+      document.getElementById("myInput").value = "";
 
-    function clearTasks(){
-      document.getElementById('task-list').innerHTML='';
-      localStorage.removeItem('tasks');
+      var span = document.createElement("SPAN");
+      var txt = document.createTextNode("\u00D7");
+      span.className = "close";
+      span.appendChild(txt);
+      li.appendChild(span);
+
+      for (i = 0; i < close.length; i++) {
+        close[i].onclick = function() {
+          var div = this.parentElement;
+          div.style.display = "none";
+        }
+      }
     }
+    
   </script>
 
      
