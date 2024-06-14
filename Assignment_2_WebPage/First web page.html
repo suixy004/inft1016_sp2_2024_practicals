@@ -394,8 +394,9 @@ a:hover[data-theme="dark"]{
 
 
   <main id="todotasks" class="page-section">
+    <div id="DIV" class="header">
     <h2 style="padding-left:18px;font: size 1.73em">To Do Tasks</h2>
-    <div id="login">
+      
       <h3>Set Your Password</h3>
       <button onclick="setPassword()">Set Password</button>
 
@@ -457,7 +458,7 @@ a:hover[data-theme="dark"]{
       tasks.map(task=>{
         const li=document.createElement('li');
         li.innerHTML=`
-          <input type="checkbox" onchange="saveTasks()"><span>${taskInput}</span>
+          <input type="checkbox" onchange="saveTasks()"><span>${taskText}</span>
           taskList.appendChild(li);
       `});
     }
