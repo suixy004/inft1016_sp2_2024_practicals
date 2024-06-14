@@ -406,8 +406,7 @@ a:hover[data-theme="dark"]{
       <ul id="taskList"></ul>
       <button onclick="addTasks()">Add Tasks</button>
       <button onclick="saveTasks()">Save Tasks</button>
-      <button onclick="finishTasks()">Finish Tasks</button>
-      <button onclick="deleteTasks()">Delete Tasks</button>
+      <button onclick="removeTasks()">Delete Tasks</button>
     </div>
 
   <script>
@@ -432,7 +431,28 @@ a:hover[data-theme="dark"]{
       }
     }
 
+    function addTasks(){
+      const taskInput=document.getElementById('task-input').value.trim();
+      const taskList=document.getElementById('task-list');
+      if(taskValue){
+        const li=document.createElement('li');
+        li.taskName='tasks';
+        taskList.appendChild(li);
+        document.getElementById('task-input').value='';
+        saveTasks();
+      }
+    }
 
+    function saveTasks(){
+      const tasks=Array.from(document.querySelectorAll('#task-list.li'));
+      localStorage.setItem('task');
+    }
+
+    function clearTasks(){
+      document.getElementById('task-list').innerHTML='';
+      localStorage.removeItem('tasks');
+    }
+    
   </script>
 
      
