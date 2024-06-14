@@ -453,12 +453,23 @@ a:hover[data-theme="dark"]{
       }
     }
 
+    function loadTasks(){
+      const tasks=JSON.parse(localStorage.getItem('tasks'));
+      const taskList = document.getElementById('task-list');
+      taskList.innerHTML=tasks.map(task=>`
+        <ul>
+          <input type="checkbox" ${tasks} onchange="saveTasks()">
+          <span>${taskInput}</span>
+        </ul>
+      `)
+    }
+    
     function saveTasks(){
       const tasks=Array.from(document.querySelectorAll('#task-list.li')).map(li=>({
         text:li.querySelector('span').textContent,
         checked:li.querySelector('input[type="checkbox"]').checked
       }));
-      localStorage.setItem('task');
+      localStorage.setItem('task',JSON.stringify(tasks));
     }
 
     function clearTasks(){
