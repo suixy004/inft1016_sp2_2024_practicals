@@ -403,26 +403,16 @@ a:hover[data-theme="dark"]{
 
     <div id="password"  style="align-items: center;justify-content: center;">
       <input type="text" name="tasks" placeholder="Add a new task">
-      <button onclick="addTask">Add</button>
-
-
-
-      <input type="text" name="q" placeholder="Your Name" required style="width:150px;height:35px;font-size:1em;">
-             <input type="submit" value="Apply!" style="width: 150px;height:35px;font-size:1em;">
-        
-        
-      <h3 style="padding-top:2px">Maths</h3>
- 
-      <p>Two courses in maths this semester, which are Discrete maths and Statistical methods.</p>
-      <p>I really like these courses that require logical and analysis abilities.</p>
+      <ul id="taskList"></ul>
+      <button onclick="addTasks()">Add Tasks</button>
+      <button onclick="saveTasks()">Save Tasks</button>
+      <button onclick="finishTasks()">Finish Tasks</button>
+      <button onclick="deleteTasks()">Delete Tasks</button>
     </div>
-      
-    <div class="subsection" style="align-items: center;justify-content: center;">
-      <h3 style="padding-top:2px">Digital Technology</h3>
- 
-      <p>There were two main content we learned.</p>
-      <p>Excel dashboard and building webpage by learning CSS, Javascript, HTML.</p>
-    </div>
+
+
+
+     
  
  
    </main>
