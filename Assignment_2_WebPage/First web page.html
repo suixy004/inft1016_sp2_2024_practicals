@@ -412,6 +412,14 @@ a:hover[data-theme="dark"]{
 
   <script>
     let password='myPassword';
+    function setPassword(){
+      const newPassword = prompt('Enter New Password.');
+      if(newPassword){
+        password=newPassword;
+        alert('Password Set Successfully');
+      }
+    }
+    
     function checkPassword(){
       const setPassword=document.getElementById('password-input').value;
       if (passwordInput===setPassword){
@@ -420,9 +428,11 @@ a:hover[data-theme="dark"]{
         loadTasks();
       } else {
         document.getElementById('passwordInfo').textContent = 'Incorrect password. Please try again.';
-        
+
       }
     }
+
+
   </script>
 
      
