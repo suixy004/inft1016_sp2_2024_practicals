@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ToDo List</title>
+</head>
+<body>
+  <div id="login-section">
+    <h2>Set Your Password</h2>
+    <button onclick="setPassword()">Set Password</button>
+    
+    <h2>Enter Password to Access To-Do List</h2>
+    <input type="password" id="password-input" placeholder="Enter Password">
+    <button onclick="checkPassword()">Submit</button>
+    <p id="password-message"></p>
+  </div>
+
+  <div id="todo-section" style="display: none;">
+    <h2>To-Do List</h2>
+    <input type="text" id="task-input" placeholder="New Task">
+    <button onclick="addTask()">Add Task</button>
+    <ul id="task-list"></ul>
+    <button onclick="clearTasks()">Clear Tasks</button>
+  </div>
+
+  <script>
+    let correctPassword = localStorage.getItem('password');
+
+    function setPassword() {
+      const newPassword = prompt('Please set a password:');
+      if (newPassword) {
+        correctPassword = newPassword;
+        localStorage.setItem('password', correctPassword);
+        alert('Password set successfully');
+      }
+    }
+
+    function checkPassword() {
+      const passwordInput = document.getElementById('password-input').value;
+      if (passwordInput === correctPassword) {
+        document.getElementById('login-section').style.display = 'none';
+        document.getElementById('todo-section').style.display = 'block';
+        loadTasks();
+      } else {
+        document.getElementById('password-message').textContent = 'Incorrect password. Please try again.';
+      }
+    }
+
+    function addTask() {
+      const taskInput = document.getElementById('task-input').value.trim();
+      if (taskInput) {
+        const taskList = document.getElementById('task-list');
+        const li = document.createElement('li');
+        li.innerHTML = `<input type="checkbox" onchange="saveTasks()">
+                        <span>${taskInput}</span>
+                        <button onclick="removeTask(this)">Remove</button>`;
+        taskList.appendChild(li);
+        document.getElementById('task-input').value = '';
+        saveTasks();
+      }
+    }
+
+    function removeTask(button) {
+      const li = button.parentElement;
+      li.remove();
+      saveTasks();
+    }
+
+    function saveTasks() {
+      const tasks = Array.from(document.querySelectorAll('#task-list li')).map(li => ({
+        text: li.querySelector('span').textContent,
+        checked: li.querySelector('input[type="checkbox"]').checked
+      }));
+      localStorage.setItem('tasks', JSON.stringify(tasks));
+    }
+
+    function loadTasks() {
+      const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+      const taskList = document.getElementById('task-list');
+      taskList.innerHTML = '';
+      tasks.forEach(task => {
+        const li = document.createElement('li');
+        li.innerHTML = `<input type="checkbox" ${task.checked ? 'checked' : ''} onchange="saveTasks()">
+                        <span>${task.text}</span>
+                        <button onclick="removeTask(this)">Remove</button>`;
+        taskList.appendChild(li);
+      });
+    }
+
+    function clearTasks() {
+      document.getElementById('task-list').innerHTML = '';
+      localStorage.removeItem('tasks');
+    }
+  </script>
+</body>
+</html>
