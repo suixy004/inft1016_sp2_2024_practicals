@@ -496,7 +496,7 @@ input [todoList]{
     </div>
 
     <div id="todotasks-section" style="align-items: center;justify-content: center;display:none;">
-      <input type="text" id="myInput" placeholder="Title...">
+      <input type="text" id="task-input" placeholder="Title...">
       <button onclick="addTasks()" class="addBtn" todolist>Add a new task</button>
 
       <ul id="task-list" todoList>
@@ -547,7 +547,7 @@ input [todoList]{
       if(taskInput){
         const taskList=document.getElementById('task-list');
         const li=document.createElement('li');
-        li.innerHTML =`<input type="checkbox" onchange="saveTasks()"><span>${taskInput}</span>`;
+        li.innerHTML =`<input type="checkbox" onchange="saveTasks()"><span>${taskInput}</span><span class="close" onclick="removeTask(this)">x</span>`;
         taskList.appendChild(li);
         document.getElementById('task-input').value='';
         saveTasks();
@@ -560,10 +560,9 @@ input [todoList]{
       taskList.innerHTML='';
       tasks.forEach(task=>{
         const li=document.createElement('li');
-        li.innerHTML=`
-          <input type="checkbox" onchange="saveTasks()" ${task.checked? 'checked':''}><span>${task.text}</span>
-          taskList.appendChild(li);
-      `});
+        li.innerHTML=`<input type="checkbox" onchange="saveTasks()" ${task.checked? 'checked':''}><span>${task.text}</span>span class="close" onclick="removeTask(this)">x</span>`;
+        taskList.appendChild(li);
+      });
     }
 
     function saveTasks(){
@@ -580,7 +579,8 @@ input [todoList]{
     }
 
     function removeTask(element){
-      element.parentElement.style.display = 'none';
+      element.parentElement.remove;
+      saveTasks;
     }
 
     document.addEventListener('DOMContentLoaded',loadTasks);
