@@ -501,13 +501,14 @@ input [todoList]{
       <h3>TO-DO-TASKS</h3>
       <input type="text" id="myInput" placeholder="Title...">
       <span onclick="newElement()" class="addBtn" todolist>Add a new task</span>
-    </div>
+
       <ul id="task-list" todoList>
         <li>Loss weight <span class="close" onclick="removeTask(this)">x</span></li>
         <li>Improve English speaking <span class="close" onclick="removeTask(this)">x</span></li>
         <li class="checked">Finish assignments <span class="close" onclick="removeTask(this)">x</span></li>
       </ul>
       <button onclick="clearTasks()">Clear All Tasks</button>
+    </div>
     </main>
 
   <script>
