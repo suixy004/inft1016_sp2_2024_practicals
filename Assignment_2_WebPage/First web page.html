@@ -454,11 +454,11 @@ a:hover[data-theme="dark"]{
     }
 
     function saveTasks(){
-      const tasks=Array.from(document.querySelectorAll('#task-list.li')).map({
+      const tasks=Array.from(document.querySelectorAll('#task-list.li')).map(li=>({
         text:li.querySelector('span').textContent,
         checked:li.querySelector('input[type="checkbox"]').checked
-      });
-      localStorage.setItem('task');
+      }));
+      localStorage.setItem('task',JSON.stringify(tasks));
     }
 
     function clearTasks(){
