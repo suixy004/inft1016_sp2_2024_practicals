@@ -443,9 +443,7 @@ a:hover[data-theme="dark"]{
       if(taskInput){
         const taskList=document.getElementById('task-list');
         const li=document.createElement('li');
-        li.innerHTML =`<input type="checkbox" onchange="saveTasks()">
-                        <span>${taskInput}</span>
-                        <button onclick="removeTasks(this)">Remove</button>`;
+        li.innerHTML =`<input type="checkbox"><span>${taskInput}</span>`;
         taskList.appendChild(li);
         document.getElementById('task-input').value='';
         saveTasks();
@@ -453,14 +451,18 @@ a:hover[data-theme="dark"]{
     }
 
     function loadTasks(){
-      const tasks=JSON.parse(localStorage.getItem('tasks'));
+      const tasks=JSON.parse(localStorage.getItem('tasks')) ||[];
       const taskList = document.getElementById('task-list');
-      taskList.innerHTML=tasks.map(task=>`
+      taskList.innerHTML='';
+      tasks.map(task=>{
+        const li=document.createElement('li');
+        li.innerHTML=`
         <ul>
           <input type="checkbox" ${tasks} onchange="saveTasks()">
           <span>${taskInput}</span>
         </ul>
-      `)
+        taskList.appendChild(li);
+      `});
     }
 
     function saveTasks(){
