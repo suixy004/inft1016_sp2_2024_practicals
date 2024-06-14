@@ -405,14 +405,14 @@ a:hover[data-theme="dark"]{
       <p id="password-input"></p>
     </div>
 
-    <div id="todotasks-section" style="align-items: center;justify-content: center;display:none;">
+    <div id="myDIV" style="align-items: center;justify-content: center;display:none;">
       <h3>TO-DO-TASKS</h3>
-      <input type="text" name="tasks" placeholder="Add a new task">
-      <ul id="taskList"></ul>
-      <button onclick="addTasks()">Add Tasks</button>
-      <button onclick="saveTasks()">Save Tasks</button>
-      <button onclick="removeTasks()">Delete Tasks</button>
-      <ul id="task-list"></ul>
+      <input type="text" id="myInput" placeholder="Title...">
+      <span onclick="newElement()" class="addBtn">Add a new task</span>
+      <ul id="myUL">
+        <li>Loss weight</li>
+        <li class="checked">Improve English speaking</li>
+      </ul>
     </div>
 
   <script>
