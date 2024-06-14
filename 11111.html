@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -138,8 +139,8 @@ a:hover[data-theme="dark"]{
   display:block;
 }
 
-.home:target~#home,
-.courses:target~#courses,
+.home:targe~#home,
+.courses:targe~#courses,
 .todotasks:target~#todotasks {
   display:block;
 }
@@ -227,7 +228,7 @@ ul li.checked::before[todoList]{
   color: var(--secondary-font-color);
 }
 
-input[todoList]{
+input [todoList]{
   margin: 0;
   border: none;
   border-radius: 0;
@@ -239,7 +240,7 @@ input[todoList]{
 }
 
 
-.addBtn[todoList]{
+.addBtn [todoList]{
   padding: 10px;
   width: 25%;
   background-color: var(--c-cyan);
@@ -252,7 +253,7 @@ input[todoList]{
   border-radius: 0;
 }
 
-.addBtn:hover[todoList]{
+.addBtn:hover [todoList]{
   background-color:var(--secondary-font-color);
 }
 
@@ -287,28 +288,7 @@ input[todoList]{
         }else{
           document.documentElement.setAttribute('data-theme','dark');
         }
-        preserveTheme();
       });
-
-      function preserveTheme(){
-          const currentTheme=document.documentElement.getAttribute('data-theme');
-          localStorage.setItem('theme',currentTheme);
-      }
-
-      window.onload = function () {
-          const storedTheme = localStorage.getItem('theme');
-          if (storedTheme) {
-              document.documentElement.setAttribute('data-theme', storedTheme);
-          }
-
-          const storedName = localStorage.getItem('user_name');
-          if (storedName) {
-              document.getElementById('greeting').textContent = `Hello, ${storedName}`;
-          } else {
-              updateName(); 
-          }
-      };
-
   </script>
   <script>
   function upDateTime(){
@@ -319,125 +299,288 @@ input[todoList]{
   setInterval(upDateTime,1000);
     upDateTime();
   </script>
+      
+    </header>
 
-</header>
+  
+<!--combine header and button at the same line-->
 
-    <nav style="align-items: center;">
-      <ul style="list-style: none;display:flex;align-items:center; justify-content:space-evenly; color:var(--primary-font-color);">
-        <li style="margin-right: 5px;">
-          <a href="#home">Home</a>
-        </li>
-        <li style="margin-right: 5px;">
-          <a href="#courses">Courses</a>
-        </li>
-        <li style="margin-right: 5px;">
-          <a href="#todotasks">To-Do Tasks</a>
-        </li>
+      <nav>
+        <ul style="display: flex; list-style-type: none; justify-content: center;font-size:120%">
+          <li style="margin: 0 auto;"><a href="#home">Home</a></li>
+          <li style="margin: 0 auto;"><a href="#courses">Courses</a></li>
+          <li style="margin: 0 auto;"><a href="#todotasks">To Do Tasks</a></li>
+        </ul>
+    
+           <form method="get" style="display:flex;font-size:100%;justify-content:center;padding-left: 20px;align-items: center;" onsubmit="preserveName()">
+             <input type="text" name="q" placeholder="Your Name" required style="width:150px;height:35px;font-size:1em;">
+             <input type="submit" value="Apply!" style="width: 150px;height:35px;font-size:1em;">
+           </form>
+        
+      </nav>
+      <h1 id="greeting" class="greeting" style="justify-content:center;align-items: center;text-align: center;">Welcome~</h1>
+
+      <script>
+        function getQueryParameter(name){
+          const urlParams = new URLSearchParams(window.location.search);
+          return urlParams.get(name);
+        }
+
+        function updateName(){
+          const userName = getQueryParameter('q');
+          if (userName) {
+            document.getElementById('greeting').textContent=`Hello,${userName}`;
+            
+          }
+        }
+
+        function preserveName() {
+          const userNameInput = document.querySelector('input[name="q"]').value;
+            if (userNameInput) {
+             localStorage.setItem('user_name', userNameInput);
+             document.getElementById('greeting').textContent = `Hello, ${userNameInput}`;
+             }
+           }
+
+        function preserveTheme(){
+          const currentTheme=document.documentElement.getAttribute('data-theme');
+          localStorage.setItem('theme',currentTheme);
+        }
+
+         window.onload = function () {
+          const storedTheme = localStorage.getItem('theme');
+           if (storedTheme) {
+           document.documentElement.setAttribute('data-theme', storedTheme);
+           }
+
+      
+          const storedName = localStorage.getItem('user_name');
+           if (storedName) {
+           document.getElementById('greeting').textContent = `Hello, ${storedName}`;
+           } else {
+            updateName(); 
+            }
+          };
+      </script>
+
+
+    <!--/*this is the title of the whole page
+    and the button of different pages
+  -->
+
+  <main id="home" class="page-section" style="justify-content:center;align-items: center;text-align: center;";>
+
+    <h2 style="padding-left:18px">My at first year</h2>
+      <p style="padding-left:18px">I am an international student. it is the first time to study in a foreign country. I like the feeling of supporting and discussing lesson circumstances in here</p>
+
+
+      <article style="display:flex;align-items:center;gap:10px;">
+
+        <button id="switchButton" style="flex:1; height:40px;text-align:center;align-content:center;margin-left:30px;">
+        <h3 style="margin:0;">club</h3>
+        </button>
+
+        <aside style="flex:1;text-align:center">
+         <p><img id="displayImage" src="https://usasa.sa.edu.au/asset/Organisation/6175/EDUC%20SOCIAL%20CLUB_LOGO%20.png?thumbnail_width=200&thumbnail_height=200&resize_type=ResizeFitAll" border="0"></p>
+         </aside>  
+
+        <aside style="flex:3;">
+          <p id="imageInfo">"Education Social Club, click link to visit <a href="https://usasa.sa.edu.au/clubs/join/education/">https://usasa.sa.edu.au/clubs/join/education/</a></p>
+        </aside>
+      </article>
+
+      <script>
+        let isClubImageDisplayed = true;
+        document.getElementById('switchButton').addEventListener('click', toggleImageAndInfo);
+        function toggleImageAndInfo() {
+          const ImageElement = document.getElementById('displayImage');
+          const InfoElement = document.getElementById('imageInfo');
+    
+          if (isClubImageDisplayed) {
+            ImageElement.src = 'https://usasa.sa.edu.au/asset/Organisation/6175/EDUC%20SOCIAL%20CLUB_LOGO%20.png?thumbnail_width=200&thumbnail_height=200&resize_type=ResizeFitAll';
+            ImageElement.alt = 'education';
+            InfoElement.innerHTML = 'Education Social Club, click link to visit <a href="https://usasa.sa.edu.au/clubs/join/education/">https://usasa.sa.edu.au/clubs/join/education/</a>';
+          } else {
+            ImageElement.src = 'https://usasa.sa.edu.au/stylesheet/USASA/logousasa.svg';
+            ImageElement.alt = 'USASA';
+            InfoElement.innerHTML = ' click link to visit <a href="https://usasa.sa.edu.au/financialwellbeing">https://usasa.sa.edu.au/financialwellbeing</a>';
+          }
+          isClubImageDisplayed = !isClubImageDisplayed;
+        }
+    
+      </script>
+
+      <div class="subsection"  style="align-items: center;justify-content: center;">
+        <h3 style="padding-top:2px;align-items: center;justify-content: center;">learning support</h3>
+        <p>There are many learning support for us, which in online and in-person way.</p>
+        <p>I really like the way setting in the learnonline website. many questions can be solved through the learning instructions. I really like transferring from seeking solutions from teachers all the time to researching online and thinking by myself</p>
+      </div>
+        
+      <div class="subsection"  style="align-items: center;justify-content: center;">
+        <h3 style="padding-top:2px;align-items: center;justify-content: center;">learning in campus</h3>
+
+        <p>There are many natural spaces, leisure areas in the Mawson Lakes campus.</p>
+        <p>so many lovely students.</p>
+      </div>
+  </main>
+
+
+  <main id="courses" class="page-section">
+
+   <h2 style="padding-left:18px;font: size 1.73em">My courses</h2>
+  
+   <article style="display:flex;align-items:center;gap:10px;">
+
+     <button id="backButton1" style="flex:1; height:40px;text-align:center;align-content:center;margin-left:30px;">
+       <h3 style="margin:0;">Aboriginal</h3>
+     </button>
+     
+   <aside style="flex:1;text-align:center">
+     <p><img id="displayImage1" src="https://www.unisa.edu.au/siteassets/about-unisa/aboriginal-engagement/images/ralogo1.png" border="0"></p>
+   </aside>  
+
+   <aside style="flex:3;">
+     <p id="imageInfo1">"Reconciliation Week, click link to visit <a href="https://www.unisa.edu.au/about-unisa/aboriginal-engagement/reconciliation-at-unisa/">https://www.unisa.edu.au/about-unisa/aboriginal-engagement/reconciliation-at-unisa/</a></p>
+   </aside>
+   </article>
+
+   <script>
+    let isAboriginalImageDisplayed = true;
+    document.getElementById('backButton1').addEventListener('click', toggleImageAndInfo1);
+    function toggleImageAndInfo1() {
+      const ImageElement = document.getElementById('displayImage1');
+      const InfoElement = document.getElementById('imageInfo1');
+
+      if (isAboriginalImageDisplayed) {
+        ImageElement.src = 'https://www.unisa.edu.au/siteassets/about-unisa/aboriginal-engagement/images/ralogo1.png';
+        ImageElement.alt = 'Aboriginal';
+        InfoElement.innerHTML = 'Reconciliation Week, click link to visit <a href="https://www.unisa.edu.au/about-unisa/aboriginal-engagement/reconciliation-at-unisa/">https://www.unisa.edu.au/about-unisa/aboriginal-engagement/reconciliation-at-unisa/</a>';
+      } else {
+        ImageElement.src = 'https://www.unisa.edu.au/siteassets/home/images/kaurna-2018-64px.png';
+        ImageElement.alt = 'Aboriginal engagement';
+        InfoElement.innerHTML = ' click link to visit <a href="https://www.unisa.edu.au/about-unisa/aboriginal-engagement/">https://www.unisa.edu.au/about-unisa/aboriginal-engagement/</a>';
+      }
+      isAboriginalImageDisplayed = !isAboriginalImageDisplayed;
+    }
+
+  </script>
+
+   <div class="subsection"  style="align-items: center;justify-content: center;">
+     <h3 style="padding-top:2px">Maths</h3>
+
+     <p>Two courses in maths this semester, which are Discrete maths and Statistical methods.</p>
+     <p>I really like these courses that require logical and analysis abilities.</p>
+   </div>
+     
+   <div class="subsection" style="align-items: center;justify-content: center;">
+     <h3 style="padding-top:2px">Digital Technology</h3>
+
+     <p>There were two main content we learned.</p>
+     <p>Excel dashboard and building webpage by learning CSS, Javascript, HTML.</p>
+   </div>
+
+
+  </main>
+
+
+  <main id="todotasks" class="page-section todotasks">
+    <h2 style="padding-left:18px;font: size 1.73em">To Do Tasks</h2>
+    <p>Here you can manage your tasks.</p>
+    <div id="password-section">
+
+      <h3>Enter Password to Access TO-DO-TASKS</h3>
+      <label for="password-input">Enter Password:</label>
+      <input type="password" id="password-input">
+      <button onclick="checkPassword()" style="width:150px;height:45px;font-size:0.79em;text-align:center;margin-top: 10px;align-items: right;">Submit</button>
+      <p id="password-message"></p>
+    </div>
+
+    <div id="todotasks-section" style="align-items: center;justify-content: center;display:none;">
+      <input type="text" id="task-input" placeholder="Title...">
+      <button onclick="addTasks()" class="addBtn" todolist>Add a new task</button>
+
+      <ul id="task-list" todoList>
+        <li>Loss weight <span class="close" onclick="removeTask(this)">x</span></li>
+        <li>Improve English speaking <span class="close" onclick="removeTask(this)">x</span></li>
+        <li class="checked">Finish assignments <span class="close" onclick="removeTask(this)">x</span></li>
       </ul>
-    </nav>
-
-    <main>
-      <section class="page-section home default-page" id="home">
-        <h2>Welcome to My First Year at University!</h2>
-        <p>This is the home page. You can navigate to other sections using the links above.</p>
-        <div>
-          <label for="name-input">Enter your name:</label>
-          <input type="text" id="name-input">
-          <button onclick="updateName()">Save Name</button>
-        </div>
-        <p class="greeting" id="greeting"></p>
-      </section>
-      
-      <section class="page-section courses" id="courses">
-        <h2>Courses</h2>
-        <p>This is the Courses page. Here you will find information about the courses you are taking.</p>
-      </section>
-      
-      <section class="page-section todotasks" id="todotasks">
-        <h2>To-Do Tasks</h2>
-        <p>This is the To-Do Tasks page. Here you can manage your tasks.</p>
-        
-        <!-- Password input section -->
-        <div id="password-section">
-          <label for="password">Enter Password:</label>
-          <input type="password" id="password">
-          <button onclick="checkPassword()">Submit</button>
-        </div>
-        
-        <!-- Task list section -->
-        <div id="tasks-section" style="display: none;">
-          <h2>My To Do List</h2>
-          <input type="text" id="myInput" placeholder="Title...">
-          <span onclick="newElement()" class="addBtn" todoList>Add</span>
-          
-          <ul id="myUL" todoList></ul>
-        </div>
-        
-        <script>
-          let correctPassword = "12345";
-          
-          function checkPassword() {
-            let enteredPassword = document.getElementById("password").value;
-            if (enteredPassword === correctPassword) {
-              document.getElementById("password-section").style.display = "none";
-              document.getElementById("tasks-section").style.display = "block";
-            } else {
-              alert("Incorrect Password");
-            }
-          }
-          
-          let myNodelist = document.getElementsByTagName("LI");
-          for (let i = 0; i < myNodelist.length; i++) {
-            let span = document.createElement("SPAN");
-            let txt = document.createTextNode("\u00D7");
-            span.className = "close";
-            span.appendChild(txt);
-            myNodelist[i].appendChild(span);
-          }
-
-          let close = document.getElementsByClassName("close");
-          for (let i = 0; i < close.length; i++) {
-            close[i].onclick = function() {
-              let div = this.parentElement;
-              div.style.display = "none";
-            }
-          }
-
-          let list = document.querySelector('ul');
-          list.addEventListener('click', function(ev) {
-            if (ev.target.tagName === 'LI') {
-              ev.target.classList.toggle('checked');
-            }
-          }, false);
-
-          function newElement() {
-            let li = document.createElement("li");
-            let inputValue = document.getElementById("myInput").value;
-            let t = document.createTextNode(inputValue);
-            li.appendChild(t);
-            if (inputValue === '') {
-              alert("You must write something!");
-            } else {
-              document.getElementById("myUL").appendChild(li);
-            }
-            document.getElementById("myInput").value = "";
-
-            let span = document.createElement("SPAN");
-            let txt = document.createTextNode("\u00D7");
-            span.className = "close";
-            span.appendChild(txt);
-            li.appendChild(span);
-
-            for (let i = 0; i < close.length; i++) {
-              close[i].onclick = function() {
-                let div = this.parentElement;
-                div.style.display = "none";
-              }
-            }
-          }
-        </script>
-      </section>
+      <button onclick="clearTasks()">Clear All Tasks</button>
+    </div>
     </main>
+
+
+  <script>
+        let correctPassword = localStorage.getItem('password') || '';
+
+        window.onload = function () {
+            if (!correctPassword) {
+                setPassword();
+            } else {
+                document.getElementById('password-section').style.display = 'block';
+                document.getElementById('tasks-section').style.display = 'none';
+            }
+        };
+
+        function setPassword() {
+            const newPassword = prompt('Enter New Password.');
+            if (newPassword) {
+                correctPassword = newPassword;
+                localStorage.setItem('password', correctPassword);
+                alert('Password Set Successfully');
+                document.getElementById('password-section').style.display = 'block';
+                document.getElementById('tasks-section').style.display = 'none';
+            }
+        }
+
+        function checkPassword() {
+            let passwordInput = document.getElementById('password-input').value;
+            if (passwordInput === correctPassword) {
+                document.getElementById('password-section').style.display = 'none';
+                document.getElementById('tasks-section').style.display = 'block';
+            } else {
+                alert('Incorrect password! Please try again.');
+            }
+        }
+
+        function addTasks() {
+            const taskInput = document.getElementById('task-input').value.trim();
+            if (taskInput) {
+                const taskList = document.getElementById('task-list');
+                const li = document.createElement('li');
+                li.innerHTML = `<input type="checkbox" onchange="saveTasks()"><span>${taskInput}</span>`;
+                taskList.appendChild(li);
+                document.getElementById('task-input').value = '';
+                saveTasks();
+            }
+        }
+
+        function loadTasks() {
+            const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+            const taskList = document.getElementById('task-list');
+            taskList.innerHTML = '';
+            tasks.forEach(task => {
+                const li = document.createElement('li');
+                li.innerHTML = `<input type="checkbox" onchange="saveTasks()" ${task.checked ? 'checked' : ''}><span>${task.text}</span>`;
+                taskList.appendChild(li);
+            });
+        }
+
+        function saveTasks() {
+            const tasks = Array.from(document.querySelectorAll('#task-list li')).map(li => ({
+                text: li.querySelector('span').textContent,
+                checked: li.querySelector('input[type="checkbox"]').checked
+            }));
+            localStorage.setItem('tasks', JSON.stringify(tasks));
+        }
+
+        function clearTasks() {
+            document.getElementById('task-list').innerHTML = '';
+            localStorage.removeItem('tasks');
+        }
+
+        document.addEventListener('DOMContentLoaded', loadTasks);
+    </script>
+     
+
 </body>
 </html>
-
