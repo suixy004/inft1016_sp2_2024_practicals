@@ -486,13 +486,14 @@ input [todoList]{
   <main id="todotasks" class="page-section todotasks">
     <h2 style="padding-left:18px;font: size 1.73em">To Do Tasks</h2>
     <p>Here you can manage your tasks.</p>
-    <div id="password-section">
+    <div id="password-section" class="password-section">
 
-      <h3>Enter Password to Access TO-DO-TASKS</h3>
-      <label for="password-input">Enter Password:</label>
-      <input type="password" id="password-input">
-      <button onclick="checkPassword()" style="width:150px;height:45px;font-size:0.79em;text-align:center;margin-top: 10px;align-items: right;">Submit</button>
-      <p id="password-message"></p>
+      <h3 class="greeting">Set Your Password to Access TO-DO-TASKS</h3>
+      <form id="passwordForm">
+      <label for="password">Enter Password:</label>
+      <input type="password" id="password" name="password" required>
+      <button type="submit" style="width:150px;height:45px;font-size:0.79em;text-align:center;margin-top: 10px;align-items: right;">Submit</button>
+    </form>
     </div>
 
     <div id="todotasks-section" style="align-items: center;justify-content: center;display:none;">

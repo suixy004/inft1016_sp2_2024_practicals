@@ -296,18 +296,35 @@ input[todoList]{
       }
 
       window.onload = function () {
-          const storedTheme = localStorage.getItem('theme');
-          if (storedTheme) {
-              document.documentElement.setAttribute('data-theme', storedTheme);
-          }
+        window.onload = function () {
+    if (localStorage.getItem('theme') === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+    } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+    }
 
-          const storedName = localStorage.getItem('user_name');
-          if (storedName) {
-              document.getElementById('greeting').textContent = `Hello, ${storedName}`;
-          } else {
-              updateName(); 
-          }
-      };
+    const userName = localStorage.getItem('userName');
+    const passwordSet = localStorage.getItem('passwordSet');
+
+    if (userName) {
+        document.querySelector('.greeting').textContent = `Welcome, ${userName}!`;
+        if (passwordSet) {
+            document.getElementById('home').style.display = 'block';
+        } else {
+            document.getElementById('password-section').style.display = 'block';
+        }
+    }
+};
+
+document.getElementById('nameForm').addEventListener('submit', function (event) {
+    event.preventDefault();
+    const name = document.getElementById('name').value;
+    localStorage.setItem('userName', name);
+    document.querySelector('.greeting').textContent = `Welcome, ${name}!`;
+    document.getElementById('password-section').style.display = 'block';
+    document.getElementById('home').style.display = 'none';
+});
+
 
   </script>
   <script>
@@ -374,8 +391,15 @@ input[todoList]{
         </div>
         
         <script>
-          let correctPassword = "12345";
+          let correctPassword =localStorage.getItem('password') || '';
           
+          document.getElementById('passwordForm').addEventListener('submit', function (event) {
+    event.preventDefault();
+    const password = document.getElementById('password').value;
+    localStorage.setItem('password', password);
+    localStorage.setItem('passwordSet', 'true');
+    document.getElementById('password-section').style.display = 'none';
+    document.getElementById('home').style.display = 'block';
           function checkPassword() {
             let enteredPassword = document.getElementById("password").value;
             if (enteredPassword === correctPassword) {
