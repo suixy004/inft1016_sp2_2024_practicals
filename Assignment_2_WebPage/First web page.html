@@ -429,13 +429,12 @@ a:hover[data-theme="dark"]{
 
     function checkPassword(){
       const passwordInput=document.getElementById('password-input').value;
-      if (passwordInput===correctPassword){
+      if (passwordInput === correctPassword){
         document.getElementById('login').style.display = 'none';
         document.getElementById('todotasks-section').style.display = 'block';
         loadTasks();
       } else {
-        document.getElementById('password-message').textContent = 'Incorrect password. Please try again.';
-
+        document.getElementById('password-message').textContent = 'Incorrect password! Please try again.';
       }
     }
 
