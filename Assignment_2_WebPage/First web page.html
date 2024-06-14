@@ -457,11 +457,8 @@ a:hover[data-theme="dark"]{
       tasks.map(task=>{
         const li=document.createElement('li');
         li.innerHTML=`
-        <ul>
-          <input type="checkbox" ${tasks} onchange="saveTasks()">
-          <span>${taskInput}</span>
-        </ul>
-        taskList.appendChild(li);
+          <input type="checkbox" onchange="saveTasks()"><span>${taskInput}</span>
+          taskList.appendChild(li);
       `});
     }
 
