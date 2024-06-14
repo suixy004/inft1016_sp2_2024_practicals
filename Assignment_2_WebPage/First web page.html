@@ -421,15 +421,15 @@ a:hover[data-theme="dark"]{
     function setPassword(){
       const newPassword = prompt('Enter New Password.');
       if(newPassword){
-        password=newPassword;
-        localStorage.setItem('password',newPassword)
+        correctPassword=newPassword;
+        localStorage.setItem('password',correctPassword)
         alert('Password Set Successfully');
       }
     }
 
     function checkPassword(){
       const setPassword=document.getElementById('password-input').value;
-      if (passwordInput===newPassword){
+      if (passwordInput===correctPassword){
         document.getElementById('login').style.display = 'none';
         document.getElementById('todotasks-section').style.display = 'block';
         loadTasks();
@@ -441,12 +441,12 @@ a:hover[data-theme="dark"]{
 
     function addTasks(){
       const taskInput=document.getElementById('task-input').value.trim();
-      if(taskValue){
+      if(taskInput){
         const taskList=document.getElementById('task-list');
         const li=document.createElement('li');
         li.innerHTML =`<input type="checkbox" onchange="saveTasks()">
                         <span>${taskInput}</span>
-                        <button onclick="removeTasks">Remove</button>`;
+                        <button onclick="removeTasks(this)">Remove</button>`;
         taskList.appendChild(li);
         document.getElementById('task-input').value='';
         saveTasks();
@@ -455,7 +455,8 @@ a:hover[data-theme="dark"]{
 
     function saveTasks(){
       const tasks=Array.from(document.querySelectorAll('#task-list.li')).map({
-        text:li.querySelector('span').textContent
+        text:li.querySelector('span').textContent,
+        checked:li.querySelector('input[type="checkbox"]').checked
       });
       localStorage.setItem('task');
     }
