@@ -463,17 +463,18 @@ input{
       <h3>Enter Password to Access TO-DO-TASKS</h3>
       <input type="password" id="password-input" placeholder="Enter Password">
       <button id="password" onclick="checkPassword()" style="width:150px;height:45px;font-size:0.79em;text-align:center;margin-top: 10px;align-items: right;">Submit</button>
-      <p id="password-input"></p>
+      <p id="password-message"></p>
     </div>
 
-    <div id="myDIV" style="align-items: center;justify-content: center;display:none;">
+    <div id="todotasks-section" style="align-items: center;justify-content: center;display:none;">
       <h3>TO-DO-TASKS</h3>
       <input type="text" id="myInput" placeholder="Title...">
       <span onclick="newElement()" class="addBtn">Add a new task</span>
     </div>
       <ul id="myUL">
         <li>Loss weight</li>
-        <li class="checked">Improve English speaking</li>
+        <li>Improve English speaking</li>
+        <li class="checked">Finish assignments</li>
       </ul>
     </main>
 
@@ -492,14 +493,51 @@ input{
     function checkPassword(){
       const passwordInput=document.getElementById('password-input').value;
       if (passwordInput === correctPassword){
-        document.getElementById('login').style.display = 'none';
+        document.getElementById('login-section').style.display = 'none';
         document.getElementById('todotasks-section').style.display = 'block';
         loadTasks();
       } else {
         alert('Incorrect password! Please try again.');
       }
     }
+    
+    function addTasks(){
+      const taskInput=document.getElementById('task-input').value.trim();
+      if(taskInput){
+        const taskList=document.getElementById('task-list');
+        const li=document.createElement('li');
+        li.innerHTML =`<input type="checkbox"><span>${taskInput}</span>`;
+        taskList.appendChild(li);
+        document.getElementById('task-input').value='';
+        saveTasks();
+      }
+    }
 
+    function loadTasks(){
+      const tasks=JSON.parse(localStorage.getItem('tasks')) ||[];
+      const taskList = document.getElementById('task-list');
+      taskList.innerHTML='';
+      tasks.map(task=>{
+        const li=document.createElement('li');
+        li.innerHTML=`
+          <input type="checkbox" onchange="saveTasks()"><span>${task}</span>
+          taskList.appendChild(li);
+      `});
+    }
+
+    function saveTasks(){
+      const tasks=Array.from(document.querySelectorAll('#task-list.li')).map(li=>({
+        text:li.querySelector('span').textContent,
+        checked:li.querySelector('input[type="checkbox"]').checked
+      }));
+      localStorage.setItem('task',JSON.stringify(tasks));
+    }
+
+    function clearTasks(){
+      document.getElementById('task-list').innerHTML='';
+      localStorage.removeItem('tasks');
+    }
+    
     var myNodelist = document.getElementsByTagName("LI");
     var i;
     for (i = 0; i < myNodelist.length; i++) {
