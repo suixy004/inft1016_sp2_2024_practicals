@@ -395,13 +395,13 @@ a:hover[data-theme="dark"]{
 
   <main id="todotasks" class="page-section">
 
-    <section>
+    <section id="login">
     <h2 style="padding-left:18px;font: size 1.73em">To Do Tasks</h2>
-      <input type="password" id="password" placeholder="Enter Password">
+      <input type="password" id="password-input" placeholder="Enter Password">
       <button id="password" onclick="checkPassword()" style="width:150px;height:45px;font-size:0.79em;text-align:center;margin-top: 10px;align-items: right;">Submit</button>
     </section>
 
-    <div id="password"  style="align-items: center;justify-content: center;">
+    <div id="todotasks-section"  style="align-items: center;justify-content: center;">
       <input type="text" name="tasks" placeholder="Add a new task">
       <ul id="taskList"></ul>
       <button onclick="addTasks()">Add Tasks</button>
@@ -410,7 +410,20 @@ a:hover[data-theme="dark"]{
       <button onclick="deleteTasks()">Delete Tasks</button>
     </div>
 
-
+  <script>
+    let password='myPassword';
+    function checkPassword(){
+      const setPassword=document.getElementById('password-input').value;
+      if (passwordInput===setPassword){
+        document.getElementById('login').style.display = 'none';
+        document.getElementById('todotasks-section').style.display = 'block';
+        loadTasks();
+      } else {
+        document.getElementById('passwordInfo').textContent = 'Incorrect password. Please try again.';
+        
+      }
+    }
+  </script>
 
      
  
