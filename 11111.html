@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<style>
-    /* 样式省略，与之前保持一致 */
-</style>
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My First Year at University</title>
+    <style>
+        /* 样式省略，与之前保持一致 */
+    </style>
 </head>
 
 <body>
@@ -112,7 +111,7 @@
             if (taskInput) {
                 const taskList = document.getElementById('task-list');
                 const li = document.createElement('li');
-                li.innerHTML = `<input type="checkbox" onchange="saveTasks()"><span>${taskInput}</span>`;
+                li.innerHTML = `<input type="checkbox" onchange="saveTasks()"><span>${taskInput}</span><span class="close" onclick="removeTask(this)">×</span>`;
                 taskList.appendChild(li);
                 document.getElementById('task-input').value = '';
                 saveTasks();
@@ -125,7 +124,7 @@
             taskList.innerHTML = '';
             tasks.forEach(task => {
                 const li = document.createElement('li');
-                li.innerHTML = `<input type="checkbox" onchange="saveTasks()" ${task.checked ? 'checked' : ''}><span>${task.text}</span>`;
+                li.innerHTML = `<input type="checkbox" onchange="saveTasks()" ${task.checked ? 'checked' : ''}><span>${task.text}</span><span class="close" onclick="removeTask(this)">×</span>`;
                 taskList.appendChild(li);
             });
         }
@@ -141,6 +140,11 @@
         function clearTasks() {
             document.getElementById('task-list').innerHTML = '';
             localStorage.removeItem('tasks');
+        }
+
+        function removeTask(element) {
+            element.parentElement.remove();
+            saveTasks();
         }
 
         document.addEventListener('DOMContentLoaded', loadTasks);
