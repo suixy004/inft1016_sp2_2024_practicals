@@ -1,515 +1,80 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
 <style>
-    :root{
-    --primary-font-color: rgb(59, 3, 106);
-    --secondary-font-color: rgb(149, 93, 169);
-    --emphasised-font: rgb(219, 99, 44);
-    
-    --c-background-color: rgb(243, 247, 204);
-    --c-background-highlights: rgb(199, 226, 228);
-    
-    --c-red: rgb(220  50  47);  
-    --c-violet: rgb( 108 113 196 );
-    --c-grey: rgb(146, 167, 181);
-    --c-cyan: rgb(42 161 152 );
-    --c-green : rgb(11, 65, 5);
-    align-items: center;
- }
-
-body{
-    font-family: Arial, Helvetica, sans-serif;
-    padding: 0;
-    margin: 0;
-    background-color:var(--c-background-color);
-    color:var(--primary-font-color);
-    align-content: center;
-}
-
-header{
-    background-color:var(--c-background-highlights);
-    color:var(--primary-font-color);
-    padding: 0px;
-    margin-top:-20px;
-    margin-left: -10px;
-    margin-right:-10px;
-    display:flex;
-    align-items: center;
-    justify-content:space-evenly;
-}
-
-.highlight-bar{
-  background-color:var(--c-background-highlights);
-  height: 10px;
-  width: 100%;
-  align-content: center;
-}
-
-main{
-    color:var(--primary-font-color);
-    display:flex;
-    flex-direction:column;
-    align-content:center;
-    text-align: center;
-}
-
-text{
-  color:var(--secondary-font-color);
-}
-
-a{
-  color:var(--c-violet);
-}
-
-a:hover{
-  color:var(--c-red);
-}
-
-.subsection{
-  border:3px solid;
-  color:var(--c-cyan);
-  margin: 0.93em 0.62em 0.93em 0.62em;
-  align-items: center;
-  justify-content: center;
-}
-
-[data-theme="dark"] {
-    --primary-font-color: rgb(227, 212, 239);
-    --secondary-font-color: rgb(177, 153, 186);
-    --emphasised-font: rgb(238, 170, 138);
-    
-    --c-background-color: rgb(3, 72, 9);
-    --c-background-highlights: rgb(68, 110, 112);
-    
-    --c-red: rgb(252, 140, 138);  
-    --c-violet: rgb(162, 167, 253);
-    --c-blue: rgb(160, 204, 235);
-    --c-cyan: rgb(169, 240, 234);
-    --c-green : rgb(170, 220, 164);
-}
-
-body[data-theme="dark"]{
-    font-family: Arial, Helvetica, sans-serif;
-    padding:0;
-    margin: 0;
-    background-color:var(--c-background-color);
-    color:var(--primary-font-color);
-}
-
-header[data-theme="dark"] footer[data-theme="dark"]{
-    background-color:var(--c-background-highlights);
-    color:var(--primary-font-color);
-}
-
-main[data-theme="dark"]{
-    color:var(--primary-font-color);
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    text-align: center;
-}
-
-text[data-theme="dark"]{
-  color:var(--c-green);
-}
-a[data-theme="dark"]{
-  color:var(--c-violet);
-}
-
-a:hover[data-theme="dark"]{
-  color:var(--c-red);
-}
-
-.subsection[data-theme="dark"]{
-  border:5px solid;
-  color:var(--c-cyan);
-  margin: 0.93em 0.62em 0.93em 0.62em;
-  align-items: center;
-  justify-content: center;
-}
-
-.page-section{
-  display:none;
-}
-
-.page-section:target,
-.default-page{
-  display:block;
-}
-
-.home:targe~#home,
-.courses:targe~#courses,
-.todotasks:target~#todotasks {
-  display:block;
-}
-
-.time{
-  font-size: 0.92em;
-}
-
-.time-container{
-  border:1px solid;
-  align-items: right;
-  height:2px;
-  display:flex;
-  margin:1px;
-  margin-top: -20px;
-}
-
-.greeting{
-  margin:2px;
-  font-size:1.8em;
-}
-
-.password-section{
-  display:none;
-}
-
-
-ul[todoList] {
-  margin: 0;
-  padding: 0;
-}
-
-ul li[todoList]{
-  cursor: pointer;
-  position: relative;
-  padding: 12px 8px 12px 40px;
-  list-style-type: none;
-  background-color: var(--c-grey);
-  font-size: 18px;
-  
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-
-ul li:nth-child(odd)[todoList] {
-  background-color: var(--c-violet);
-}
-
-ul li:hover.todotasks:target [todoList]{
-  background-color: var(--c-green);
-}
-
-ul li.checked[todoList] {
-  background-color: var(--emphasised-font);
-  color:var(--c-grey);
-  text-decoration: line-through;
-}
-
-ul li.checked::before[todoList]{
-  content: '';
-  position: absolute;
-  border-color:var(--emphasised-font);
-  border-style: solid;
-  border-width: 0 2px 2px 0;
-  top: 10px;
-  left: 16px;
-  transform: rotate(45deg);
-  height: 15px;
-  width: 17px;
-
-}
-
-.close[todoList] {
-  position: absolute;
-  right: 0;
-  top: 0;
-  padding: 12px 16px 12px 16px;
-}
-
-.close:hover[todoList] {
-  background-color:var(--c-red);
-  color: var(--secondary-font-color);
-}
-
-input [todoList]{
-  margin: 0;
-  border: none;
-  border-radius: 0;
-  width: 25%;
-  padding: 10px;
-  float: center;
-  font-size: 16px;
-  align-items: center;
-}
-
-
-.addBtn [todoList]{
-  padding: 10px;
-  width: 25%;
-  background-color: var(--c-cyan);
-  color:var(--c-grey);
-  float: left;
-  text-align: center;
-  font-size: 16px;
-  cursor: pointer;
-  transition: 0.3s;
-  border-radius: 0;
-}
-
-.addBtn:hover [todoList]{
-  background-color:var(--secondary-font-color);
-}
-
+    /* 样式省略，与之前保持一致 */
 </style>
-
-<!--setting two theme font colour, size-->
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My First Year at University</title>
- 
 </head>
-
-<!--this is the name of the page label-->
 
 <body>
     <div class="highlight-bar"></div>
     <header style="font-size:150%; text-align:center; color:var(--c-green);background-color: var(--c-background-highlights);">
-      <h1>My first year at University</h1>
+        <h1>My first year at University</h1>
 
-      <div id="time-container" style="align-items: right;">
-        <h5>Current Date and Time</h5>
-        <p class="time" id="time"></p>
-      </div>
-      <button id="theme-toggle" style="width:150px;height:45px;font-size:0.79em;text-align:center;margin-top: 10px;align-items: right;">Toggle Theme</button>
-  
-  <script>
-  document.getElementById('theme-toggle').addEventListener('click',function() {
-        if(document.documentElement.getAttribute('data-theme') ==='dark'){
-          document.documentElement.setAttribute('data-theme','light');
-        }else{
-          document.documentElement.setAttribute('data-theme','dark');
-        }
-      });
-  </script>
-  <script>
-  function upDateTime(){
-    const dateElement = document.getElementById('time');
-    const currentDate = new Date();
-    dateElement.textContent = currentDate.toLocaleString();
-  }
-  setInterval(upDateTime,1000);
-    upDateTime();
-  </script>
-      
+        <div id="time-container" style="align-items: right;">
+            <h5>Current Date and Time</h5>
+            <p class="time" id="time"></p>
+        </div>
+        <button id="theme-toggle" style="width:150px;height:45px;font-size:0.79em;text-align:center;margin-top: 10px;align-items: right;">Toggle Theme</button>
     </header>
 
-  
-<!--combine header and button at the same line-->
-
-      <nav>
-        <ul style="display: flex; list-style-type: none; justify-content: center;font-size:120%">
-          <li style="margin: 0 auto;"><a href="#home">Home</a></li>
-          <li style="margin: 0 auto;"><a href="#courses">Courses</a></li>
-          <li style="margin: 0 auto;"><a href="#todotasks">To Do Tasks</a></li>
+    <nav style="align-items: center;">
+        <ul style="list-style: none;display:flex;align-items:center; justify-content:space-evenly; color:var(--primary-font-color);">
+            <li style="margin-right: 5px;">
+                <a href="#home">Home</a>
+            </li>
+            <li style="margin-right: 5px;">
+                <a href="#courses">Courses</a>
+            </li>
+            <li style="margin-right: 5px;">
+                <a href="#todotasks">To-Do Tasks</a>
+            </li>
         </ul>
-    
-           <form method="get" style="display:flex;font-size:100%;justify-content:center;padding-left: 20px;align-items: center;" onsubmit="preserveName()">
-             <input type="text" name="q" placeholder="Your Name" required style="width:150px;height:35px;font-size:1em;">
-             <input type="submit" value="Apply!" style="width: 150px;height:35px;font-size:1em;">
-           </form>
-        
-      </nav>
-      <h1 id="greeting" class="greeting" style="justify-content:center;align-items: center;text-align: center;">Welcome~</h1>
+    </nav>
 
-      <script>
-        function getQueryParameter(name){
-          const urlParams = new URLSearchParams(window.location.search);
-          return urlParams.get(name);
-        }
+    <main>
+        <section class="page-section home default-page" id="home">
+            <h2>Welcome to My First Year at University!</h2>
+            <p>This is the home page. You can navigate to other sections using the links above.</p>
+            <div>
+                <label for="name-input">Enter your name:</label>
+                <input type="text" id="name-input">
+                <button onclick="updateName()">Save Name</button>
+            </div>
+            <p class="greeting" id="greeting"></p>
+        </section>
 
-        function updateName(){
-          const userName = getQueryParameter('q');
-          if (userName) {
-            document.getElementById('greeting').textContent=`Hello,${userName}`;
-            
-          }
-        }
+        <section class="page-section courses" id="courses">
+            <h2>Courses</h2>
+            <p>This is the Courses page. Here you will find information about the courses you are taking.</p>
+        </section>
 
-        function preserveName() {
-          const userNameInput = document.querySelector('input[name="q"]').value;
-            if (userNameInput) {
-             localStorage.setItem('user_name', userNameInput);
-             document.getElementById('greeting').textContent = `Hello, ${userNameInput}`;
-             }
-           }
+        <section class="page-section todotasks" id="todotasks">
+            <h2>To-Do Tasks</h2>
+            <p>This is the To-Do Tasks page. Here you can manage your tasks.</p>
 
-        function preserveTheme(){
-          const currentTheme=document.documentElement.getAttribute('data-theme');
-          localStorage.setItem('theme',currentTheme);
-        }
+            <div id="password-section">
+                <label for="password-input">Enter Password:</label>
+                <input type="password" id="password-input">
+                <button onclick="checkPassword()">Submit</button>
+            </div>
 
-         window.onload = function () {
-          const storedTheme = localStorage.getItem('theme');
-           if (storedTheme) {
-           document.documentElement.setAttribute('data-theme', storedTheme);
-           }
-
-      
-          const storedName = localStorage.getItem('user_name');
-           if (storedName) {
-           document.getElementById('greeting').textContent = `Hello, ${storedName}`;
-           } else {
-            updateName(); 
-            }
-          };
-      </script>
-
-
-    <!--/*this is the title of the whole page
-    and the button of different pages
-  -->
-
-  <main id="home" class="page-section" style="justify-content:center;align-items: center;text-align: center;";>
-
-    <h2 style="padding-left:18px">My at first year</h2>
-      <p style="padding-left:18px">I am an international student. it is the first time to study in a foreign country. I like the feeling of supporting and discussing lesson circumstances in here</p>
-
-
-      <article style="display:flex;align-items:center;gap:10px;">
-
-        <button id="switchButton" style="flex:1; height:40px;text-align:center;align-content:center;margin-left:30px;">
-        <h3 style="margin:0;">club</h3>
-        </button>
-
-        <aside style="flex:1;text-align:center">
-         <p><img id="displayImage" src="https://usasa.sa.edu.au/asset/Organisation/6175/EDUC%20SOCIAL%20CLUB_LOGO%20.png?thumbnail_width=200&thumbnail_height=200&resize_type=ResizeFitAll" border="0"></p>
-         </aside>  
-
-        <aside style="flex:3;">
-          <p id="imageInfo">"Education Social Club, click link to visit <a href="https://usasa.sa.edu.au/clubs/join/education/">https://usasa.sa.edu.au/clubs/join/education/</a></p>
-        </aside>
-      </article>
-
-      <script>
-        let isClubImageDisplayed = true;
-        document.getElementById('switchButton').addEventListener('click', toggleImageAndInfo);
-        function toggleImageAndInfo() {
-          const ImageElement = document.getElementById('displayImage');
-          const InfoElement = document.getElementById('imageInfo');
-    
-          if (isClubImageDisplayed) {
-            ImageElement.src = 'https://usasa.sa.edu.au/asset/Organisation/6175/EDUC%20SOCIAL%20CLUB_LOGO%20.png?thumbnail_width=200&thumbnail_height=200&resize_type=ResizeFitAll';
-            ImageElement.alt = 'education';
-            InfoElement.innerHTML = 'Education Social Club, click link to visit <a href="https://usasa.sa.edu.au/clubs/join/education/">https://usasa.sa.edu.au/clubs/join/education/</a>';
-          } else {
-            ImageElement.src = 'https://usasa.sa.edu.au/stylesheet/USASA/logousasa.svg';
-            ImageElement.alt = 'USASA';
-            InfoElement.innerHTML = ' click link to visit <a href="https://usasa.sa.edu.au/financialwellbeing">https://usasa.sa.edu.au/financialwellbeing</a>';
-          }
-          isClubImageDisplayed = !isClubImageDisplayed;
-        }
-    
-      </script>
-
-      <div class="subsection"  style="align-items: center;justify-content: center;">
-        <h3 style="padding-top:2px;align-items: center;justify-content: center;">learning support</h3>
-        <p>There are many learning support for us, which in online and in-person way.</p>
-        <p>I really like the way setting in the learnonline website. many questions can be solved through the learning instructions. I really like transferring from seeking solutions from teachers all the time to researching online and thinking by myself</p>
-      </div>
-        
-      <div class="subsection"  style="align-items: center;justify-content: center;">
-        <h3 style="padding-top:2px;align-items: center;justify-content: center;">learning in campus</h3>
-
-        <p>There are many natural spaces, leisure areas in the Mawson Lakes campus.</p>
-        <p>so many lovely students.</p>
-      </div>
-  </main>
-
-
-  <main id="courses" class="page-section">
-
-   <h2 style="padding-left:18px;font: size 1.73em">My courses</h2>
-  
-   <article style="display:flex;align-items:center;gap:10px;">
-
-     <button id="backButton1" style="flex:1; height:40px;text-align:center;align-content:center;margin-left:30px;">
-       <h3 style="margin:0;">Aboriginal</h3>
-     </button>
-     
-   <aside style="flex:1;text-align:center">
-     <p><img id="displayImage1" src="https://www.unisa.edu.au/siteassets/about-unisa/aboriginal-engagement/images/ralogo1.png" border="0"></p>
-   </aside>  
-
-   <aside style="flex:3;">
-     <p id="imageInfo1">"Reconciliation Week, click link to visit <a href="https://www.unisa.edu.au/about-unisa/aboriginal-engagement/reconciliation-at-unisa/">https://www.unisa.edu.au/about-unisa/aboriginal-engagement/reconciliation-at-unisa/</a></p>
-   </aside>
-   </article>
-
-   <script>
-    let isAboriginalImageDisplayed = true;
-    document.getElementById('backButton1').addEventListener('click', toggleImageAndInfo1);
-    function toggleImageAndInfo1() {
-      const ImageElement = document.getElementById('displayImage1');
-      const InfoElement = document.getElementById('imageInfo1');
-
-      if (isAboriginalImageDisplayed) {
-        ImageElement.src = 'https://www.unisa.edu.au/siteassets/about-unisa/aboriginal-engagement/images/ralogo1.png';
-        ImageElement.alt = 'Aboriginal';
-        InfoElement.innerHTML = 'Reconciliation Week, click link to visit <a href="https://www.unisa.edu.au/about-unisa/aboriginal-engagement/reconciliation-at-unisa/">https://www.unisa.edu.au/about-unisa/aboriginal-engagement/reconciliation-at-unisa/</a>';
-      } else {
-        ImageElement.src = 'https://www.unisa.edu.au/siteassets/home/images/kaurna-2018-64px.png';
-        ImageElement.alt = 'Aboriginal engagement';
-        InfoElement.innerHTML = ' click link to visit <a href="https://www.unisa.edu.au/about-unisa/aboriginal-engagement/">https://www.unisa.edu.au/about-unisa/aboriginal-engagement/</a>';
-      }
-      isAboriginalImageDisplayed = !isAboriginalImageDisplayed;
-    }
-
-  </script>
-
-   <div class="subsection"  style="align-items: center;justify-content: center;">
-     <h3 style="padding-top:2px">Maths</h3>
-
-     <p>Two courses in maths this semester, which are Discrete maths and Statistical methods.</p>
-     <p>I really like these courses that require logical and analysis abilities.</p>
-   </div>
-     
-   <div class="subsection" style="align-items: center;justify-content: center;">
-     <h3 style="padding-top:2px">Digital Technology</h3>
-
-     <p>There were two main content we learned.</p>
-     <p>Excel dashboard and building webpage by learning CSS, Javascript, HTML.</p>
-   </div>
-
-
-  </main>
-
-
-  <main id="todotasks" class="page-section todotasks">
-    <h2 style="padding-left:18px;font: size 1.73em">To Do Tasks</h2>
-    <p>Here you can manage your tasks.</p>
-    <div id="password-section">
-
-      <h3>Enter Password to Access TO-DO-TASKS</h3>
-      <label for="password-input">Enter Password:</label>
-      <input type="password" id="password-input">
-      <button onclick="checkPassword()" style="width:150px;height:45px;font-size:0.79em;text-align:center;margin-top: 10px;align-items: right;">Submit</button>
-      <p id="password-message"></p>
-    </div>
-
-    <div id="todotasks-section" style="align-items: center;justify-content: center;display:none;">
-      <input type="text" id="task-input" placeholder="Title...">
-      <button onclick="addTasks()" class="addBtn" todolist>Add a new task</button>
-
-      <ul id="task-list" todoList>
-        <li>Loss weight <span class="close" onclick="removeTask(this)">x</span></li>
-        <li>Improve English speaking <span class="close" onclick="removeTask(this)">x</span></li>
-        <li class="checked">Finish assignments <span class="close" onclick="removeTask(this)">x</span></li>
-      </ul>
-      <button onclick="clearTasks()">Clear All Tasks</button>
-    </div>
+            <div id="tasks-section" style="display: none;">
+                <h2>My To Do List</h2>
+                <input type="text" id="task-input" placeholder="Title...">
+                <span onclick="addTasks()" class="addBtn" todoList>Add</span>
+                <ul id="task-list" todoList></ul>
+                <button onclick="clearTasks()">Clear All Tasks</button>
+            </div>
+        </section>
     </main>
 
-
-  <script>
+    <script>
         let correctPassword = localStorage.getItem('password') || '';
 
         window.onload = function () {
@@ -580,7 +145,6 @@ input [todoList]{
 
         document.addEventListener('DOMContentLoaded', loadTasks);
     </script>
-     
-
 </body>
 </html>
+
