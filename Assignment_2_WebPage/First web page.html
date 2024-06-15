@@ -175,15 +175,19 @@ a:hover[data-theme="dark"]{
 ul[todoList] {
   margin: 0;
   padding: 0;
+  list-style-type: none;
+  border:1px solid var(--c-grey);
+  padding: 10px;
 }
 
 ul li[todoList] {
   cursor: pointer;
   position: relative;
   padding: 12px 8px 12px 40px;
-  list-style-type: none;
   background-color: var(--c-background-color);
   font-size: 18px;
+  transition: 0.2s;
+  border-bottom: 1px solid var(--c-cyan);
   
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -193,6 +197,10 @@ ul li[todoList] {
 
 ul li:nth-child(odd)[todoList] {
   background-color: var(--c-violet);
+}
+
+ul li:last-child[todoList]{
+  border-bottom: none;
 }
 
 ul li:hover [todoList]{
@@ -232,9 +240,12 @@ ul li.checked::before[todoList] {
 
 .header[todoList] {
   background-color:var(--c-red);
-  padding: 30px 40px;
+  padding: 30px 10px;
   color:var(--c-grey);
   text-align: center;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .header:after [todoList]{
@@ -515,7 +526,7 @@ input[todoList] {
       <button onclick="addTasks()" class="addBtn" todolist>Add a new task</button>
     </div>
 
-      <ul id="task-list">
+      <ul id="task-list" todolist>
         <li><input type="checkbox"><span>Loss weight</span> <span class="close" onclick="removeTask(this)">x</span></li>
         <li><input type="checkbox"><span>Improve English speaking</span><span class="close" onclick="removeTask(this)">x</span></li>
         <li class="checked"><input type="checkbox"><span>Finish assignments</span> <span class="close" onclick="removeTask(this)">x</span></li>
