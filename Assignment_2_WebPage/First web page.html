@@ -547,12 +547,21 @@ input[todoList] {
       <button onclick="addTasks()" class="addBtn" todolist>Add a new task</button>
     </div>
 
-      <ul id="task-list" todolist style="box-sizing: border-box;font-size: 20px;">
-        <li style="font-size: 20px;"><input type="checkbox"><span>Loss weight</span> <span class="close" onclick="removeTask(this)" style="width:150px;height:45px;font-size:20px;text-align:center;margin-top: 10px;float: right;">x</span</li>
-        <li><input type="checkbox"><span>Improve English speaking</span><span class="close" onclick="removeTask(this)">x</span></li>
-        <li class="checked"><input type="checkbox"><span>Finish assignments</span> <span class="close" onclick="removeTask(this)">x</span></li>
-      </ul>
-      <button onclick="clearTasks()">Clear All Tasks</button>
+    <ul id="task-list" todolist style="box-sizing: border-box;font-size: 20px;width: 100%;">
+      <li style="font-size: 20px;display: flex;justify-content: space-between;align-items: center;padding: 12px 8px;background-color: var(--c-background-color);transition: 0.2s;border-bottom: 1px solid var(--c-cyan);">
+          <span>Loss weight</span>
+          <span class="close" onclick="removeTask(this)" style="font-size: 20px;cursor: pointer;">x</span>
+      </li>
+      <li style="font-size: 20px;display: flex;justify-content: space-between;align-items: center;padding: 12px 8px;background-color: var(--c-background-color);transition: 0.2s;border-bottom: 1px solid var(--c-cyan);">
+          <span>Improve English speaking</span>
+          <span class="close" onclick="removeTask(this)" style="font-size: 20px;cursor: pointer;">x</span>
+      </li>
+      <li class="checked" style="font-size: 20px;display: flex;justify-content: space-between;align-items: center;padding: 12px 8px;background-color: var(--c-background-color);transition: 0.2s;border-bottom: 1px solid var(--c-cyan);">
+          <span>Finish assignments</span>
+          <span class="close" onclick="removeTask(this)" style="font-size: 20px;cursor: pointer;">x</span>
+      </li>
+  </ul>
+  <button onclick="clearTasks()">Clear All Tasks</button>
     </div>
     </main>
 
