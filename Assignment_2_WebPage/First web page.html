@@ -526,38 +526,7 @@ input[todoList] {
     </main>
 
   <script>
-    let correctpassword= localStorage.getItem('password') ||'';
 
-    window.onload=function(){
-      if (!correctPassword){
-        setPassword();
-      } else {
-        document.getElementById('password-section').style.display = 'block';
-        document.getElementById('todotasks-section').style.display = 'none';
-      }
-    };
-
-    function setPassword(){
-      const newPassword = prompt('Enter New Password.');
-      if(newPassword){
-        correctPassword=newPassword;
-        localStorage.setItem('password',correctPassword)
-        alert('Password Set Successfully');
-        document.getElementById('password-section').style.display = 'block';
-        document.getElementById('todotasks-section').style.display = 'none';
-      }
-    }
-
-    function checkPassword(){
-      let passwordInput=document.getElementById('password-input').value;
-      if (passwordInput === correctPassword){
-        document.getElementById('password-section').style.display = 'none';
-        document.getElementById('todotasks-section').style.display = 'block';
-
-      } else {
-        alert('Incorrect password! Please try again.');
-      }
-    }
     
     var myNodelist = document.getElementsByTagName("LI");
 var i;
