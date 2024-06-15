@@ -601,7 +601,7 @@ input[todoList] {
       if(taskInput){
         const taskList=document.getElementById('task-list');
         const li=document.createElement('li');
-        li.innerHTML =`<input type="checkbox" onchange="saveTasks()"><span>${taskInput}</span>`;
+        li.innerHTML =`<input type="checkbox" onchange="saveTasks()"><span>${taskInput}</span><span class="close" onclick="removeTask(this)">x</span>`;
         taskList.appendChild(li);
         document.getElementById('task-input').value='';
         saveTasks();
