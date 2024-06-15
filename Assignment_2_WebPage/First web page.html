@@ -510,19 +510,19 @@ input[todoList] {
       <button id="password" onclick="checkPassword()" style="width:150px;height:45px;font-size:0.79em;text-align:center;margin-top: 10px;align-items: right;">Submit</button>
       <p id="password-message"></p>
     </div>
-
+    <div id="todotasks-section" style="display:none;">
     <div id="myDIV" class="header" style="align-items: center;justify-content: center;display:none;">
       <input type="text" id="myInput" placeholder="Title...">
-      <button onclick="newelement()" class="addBtn" todolist>Add a new task</button>
+      <button onclick="addTasks()" class="addBtn" todolist>Add a new task</button>
     </div>
 
-      <ul id="myUL" todoList>
+      <ul id="task-list" todoList>
         <li>Loss weight <span class="close" onclick="removeTask(this)">x</span></li>
         <li>Improve English speaking <span class="close" onclick="removeTask(this)">x</span></li>
         <li class="checked">Finish assignments <span class="close" onclick="removeTask(this)">x</span></li>
       </ul>
       <button onclick="clearTasks()">Clear All Tasks</button>
-
+    </div>
     </main>
 
   <script>
