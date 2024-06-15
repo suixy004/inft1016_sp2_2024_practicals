@@ -395,6 +395,7 @@ input[todoList] {
         }
 
          window.onload = function () {
+          preserveName();
           const storedTheme = localStorage.getItem('theme');
            if (storedTheme) {
            document.documentElement.setAttribute('data-theme', storedTheme);
