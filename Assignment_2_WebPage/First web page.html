@@ -560,7 +560,7 @@ input[todoList] {
     let correctpassword= localStorage.getItem('password') ||'';
 
     window.onload=function(){
-      if (!correctPassword){
+      if (!correctpassword){
         document.getElementById('password-section').style.display='block';
       } else {
         document.getElementById('todotasks-section').style.display = 'block';
@@ -571,8 +571,8 @@ input[todoList] {
     function setPassword(){
       const newPassword = prompt('Enter New Password.');
       if(newPassword){
-        correctPassword=newPassword;
-        localStorage.setItem('password',correctPassword)
+        correctpassword=newPassword;
+        localStorage.setItem('password',correctpassword)
         alert('Password Set Successfully');
         document.getElementById('password-section').style.display = 'block';
         document.getElementById('todotasks-section').style.display = 'none';
@@ -582,7 +582,7 @@ input[todoList] {
 
     function checkPassword(){
       let passwordInput = document.getElementById('password-input').value;
-      if (passwordInput === correctPassword){
+      if (passwordInput === correctpassword){
         document.getElementById('password-section').style.display = 'none';
         document.getElementById('todotasks-section').style.display = 'block';
         document.getElementById('myDIV').style.display = 'block';
