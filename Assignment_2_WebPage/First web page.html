@@ -589,11 +589,11 @@ input[todoList] {
     }
 //enter new word and got the notification of setting successfully.
     function checkPassword(){
-      let passwordInput = document.getElementById('password-input').value;
+      let passwordInput = document.getElementById('password-input').value;//gain password from localstorage, otherwise, it will be set as empty.
       if (passwordInput === correctpassword){
         document.getElementById('password-section').style.display = 'none';
         document.getElementById('todotasks-section').style.display = 'block';
-        document.getElementById('myDIV').style.display = 'block';
+        document.getElementById('myDIV').style.display = 'block';//save the password, which help user can enter to the task list using the same password.
         loadTasks();
         updateName();
       } else {
@@ -632,7 +632,7 @@ input[todoList] {
       }));
       localStorage.setItem('tasks',JSON.stringify(tasks));
     }
-
+//save the current status of task list, and transfer to the JSON form.
     function clearTasks(){
       document.getElementById('task-list').innerHTML='';
       localStorage.removeItem('tasks');
