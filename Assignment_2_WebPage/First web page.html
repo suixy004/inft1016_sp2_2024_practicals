@@ -200,44 +200,24 @@ ul li[todoList] {
 ul li span [todoList]{
   display:incline-block;
   max-width: calc(100% - 50px);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-sizing: border-box;
 }
 
 ul li:nth-child(odd)[todoList] {
   background-color: var(--c-violet);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-sizing: border-box;
 }
 
 ul li:last-child[todoList]{
   border-bottom: none;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-sizing: border-box;
 }
 
 ul li:hover [todoList]{
   background-color: var(--c-red);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-sizing: border-box;
 }
 
 ul li.checked[todoList] {
   background-color: var(--c-grey);
   color: var(--c-background-highlights);
   text-decoration: line-through;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-sizing: border-box;
 }
 
 ul li.checked::before[todoList] {
@@ -251,10 +231,6 @@ ul li.checked::before[todoList] {
   transform: rotate(45deg);
   height: 15px;
   width: 7px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-sizing: border-box;
 }
 
 ul li .close[todoList] {
@@ -264,19 +240,11 @@ ul li .close[todoList] {
   transform:translateY(-50%);
   font-size: 24px;
   cursor:pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-sizing: border-box;
 }
 
 ul li.close:hover[todoList] {
   background-color:var(--primary-font-color);
   color: var(--secondary-font-color);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-sizing: border-box;
 }
 
 .header[todoList] {
@@ -571,7 +539,7 @@ input[todoList] {
       <button onclick="addTasks()" class="addBtn" todolist>Add a new task</button>
     </div>
 
-      <ul id="task-list" todolist>
+      <ul id="task-list" todolist style="box-sizing: border-box;font-size: 18px;">
         <li><input type="checkbox"><span>Loss weight</span> <span class="close" onclick="removeTask(this)">x</span></li>
         <li><input type="checkbox"><span>Improve English speaking</span><span class="close" onclick="removeTask(this)">x</span></li>
         <li class="checked"><input type="checkbox"><span>Finish assignments</span> <span class="close" onclick="removeTask(this)">x</span></li>
