@@ -184,7 +184,6 @@ ul li[todoList] {
   list-style-type: none;
   background-color: var(--c-background-color);
   font-size: 18px;
-  transition: 0.2s;
   
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -511,7 +510,7 @@ input[todoList] {
       <p id="password-message"></p>
     </div>
     <div id="todotasks-section" style="display:none;">
-    <div id="myDIV" class="header" style="align-items: center;justify-content: center;">
+    <div id="myDIV" class="header" todolist>
       <input type="text" id="task-input" placeholder="Title...">
       <button onclick="addTasks()" class="addBtn" todolist>Add a new task</button>
     </div>
@@ -575,7 +574,7 @@ input[todoList] {
     function loadTasks(){
       const tasks=JSON.parse(localStorage.getItem('tasks')) ||[];
       const taskList = document.getElementById('task-list');
-      taskList.innerHTML='';
+      taskList.innerHTML=''; //clear the current tasklist
       tasks.forEach(task=>{
         const li=document.createElement('li');
         li.innerHTML=`<input type="checkbox" onchange="saveTasks()" ${task.checked? 'checked':''}><span>${task.text}</span><span class="close" onclick="removeTask(this)">x</span>`;
