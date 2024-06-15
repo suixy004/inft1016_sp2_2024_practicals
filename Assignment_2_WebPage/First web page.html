@@ -511,8 +511,8 @@ input[todoList] {
       <p id="password-message"></p>
     </div>
     <div id="todotasks-section" style="display:none;">
-    <div id="myDIV" class="header" style="align-items: center;justify-content: center;display:none;">
-      <input type="text" id="task-nput" placeholder="Title...">
+    <div id="myDIV" class="header" style="align-items: center;justify-content: center;">
+      <input type="text" id="task-input" placeholder="Title...">
       <button onclick="addTasks()" class="addBtn" todolist>Add a new task</button>
     </div>
 
@@ -530,10 +530,10 @@ input[todoList] {
 
     window.onload=function(){
       if (!correctPassword){
-        setPassword();
+        document.getElementById('password-section').style.display='block';
       } else {
-        document.getElementById('password-section').style.display = 'block';
-        document.getElementById('todotasks-section').style.display = 'none';
+        document.getElementById('todotasks-section').style.display = 'block';
+        loadTasks();
       }
     };
 
@@ -549,10 +549,11 @@ input[todoList] {
     }
 
     function checkPassword(){
-      let passwordInput=document.getElementById('password-input').value;
+      let passwordInput = document.getElementById('password-input').value;
       if (passwordInput === correctPassword){
         document.getElementById('password-section').style.display = 'none';
         document.getElementById('todotasks-section').style.display = 'block';
+        document.getElementById('myDIV').style.display = 'block';
         loadTasks();
       } else {
         alert('Incorrect password! Please try again.');
@@ -587,7 +588,7 @@ input[todoList] {
         text:li.querySelector('span').textContent,
         checked:li.querySelector('input[type="checkbox"]').checked
       }));
-      localStorage.setItem('task',JSON.stringify(tasks));
+      localStorage.setItem('tasks',JSON.stringify(tasks));
     }
 
     function clearTasks(){
@@ -596,7 +597,8 @@ input[todoList] {
     }
 
     function removeTask(element){
-      element.parentElement.style.display = 'none';
+      element.parentElement.remove();
+      saveTasks();
     }
 
     document.addEventListener('DOMContentLoaded',loadTasks);
