@@ -168,18 +168,23 @@ a:hover[data-theme="dark"]{
 }
 
 
+* [todoList]{
+  box-sizing: border-box;
+}
+
 ul[todoList] {
   margin: 0;
   padding: 0;
 }
 
-ul li[todoList]{
+ul li[todoList] {
   cursor: pointer;
   position: relative;
   padding: 12px 8px 12px 40px;
   list-style-type: none;
-  background-color: var(--c-grey);
+  background-color: var(--c-background-color);
   font-size: 18px;
+  transition: 0.2s;
   
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -187,33 +192,31 @@ ul li[todoList]{
   user-select: none;
 }
 
-
 ul li:nth-child(odd)[todoList] {
   background-color: var(--c-violet);
 }
 
-ul li:hover.todotasks:target [todoList]{
-  background-color: var(--c-green);
+ul li:hover [todoList]{
+  background-color: var(--c-red);
 }
 
 ul li.checked[todoList] {
-  background-color: var(--emphasised-font);
-  color:var(--c-grey);
+  background-color: var(--c-grey);
+  color: var(--c-background-highlights);
   text-decoration: line-through;
 }
 
-ul li.checked::before[todoList]{
+ul li.checked::before[todoList] {
   content: '';
   position: absolute;
-  border-color:var(--emphasised-font);
+  border-color:var(--c-violet);
   border-style: solid;
   border-width: 0 2px 2px 0;
   top: 10px;
   left: 16px;
   transform: rotate(45deg);
   height: 15px;
-  width: 17px;
-
+  width: 7px;
 }
 
 .close[todoList] {
@@ -224,27 +227,38 @@ ul li.checked::before[todoList]{
 }
 
 .close:hover[todoList] {
-  background-color:var(--c-red);
+  background-color:var(--primary-font-color);
   color: var(--secondary-font-color);
 }
 
-input [todoList]{
+.header[todoList] {
+  background-color:var(--c-red);
+  padding: 30px 40px;
+  color:var(--c-grey);
+  text-align: center;
+}
+
+.header:after [todoList]{
+  content: "";
+  display: table;
+  clear: both;
+}
+
+input[todoList] {
   margin: 0;
   border: none;
   border-radius: 0;
-  width: 25%;
+  width: 75%;
   padding: 10px;
-  float: center;
+  float: left;
   font-size: 16px;
-  align-items: center;
 }
 
-
-.addBtn [todoList]{
+.addBtn[todoList] {
   padding: 10px;
   width: 25%;
-  background-color: var(--c-cyan);
-  color:var(--c-grey);
+  background-color: var(--c-green);
+  color:var(--primary-font-color) ;
   float: left;
   text-align: center;
   font-size: 16px;
@@ -253,10 +267,9 @@ input [todoList]{
   border-radius: 0;
 }
 
-.addBtn:hover [todoList]{
-  background-color:var(--secondary-font-color);
+.addBtn:hover[todoList] {
+  background-color:var(--c-violet);
 }
-
 </style>
 
 <!--setting two theme font colour, size-->
@@ -484,6 +497,7 @@ input [todoList]{
 
 
   <main id="todotasks" class="page-section todotasks">
+
     <h2 style="padding-left:18px;font: size 1.73em">To Do Tasks</h2>
     <p>Here you can manage your tasks.</p>
     <div id="password-section">
@@ -497,17 +511,18 @@ input [todoList]{
       <p id="password-message"></p>
     </div>
 
-    <div id="todotasks-section" style="align-items: center;justify-content: center;display:none;">
+    <div id="myDIV" class="header" style="align-items: center;justify-content: center;display:none;">
       <input type="text" id="myInput" placeholder="Title...">
-      <button onclick="addTasks()" class="addBtn" todolist>Add a new task</button>
+      <button onclick="newelement()" class="addBtn" todolist>Add a new task</button>
+    </div>
 
-      <ul id="task-list" todoList>
+      <ul id="myUL" todoList>
         <li>Loss weight <span class="close" onclick="removeTask(this)">x</span></li>
         <li>Improve English speaking <span class="close" onclick="removeTask(this)">x</span></li>
         <li class="checked">Finish assignments <span class="close" onclick="removeTask(this)">x</span></li>
       </ul>
       <button onclick="clearTasks()">Clear All Tasks</button>
-    </div>
+
     </main>
 
   <script>
@@ -544,47 +559,61 @@ input [todoList]{
       }
     }
     
-    function addTasks(){
-      const taskInput=document.getElementById('task-input').value.trim();
-      if(taskInput){
-        const taskList=document.getElementById('task-list');
-        const li=document.createElement('li');
-        li.innerHTML =`<input type="checkbox" onchange="saveTasks()"><span>${taskInput}</span>`;
-        taskList.appendChild(li);
-        document.getElementById('task-input').value='';
-        saveTasks();
-      }
-    }
+    var myNodelist = document.getElementsByTagName("LI");
+var i;
+for (i = 0; i < myNodelist.length; i++) {
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  myNodelist[i].appendChild(span);
+}
 
-    function loadTasks(){
-      const tasks=JSON.parse(localStorage.getItem('tasks')) ||[];
-      const taskList = document.getElementById('task-list');
-      taskList.innerHTML='';
-      tasks.forEach(task=>{
-        const li=document.createElement('li');
-        li.innerHTML=`<input type="checkbox" onchange="saveTasks()" ${task.checked? 'checked':''}><span>${task.text}</span>`;
-          taskList.appendChild(li);
-      });
-    }
 
-    function saveTasks(){
-      const tasks=Array.from(document.querySelectorAll('#task-list li')).map(li=>({
-        text:li.querySelector('span').textContent,
-        checked:li.querySelector('input[type="checkbox"]').checked
-      }));
-      localStorage.setItem('task',JSON.stringify(tasks));
-    }
+var close = document.getElementsByClassName("close");
+var i;
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function() {
+    var div = this.parentElement;
+    div.style.display = "none";
+  }
+}
 
-    function clearTasks(){
-      document.getElementById('task-list').innerHTML='';
-      localStorage.removeItem('tasks');
-    }
 
-    function removeTask(element){
-      element.parentElement.style.display = 'none';
-    }
+var list = document.querySelector('ul');
+list.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'LI') {
+    ev.target.classList.toggle('checked');
+  }
+}, false);
 
-    document.addEventListener('DOMContentLoaded',loadTasks);
+
+function newElement() {
+  var li = document.createElement("li");
+  var inputValue = document.getElementById("myInput").value;
+  var t = document.createTextNode(inputValue);
+  li.appendChild(t);
+  if (inputValue === '') {
+    alert("You must write something!");
+  } else {
+    document.getElementById("myUL").appendChild(li);
+  }
+  document.getElementById("myInput").value = "";
+
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  li.appendChild(span);
+
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+      var div = this.parentElement;
+      div.style.display = "none";
+    }
+  }
+}
+    
 
 
     
