@@ -23,7 +23,9 @@ To use this webpage:
 2. open html file in your web browser.
 3. experience different sections using the navigation bars.
 4. enter your name in the input field and click "Apply!" to obtain your greeting message.
-5. set your own password to manage your to-do tasks.
+5. doubling click the button in the homepage and coursespage will change the images and descriptions.
+6. set your own password to manage your to-do tasks.
+7. remember the password so that you can enter to your task list next time.
 
 ### Technologies Used
 - HTML
