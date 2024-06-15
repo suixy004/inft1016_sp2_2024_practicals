@@ -186,6 +186,8 @@ ul[todoList] {
   border-radius: 0 4px 4px 0;
   height:100%;
   box-sizing: border-box;
+  display:flex;
+  flex-direction: column;
 }
 
 ul li[todoList] {
@@ -199,6 +201,7 @@ ul li[todoList] {
   justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
+  width:100%;
   
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -276,7 +279,7 @@ input[todoList] {
   border-radius: 4px 0 0 4px;
   width: 75%;
   padding: 10px;
-  height:100%;
+  height:auto;
   font-size: 16px;
   box-sizing: border-box;
 }
@@ -294,7 +297,7 @@ input[todoList] {
   border-radius: 0;
   border:1px solid var(--emphasised-font);
   border-radius: 0 4px 4px 0;
-  height:100%;
+  height:auto;
   box-sizing: border-box;
 }
 
