@@ -617,6 +617,7 @@ input[todoList] {
         li.innerHTML=`<input type="checkbox" onchange="saveTasks()" ${task.checked? 'checked':''}><span>${task.text}</span><span class="close" onclick="removeTask(this)">x</span>`;
           taskList.appendChild(li);
       });
+      updateName();
     }
 
     function saveTasks(){
