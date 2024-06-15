@@ -187,6 +187,9 @@ ul li[todoList] {
   font-size: 20px;
   transition: 0.2s;
   border-bottom: 1px solid var(--c-cyan);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -267,6 +270,7 @@ input[todoList] {
   padding: 10px;
   height:100%;
   font-size: 16px;
+  box-sizing: border-box;
 }
 
 .addBtn[todoList] {
@@ -282,7 +286,8 @@ input[todoList] {
   border-radius: 0;
   border:1px solid var(--emphasised-font);
   border-radius: 0 4px 4px 0;
-  height:100%
+  height:100%;
+  box-sizing: border-box;
 }
 
 .addBtn:hover[todoList] {
@@ -530,7 +535,7 @@ input[todoList] {
     </div>
     <div id="todotasks-section" style="display:none;">
     <div id="myDIV" class="header" todolist>
-      <input type="text" id="task-input" placeholder="Title...">
+      <input type="text" id="task-input" placeholder="Title..." todolist>
       <button onclick="addTasks()" class="addBtn" todolist>Add a new task</button>
     </div>
 
