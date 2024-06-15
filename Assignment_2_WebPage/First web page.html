@@ -562,14 +562,13 @@ input [todoList]{
       taskList.innerHTML='';
       tasks.forEach(task=>{
         const li=document.createElement('li');
-        li.innerHTML=`
-          <input type="checkbox" onchange="saveTasks()" ${task.checked? 'checked':''}><span>${task.text}</span>
+        li.innerHTML=`<input type="checkbox" onchange="saveTasks()" ${task.checked? 'checked':''}><span>${task.text}</span>`;
           taskList.appendChild(li);
-      `});
+      });
     }
 
     function saveTasks(){
-      const tasks=Array.from(document.querySelectorAll('#task-list.li')).map(li=>({
+      const tasks=Array.from(document.querySelectorAll('#task-list li')).map(li=>({
         text:li.querySelector('span').textContent,
         checked:li.querySelector('input[type="checkbox"]').checked
       }));
