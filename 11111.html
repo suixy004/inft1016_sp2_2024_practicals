@@ -167,62 +167,61 @@ a:hover[data-theme="dark"]{
   display:none;
 }
 
-
-body[todoList] {
-  margin: 0;
-  min-width: 250px;
-}
-
-/* Include the padding and border in an element's total width and height */
-*[todoList] {
+/* 您原有的样式 */
+* {
   box-sizing: border-box;
 }
 
-/* Remove margins and padding from the list */
-ul [todoList]{
+ul[todoList] {
+  /* 将您原有的样式应用到任务列表中 */
   margin: 0;
   padding: 0;
+  list-style-type: none;
+  padding: 10px;
+  font-size: 20px;
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 0 4px 4px 0;
+  border: 1px solid var(--emphasised-font);
+  height: 100%;
 }
 
-/* Style the list items */
-ul li [todoList]{
-  cursor: pointer;
+ul li[todoList] {
+  /* 将您原有的样式应用到任务列表项中 */
   position: relative;
   padding: 12px 8px 12px 40px;
-  list-style-type: none;
-  background: #eee;
-  font-size: 18px;
+  background-color: var(--c-background-color);
+  font-size: 20px;
   transition: 0.2s;
-  
-  /* make the list items unselectable */
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+  border-bottom: 1px solid var(--c-cyan);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-/* Set all odd list items to a different color (zebra-stripes) */
-ul li:nth-child(odd)[todoList] {
-  background: #f9f9f9;
+ul li[todoList]:nth-child(odd) {
+  /* 将您原有的奇偶行背景色应用到任务列表项中 */
+  background-color: var(--c-violet);
 }
 
-/* Darker background-color on hover */
-ul li:hover [todoList]{
-  background: #ddd;
+ul li[todoList]:hover {
+  /* 将您原有的悬停效果应用到任务列表项中 */
+  background-color: var(--c-red);
 }
 
-/* When clicked on, add a background color and strike out text */
-ul li.checked[todoList] {
-  background: #888;
-  color: #fff;
+ul li[todoList].checked {
+  /* 将您原有的已完成任务样式应用到任务列表项中 */
+  background-color: var(--c-grey);
+  color: var(--c-background-highlights);
   text-decoration: line-through;
 }
 
-/* Add a "checked" mark when clicked on */
-ul li.checked::before [todoList]{
+ul li[todoList].checked::before {
+  /* 将您原有的已完成任务样式应用到任务列表项中 */
   content: '';
   position: absolute;
-  border-color: #fff;
+  border-color: var(--c-violet);
   border-style: solid;
   border-width: 0 2px 2px 0;
   top: 10px;
@@ -232,62 +231,29 @@ ul li.checked::before [todoList]{
   width: 7px;
 }
 
-/* Style the close button */
-.close[todoList] {
+ul li[todoList] .close {
+  /* 将您原有的删除按钮样式应用到任务列表项中 */
   position: absolute;
-  right: 0;
-  top: 0;
-  padding: 12px 16px 12px 16px;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
 }
 
-.close:hover[todoList] {
-  background-color: #f44336;
-  color: white;
-}
+/* 其他样式部分保持不变 */
 
-/* Style the header */
-.header [todoList]{
-  background-color: #f44336;
-  padding: 30px 40px;
-  color: white;
+/* 您原有的样式 */
+.header {
+  background-color: var(--c-red);
+  padding: 30px 10px;
+  color: var(--c-grey);
   text-align: center;
+  display: flex;
+  align-items: center;
 }
 
-/* Clear floats after the header */
-.header:after[todoList] {
-  content: "";
-  display: table;
-  clear: both;
-}
+/* 其他样式部分保持不变 */
 
-/* Style the input */
-input[todoList] {
-  margin: 0;
-  border: none;
-  border-radius: 0;
-  width: 75%;
-  padding: 10px;
-  float: left;
-  font-size: 16px;
-}
-
-/* Style the "Add" button */
-.addBtn[todoList] {
-  padding: 10px;
-  width: 25%;
-  background: #d9d9d9;
-  color: #555;
-  float: left;
-  text-align: center;
-  font-size: 16px;
-  cursor: pointer;
-  transition: 0.3s;
-  border-radius: 0;
-}
-
-.addBtn:hover[todoList] {
-  background-color: #bbb;
-}
 </style>
 
 <!--setting two theme font colour, size-->
