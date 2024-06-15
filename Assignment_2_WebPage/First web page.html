@@ -336,6 +336,7 @@ input[todoList] {
         }else{
           document.documentElement.setAttribute('data-theme','dark');
         }
+        preserveTheme();
       });
   </script>
   <script>
@@ -396,7 +397,6 @@ input[todoList] {
         }
 
          window.onload = function () {
-          preserveName();
           const storedTheme = localStorage.getItem('theme');
            if (storedTheme) {
            document.documentElement.setAttribute('data-theme', storedTheme);
@@ -410,6 +410,8 @@ input[todoList] {
             updateName(); 
             }
           };
+          preserveName();
+          preserveTheme();
       </script>
 
 
