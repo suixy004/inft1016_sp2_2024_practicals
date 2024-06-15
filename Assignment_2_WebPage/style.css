@@ -1,0 +1,268 @@
+
+    :root{
+    --primary-font-color: rgb(59, 3, 106);
+    --secondary-font-color: rgb(149, 93, 169);
+    --emphasised-font: rgb(219, 99, 44);
+    
+    --c-background-color: rgb(243, 247, 204);
+    --c-background-highlights: rgb(199, 226, 228);
+    
+    --c-red: rgb(220  50  47);  
+    --c-violet: rgb( 108 113 196 );
+    --c-grey: rgb(146, 167, 181);
+    --c-cyan: rgb(42 161 152 );
+    --c-green : rgb(11, 65, 5);
+    align-items: center;
+ }
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0;
+    margin: 0;
+    background-color:var(--c-background-color);
+    color:var(--primary-font-color);
+    align-content: center;
+}
+
+header{
+    background-color:var(--c-background-highlights);
+    color:var(--primary-font-color);
+    padding: 0px;
+    margin-top:-20px;
+    margin-left: -10px;
+    margin-right:-10px;
+    display:flex;
+    align-items: center;
+    justify-content:space-evenly;
+}
+
+.highlight-bar{
+  background-color:var(--c-background-highlights);
+  height: 10px;
+  width: 100%;
+  align-content: center;
+}
+
+main{
+    color:var(--primary-font-color);
+    display:flex;
+    flex-direction:column;
+    align-content:center;
+    text-align: center;
+}
+
+text{
+  color:var(--secondary-font-color);
+}
+
+a{
+  color:var(--c-violet);
+}
+
+a:hover{
+  color:var(--c-red);
+}
+
+.subsection{
+  border:3px solid;
+  color:var(--c-cyan);
+  margin: 0.93em 0.62em 0.93em 0.62em;
+  align-items: center;
+  justify-content: center;
+}
+
+[data-theme="dark"] {
+    --primary-font-color: rgb(227, 212, 239);
+    --secondary-font-color: rgb(177, 153, 186);
+    --emphasised-font: rgb(238, 170, 138);
+    
+    --c-background-color: rgb(3, 72, 9);
+    --c-background-highlights: rgb(68, 110, 112);
+    
+    --c-red: rgb(252, 140, 138);  
+    --c-violet: rgb(162, 167, 253);
+    --c-blue: rgb(160, 204, 235);
+    --c-cyan: rgb(169, 240, 234);
+    --c-green : rgb(170, 220, 164);
+}
+
+body[data-theme="dark"]{
+    font-family: Arial, Helvetica, sans-serif;
+    padding:0;
+    margin: 0;
+    background-color:var(--c-background-color);
+    color:var(--primary-font-color);
+}
+
+header[data-theme="dark"] footer[data-theme="dark"]{
+    background-color:var(--c-background-highlights);
+    color:var(--primary-font-color);
+}
+
+main[data-theme="dark"]{
+    color:var(--primary-font-color);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align: center;
+}
+
+text[data-theme="dark"]{
+  color:var(--c-green);
+}
+a[data-theme="dark"]{
+  color:var(--c-violet);
+}
+
+a:hover[data-theme="dark"]{
+  color:var(--c-red);
+}
+
+.subsection[data-theme="dark"]{
+  border:5px solid;
+  color:var(--c-cyan);
+  margin: 0.93em 0.62em 0.93em 0.62em;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-section{
+  display:none;
+}
+
+.page-section:target,
+.default-page{
+  display:block;
+}
+
+.home:targe~#home,
+.courses:targe~#courses,
+.todotasks:target~#todotasks {
+  display:block;
+}
+
+.time{
+  font-size: 0.92em;
+}
+
+.time-container{
+  border:1px solid;
+  align-items: right;
+  height:2px;
+  display:flex;
+  margin:1px;
+  margin-top: -20px;
+}
+
+.greeting{
+  margin:2px;
+  font-size:1.8em;
+}
+
+.password-section{
+  display:none;
+}
+
+
+* [todoList]{
+  box-sizing: border-box;
+}
+
+ul[todoList] {
+  margin: 0;
+  padding: 0;
+}
+
+ul li[todoList] {
+  cursor: pointer;
+  position: relative;
+  padding: 12px 8px 12px 40px;
+  list-style-type: none;
+  background-color: var(--c-background-color);
+  font-size: 18px;
+  transition: 0.2s;
+  
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+ul li:nth-child(odd)[todoList] {
+  background-color: var(--c-violet);
+}
+
+ul li:hover [todoList]{
+  background-color: var(--c-red);
+}
+
+ul li.checked[todoList] {
+  background-color: var(--c-grey);
+  color: var(--c-background-highlights);
+  text-decoration: line-through;
+}
+
+ul li.checked::before[todoList] {
+  content: '';
+  position: absolute;
+  border-color:var(--c-violet);
+  border-style: solid;
+  border-width: 0 2px 2px 0;
+  top: 10px;
+  left: 16px;
+  transform: rotate(45deg);
+  height: 15px;
+  width: 7px;
+}
+
+.close[todoList] {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 12px 16px 12px 16px;
+}
+
+.close:hover[todoList] {
+  background-color:var(--primary-font-color);
+  color: var(--secondary-font-color);
+}
+
+.header[todoList] {
+  background-color:var(--c-red);
+  padding: 30px 40px;
+  color:var(--c-grey);
+  text-align: center;
+}
+
+.header:after [todoList]{
+  content: "";
+  display: table;
+  clear: both;
+}
+
+input[todoList] {
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  width: 75%;
+  padding: 10px;
+  float: left;
+  font-size: 16px;
+}
+
+.addBtn[todoList] {
+  padding: 10px;
+  width: 25%;
+  background-color: var(--c-green);
+  color:var(--primary-font-color) ;
+  float: left;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 0;
+}
+
+.addBtn:hover[todoList] {
+  background-color:var(--c-violet);
+}

@@ -512,14 +512,14 @@ input[todoList] {
     </div>
     <div id="todotasks-section" style="display:none;">
     <div id="myDIV" class="header" style="align-items: center;justify-content: center;display:none;">
-      <input type="text" id="myInput" placeholder="Title...">
+      <input type="text" id="task-nput" placeholder="Title...">
       <button onclick="addTasks()" class="addBtn" todolist>Add a new task</button>
     </div>
 
-      <ul id="task-list" todoList>
-        <li>Loss weight <span class="close" onclick="removeTask(this)">x</span></li>
-        <li>Improve English speaking <span class="close" onclick="removeTask(this)">x</span></li>
-        <li class="checked">Finish assignments <span class="close" onclick="removeTask(this)">x</span></li>
+      <ul id="task-list">
+        <li><input type="checkbox"><span>Loss weight</span> <span class="close" onclick="removeTask(this)">x</span></li>
+        <li><input type="checkbox"><span>Improve English speaking</span><span class="close" onclick="removeTask(this)">x</span></li>
+        <li class="checked"><input type="checkbox"><span>Finish assignments</span> <span class="close" onclick="removeTask(this)">x</span></li>
       </ul>
       <button onclick="clearTasks()">Clear All Tasks</button>
     </div>
@@ -553,7 +553,7 @@ input[todoList] {
       if (passwordInput === correctPassword){
         document.getElementById('password-section').style.display = 'none';
         document.getElementById('todotasks-section').style.display = 'block';
-
+        loadTasks();
       } else {
         alert('Incorrect password! Please try again.');
       }
@@ -577,7 +577,7 @@ input[todoList] {
       taskList.innerHTML='';
       tasks.forEach(task=>{
         const li=document.createElement('li');
-        li.innerHTML=`<input type="checkbox" onchange="saveTasks()" ${task.checked? 'checked':''}><span>${task.text}</span>`;
+        li.innerHTML=`<input type="checkbox" onchange="saveTasks()" ${task.checked? 'checked':''}><span>${task.text}</span><span class="close" onclick="removeTask(this)">x</span>`;
           taskList.appendChild(li);
       });
     }
