@@ -171,16 +171,33 @@ a:hover[data-theme="dark"]{
 ul[todoList] {
   margin: 0;
   padding: 0;
+  list-style-type: none;
+  padding: 10px;
+  font-size: 30px;
+  width:100%;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 0;
+  border:1px solid var(--emphasised-font);
+  border-radius: 0 4px 4px 0;
+  height:100%;
+  box-sizing: border-box;
+  display:flex;
+  flex-direction: column;
 }
 
 ul li[todoList] {
-  cursor: pointer;
   position: relative;
   padding: 12px 8px 12px 40px;
-  list-style-type: none;
   background-color: var(--c-background-color);
-  font-size: 18px;
+  font-size: 20px;
   transition: 0.2s;
+  border-bottom: 1px solid var(--c-cyan);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  width:100%;
   
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -188,8 +205,17 @@ ul li[todoList] {
   user-select: none;
 }
 
+ul li span [todoList]{
+  display:incline-block;
+  max-width: calc(100% - 50px);
+}
+
 ul li:nth-child(odd)[todoList] {
   background-color: var(--c-violet);
+}
+
+ul li:last-child[todoList]{
+  border-bottom: none;
 }
 
 ul li:hover [todoList]{
@@ -215,23 +241,26 @@ ul li.checked::before[todoList] {
   width: 7px;
 }
 
-.close[todoList] {
+ul li .close[todoList] {
   position: absolute;
-  right: 0;
-  top: 0;
-  padding: 12px 16px 12px 16px;
+  right: 10px;
+  top: 50%;
+  transform:translateY(-50%);
+  font-size: 24px;
 }
 
-.close:hover[todoList] {
+ul li.close:hover[todoList] {
   background-color:var(--primary-font-color);
   color: var(--secondary-font-color);
 }
 
 .header[todoList] {
   background-color:var(--c-red);
-  padding: 30px 40px;
+  padding: 30px 10px;
   color:var(--c-grey);
   text-align: center;
+  display:flex;
+  align-items: center;
 }
 
 .header:after [todoList]{
@@ -242,12 +271,13 @@ ul li.checked::before[todoList] {
 
 input[todoList] {
   margin: 0;
-  border: none;
-  border-radius: 0;
+  border: 1px solic var(--emphasised-font);
+  border-radius: 4px 0 0 4px;
   width: 75%;
   padding: 10px;
-  float: left;
+  height:auto;
   font-size: 16px;
+  box-sizing: border-box;
 }
 
 .addBtn[todoList] {
@@ -261,6 +291,11 @@ input[todoList] {
   cursor: pointer;
   transition: 0.3s;
   border-radius: 0;
+  border:1px solid var(--emphasised-font);
+  border-radius: 0 4px 4px 0;
+  height:auto;
+  box-sizing: border-box;
+  border-left: none;
 }
 
 .addBtn:hover[todoList] {
