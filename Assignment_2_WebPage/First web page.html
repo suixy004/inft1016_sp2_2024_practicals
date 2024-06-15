@@ -328,7 +328,7 @@ input[todoList] {
         <p class="time" id="time"></p>
       </div>
       <button id="theme-toggle" style="width:150px;height:45px;font-size:0.79em;text-align:center;margin-top: 10px;align-items: right;">Toggle Theme</button>
-  
+<!--set the title, time, and theme button in header-->
   <script>
   document.getElementById('theme-toggle').addEventListener('click',function() {
         if(document.documentElement.getAttribute('data-theme') ==='dark'){
@@ -347,7 +347,8 @@ input[todoList] {
   setInterval(upDateTime,1000);
     upDateTime();
   </script>
-      
+      <!--/*the first is to change the dark and light theme
+      second one is giving the current time, 1000 is milisecond*/-->
     </header>
 
   
@@ -367,7 +368,7 @@ input[todoList] {
         
       </nav>
       <h1 id="greeting" class="greeting" style="justify-content:center;align-items: center;text-align: center;">Welcome~</h1>
-
+<!--from here, update the greeting words to different users-->
       <script>
         function getQueryParameter(name){
           const urlParams = new URLSearchParams(window.location.search);
@@ -414,7 +415,7 @@ input[todoList] {
 
     <!--/*this is the title of the whole page
     and the button of different pages
-  -->
+    there are three part of 'main'*/-->
 
   <main id="home" class="page-section" style="justify-content:center;align-items: center;text-align: center;";>
 
@@ -436,7 +437,7 @@ input[todoList] {
           <p id="imageInfo">"Education Social Club, click link to visit <a href="https://usasa.sa.edu.au/clubs/join/education/">https://usasa.sa.edu.au/clubs/join/education/</a></p>
         </aside>
       </article>
-
+<!--using if else function to change the images and description, but the button's name won't change-->
       <script>
         let isClubImageDisplayed = true;
         document.getElementById('switchButton').addEventListener('click', toggleImageAndInfo);
@@ -470,9 +471,10 @@ input[todoList] {
         <p>There are many natural spaces, leisure areas in the Mawson Lakes campus.</p>
         <p>so many lovely students.</p>
       </div>
+      <!--this is paragraph-->
   </main>
 
-
+<!--second pard:courses-->
   <main id="courses" class="page-section">
 
    <h2 style="padding-left:18px;font: size 1.73em">My courses</h2>
@@ -487,9 +489,10 @@ input[todoList] {
      <p><img id="displayImage1" src="https://www.unisa.edu.au/siteassets/about-unisa/aboriginal-engagement/images/ralogo1.png" border="0"></p>
    </aside>  
 
-   <aside style="flex:3;">
+   <aside style="flex:3;"> <!--the button, image and description are divided into the ratio of 1 and 1 and 3-->
      <p id="imageInfo1">"Reconciliation Week, click link to visit <a href="https://www.unisa.edu.au/about-unisa/aboriginal-engagement/reconciliation-at-unisa/">https://www.unisa.edu.au/about-unisa/aboriginal-engagement/reconciliation-at-unisa/</a></p>
    </aside>
+
    </article>
 
    <script>
@@ -512,6 +515,7 @@ input[todoList] {
     }
 
   </script>
+<!--this is the same as 'Home'-->
 
    <div class="subsection"  style="align-items: center;justify-content: center;">
      <h3 style="padding-top:2px">Maths</h3>
@@ -559,16 +563,16 @@ input[todoList] {
       <button onclick="clearTasks()">Clear All Tasks</button>
     </div>
     </main>
-
+<!--these are setting the position of button and input.-->
   <script>
     let correctpassword= localStorage.getItem('password') ||'';
-
+//only numbers can be used.
     window.onload=function(){
       if (!correctpassword){
         document.getElementById('password-section').style.display='block';
       } else {
         document.getElementById('todotasks-section').style.display = 'none';
-
+//if the password is wrong then todotasks won't show.
       }
     };
 
@@ -583,7 +587,7 @@ input[todoList] {
         document.getElementById('myDIV').style.display = 'block';
       }
     }
-
+//enter new word and got the notification of setting successfully.
     function checkPassword(){
       let passwordInput = document.getElementById('password-input').value;
       if (passwordInput === correctpassword){
@@ -596,7 +600,7 @@ input[todoList] {
         alert('Incorrect password! Please try again.');
       }
     }
-    
+    //then, user need to input the password they set befor to get into the task list, otherwise they will receive an alert.
     function addTasks(){
       const taskInput=document.getElementById('task-input').value.trim();
       if(taskInput){
@@ -608,7 +612,7 @@ input[todoList] {
         saveTasks();
       }
     }
-
+//there is an input box where input the tasks.
     function loadTasks(){
       const tasks=JSON.parse(localStorage.getItem('tasks')) ||[];
       const taskList = document.getElementById('task-list');
@@ -641,8 +645,6 @@ input[todoList] {
 
     document.addEventListener('DOMContentLoaded',loadTasks);
 
-
-    
   </script>
 
      
