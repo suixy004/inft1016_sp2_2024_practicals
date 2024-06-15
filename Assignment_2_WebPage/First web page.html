@@ -375,9 +375,9 @@ input[todoList] {
         }
 
         function updateName(){
-          const userName = getQueryParameter('q');
-          if (userName) {
-            document.getElementById('greeting').textContent=`Hello,${userName}`;
+          const userName = getQueryParameter('user_name');
+          if (storedName) {
+            document.getElementById('greeting').textContent=`Hello,${storedName}`;
             
           }
         }
