@@ -577,7 +577,7 @@ input[todoList] {
       taskList.innerHTML='';
       tasks.forEach(task=>{
         const li=document.createElement('li');
-        li.innerHTML=`<input type="checkbox" onchange="saveTasks()" ${task.checked? 'checked':''}><span>${task.text}</span><span class="close" onclick="removeTask(this)">x</span>`;
+        li.innerHTML=`<input type="checkbox" onchange="saveTasks()" ${task.checked? 'checked':''}><span>${task.text}</span>`;
           taskList.appendChild(li);
       });
     }
@@ -587,7 +587,7 @@ input[todoList] {
         text:li.querySelector('span').textContent,
         checked:li.querySelector('input[type="checkbox"]').checked
       }));
-      localStorage.setItem('task',JSON.stringify(tasks));
+      localStorage.setItem('tasks',JSON.stringify(tasks));
     }
 
     function clearTasks(){
@@ -596,7 +596,8 @@ input[todoList] {
     }
 
     function removeTask(element){
-      element.parentElement.style.display = 'none';
+      element.parentElement.remove();
+      saveTasks();
     }
 
     document.addEventListener('DOMContentLoaded',loadTasks);
